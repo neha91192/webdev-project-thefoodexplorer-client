@@ -9,8 +9,6 @@ import { HomeSearchPanelComponent } from './home-search-panel/home-search-panel.
 import { OffersComponent } from './offers/offers.component';
 
 import { RestaurantSearchComponent } from './restaurant-search/restaurant-search.component';
-import { RestaurantCategorySearchPanelComponent } from './restaurant-category-search-panel/restaurant-category-search-panel.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +16,7 @@ import { RestaurantCategorySearchPanelComponent } from './restaurant-category-se
     HeaderComponent,
     HomeSearchPanelComponent,
     OffersComponent,
-    RestaurantSearchComponent,
-    RestaurantCategorySearchPanelComponent
+    RestaurantSearchComponent
   ],
   imports: [
     BrowserModule,
