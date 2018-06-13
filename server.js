@@ -9,7 +9,7 @@ app.use(express.static('./dist/webdev-project-thefoodexplorer-client'));
 
 app.get('/*', function(req,res) {
 
-  res.sendFile(path.join('./dist/your_app_name/index.html'));
+  res.sendFile(path.join('./dist/webdev-project-thefoodexplorer-client/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
