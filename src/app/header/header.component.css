@@ -4,3 +4,12 @@
   color: aliceblue;
   width: 100%;
 }
+
+
+.app-title{
+  font-family: "Avenir Next";
+  font-weight: bold;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

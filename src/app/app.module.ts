@@ -9,14 +9,24 @@ import { HomeSearchPanelComponent } from './home-search-panel/home-search-panel.
 import { OffersComponent } from './offers/offers.component';
 
 import { RestaurantSearchComponent } from './restaurant-search/restaurant-search.component';
+import { HomeQuickSearchComponent } from './home-quick-search/home-quick-search.component';
+import { HomeSearchStoriesComponent } from './home-search-stories/home-search-stories.component';
+import { FooterComponent } from './footer/footer.component';
+import { MainSearchPanelComponent } from './main-search-panel/main-search-panel.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    HomeSearchPanelComponent,
+    HomeCoverAreaComponent,
     OffersComponent,
-    RestaurantSearchComponent
+    RestaurantSearchComponent,
+    RestaurantSearchComponent,
+    HomeQuickSearchComponent,
+    HomeSearchStoriesComponent,
+    FooterComponent,
+    MainSearchPanelComponent
   ],
   imports: [
     BrowserModule,
