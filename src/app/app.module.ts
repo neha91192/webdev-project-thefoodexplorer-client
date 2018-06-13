@@ -8,13 +8,18 @@ import { HeaderComponent } from './header/header.component';
 import { HomeSearchPanelComponent } from './home-search-panel/home-search-panel.component';
 import { OffersComponent } from './offers/offers.component';
 
+import { RestaurantSearchComponent } from './restaurant-search/restaurant-search.component';
+import { RestaurantCategorySearchPanelComponent } from './restaurant-category-search-panel/restaurant-category-search-panel.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
     HomeSearchPanelComponent,
-    OffersComponent
+    OffersComponent,
+    RestaurantSearchComponent,
+    RestaurantCategorySearchPanelComponent
   ],
   imports: [
     BrowserModule,
