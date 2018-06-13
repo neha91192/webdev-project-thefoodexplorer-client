@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-search-panel.component.css']
 })
 export class HomeSearchPanelComponent implements OnInit {
-
+  images = [];
   constructor() { }
 
   ngOnInit() {
+    this.images.push('/assets/images/image1.jpg');
+    this.images.push('/assets/images/image4.jpg');
+    this.images.push('/assets/images/image3.jpg');
   }
 
 }
