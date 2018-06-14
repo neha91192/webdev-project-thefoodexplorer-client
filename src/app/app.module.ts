@@ -5,7 +5,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeSearchPanelComponent } from './home-search-panel/home-search-panel.component';
+import { HomeCoverAreaComponent } from './home-cover-area/home-cover-area.component';
 import { OffersComponent } from './offers/offers.component';
 
 import { RestaurantSearchComponent } from './restaurant-search/restaurant-search.component';
