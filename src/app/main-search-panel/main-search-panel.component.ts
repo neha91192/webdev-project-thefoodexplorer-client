@@ -6,8 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-search-panel.component.css']
 })
 export class MainSearchPanelComponent implements OnInit {
-
-  location = [];
+  searchValue: '';
   constructor() { }
 
   ngOnInit() {

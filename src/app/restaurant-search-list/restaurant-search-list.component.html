@@ -1,6 +1,6 @@
 <div>
   <ul class="list-group">
-    <li class="list-group-item">
+    <li *ngFor="let restaurant of restaurants" class="list-group-item">
       <div>
         <div class="row" id="restaurant-list-details-header-row1">
           <div class="col-sm-3">
@@ -10,7 +10,7 @@
           </div>
           <div class="col-sm-7">
 
-            <h2 id="restaurant-list-details-name-row1" >Giacomos</h2>
+            <h2 id="restaurant-list-details-name-row1" >{{restaurant.restaurant.name}}</h2>
             <h6>North End</h6>
             <p id="restaurant-list-details-address-row1">355 Hanover Street, Boston 02113</p>
 

@@ -5,7 +5,7 @@ import {HomeComponent} from './home/home.component';
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
-  { path: 'search', component: RestaurantSearchComponent}
+  { path: 'search/:searchValue', component: RestaurantSearchComponent },
 ];
 //
 // @NgModule({

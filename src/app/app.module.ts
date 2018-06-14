@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +17,7 @@ import { MainSearchPanelComponent } from './main-search-panel/main-search-panel.
 import { RestaurantSearchFiltersComponent } from './restaurant-search-filters/restaurant-search-filters.component';
 import { RestaurantSearchAdsComponent } from './restaurant-search-ads/restaurant-search-ads.component';
 import { RestaurantSearchListComponent } from './restaurant-search-list/restaurant-search-list.component';
+import {ZomatoApiServiceClient} from './services/zomato-api-service-client';
 import {routing} from './app.routing';
 
 @NgModule({
@@ -37,10 +39,13 @@ import {routing} from './app.routing';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     NgbModule.forRoot(),
     routing
   ],
-  providers: [],
+  providers: [
+    ZomatoApiServiceClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
