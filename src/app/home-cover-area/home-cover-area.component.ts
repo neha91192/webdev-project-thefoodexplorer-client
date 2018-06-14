@@ -10,9 +10,9 @@ export class HomeCoverAreaComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.images.push('/assets/images/image7.jpg');
-    this.images.push('/assets/images/image5.jpg');
-    this.images.push('/assets/images/image6.jpg');
+    this.images.push('/assets/images/imageA.jpg');
+    this.images.push('/assets/images/imageB.jpg');
+    this.images.push('/assets/images/imageC.jpg');
   }
 
 }

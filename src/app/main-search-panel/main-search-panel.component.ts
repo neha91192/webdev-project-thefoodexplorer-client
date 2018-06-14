@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainSearchPanelComponent implements OnInit {
 
+  location = [];
   constructor() { }
 
   ngOnInit() {
