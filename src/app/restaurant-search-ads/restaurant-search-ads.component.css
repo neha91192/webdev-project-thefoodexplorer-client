@@ -1,0 +1,39 @@
+#restaurant-list-details-header-row1{
+  padding-bottom: 10px
+}
+
+#restaurant-list-details-name-row1{
+  color: #ff3c42
+}
+
+#restaurant-list-details-address-row1{
+  color: #6c757d
+}
+
+#restaurant-list-details-rating-row1{
+  background: #28a745;
+  width: 40px;
+  color: floralwhite;
+  text-align: center;
+}
+
+#restaurant-list-description-cuisines-row2,#restaurant-list-description-cost-row2, #restaurant-list-description-timings-row2{
+  color: #6c757d
+}
+
+#restaurant-list-description-contact-button-row3,
+#restaurant-list-description-reserve-button-row3,
+#restaurant-list-description-menu-button-row3{
+  color: #6c757d;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  line-height: 25px;
+  border-radius: 4px;
+}
+#restaurant-list-description-contact-button-row3:hover,
+#restaurant-list-description-reserve-button-row3:hover,
+#restaurant-list-description-menu-button-row3:hover {
+  background-color: #dddddd;
+  color: black;
+}
