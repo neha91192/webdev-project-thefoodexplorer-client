@@ -36,3 +36,4 @@ import { MainSearchPanelComponent } from './main-search-panel/main-search-panel.
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
