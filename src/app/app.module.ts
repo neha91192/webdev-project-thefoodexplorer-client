@@ -13,6 +13,9 @@ import { HomeQuickSearchComponent } from './home-quick-search/home-quick-search.
 import { HomeSearchStoriesComponent } from './home-search-stories/home-search-stories.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainSearchPanelComponent } from './main-search-panel/main-search-panel.component';
+import { RestaurantSearchFiltersComponent } from './restaurant-search-filters/restaurant-search-filters.component';
+import { RestaurantSearchAdsComponent } from './restaurant-search-ads/restaurant-search-ads.component';
+import { RestaurantSearchListComponent } from './restaurant-search-list/restaurant-search-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { MainSearchPanelComponent } from './main-search-panel/main-search-panel.
     HomeQuickSearchComponent,
     HomeSearchStoriesComponent,
     FooterComponent,
-    MainSearchPanelComponent
+    MainSearchPanelComponent,
+    RestaurantSearchFiltersComponent,
+    RestaurantSearchAdsComponent,
+    RestaurantSearchListComponent
   ],
   imports: [
     BrowserModule,
