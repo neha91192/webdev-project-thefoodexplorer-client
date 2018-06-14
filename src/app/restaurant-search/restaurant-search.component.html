@@ -1,21 +1,23 @@
-<app-header></app-header>
-<h2 class="container">
-  Restaurants
-</h2>
-<div class="container">
-  <div class="row">
+<div ng-view>
+  <app-header></app-header>
+  <h2 class="container">
+    Restaurants
+  </h2>
+  <div class="container">
+    <div class="row">
 
-      <div id="filters-font-size" class="col-3 list-group-item">
-        <app-restaurant-search-filters></app-restaurant-search-filters>
-      </div>
+        <div id="filters-font-size" class="col-3 list-group-item">
+          <app-restaurant-search-filters></app-restaurant-search-filters>
+        </div>
 
-      <div class="col-7">
-        <app-restaurant-search-list></app-restaurant-search-list>
-      </div>
+        <div class="col-7">
+          <app-restaurant-search-list></app-restaurant-search-list>
+        </div>
 
-      <div class="col-2 list-group-item">
-        <app-restaurant-search-ads></app-restaurant-search-ads>
-      </div>
+        <div class="col-2 list-group-item">
+          <app-restaurant-search-ads></app-restaurant-search-ads>
+        </div>
+    </div>
   </div>
 </div>
 

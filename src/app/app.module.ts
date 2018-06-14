@@ -16,6 +16,7 @@ import { MainSearchPanelComponent } from './main-search-panel/main-search-panel.
 import { RestaurantSearchFiltersComponent } from './restaurant-search-filters/restaurant-search-filters.component';
 import { RestaurantSearchAdsComponent } from './restaurant-search-ads/restaurant-search-ads.component';
 import { RestaurantSearchListComponent } from './restaurant-search-list/restaurant-search-list.component';
+import {routing} from './app.routing';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { RestaurantSearchListComponent } from './restaurant-search-list/restaura
   ],
   imports: [
     BrowserModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
