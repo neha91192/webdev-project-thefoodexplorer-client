@@ -10,6 +10,8 @@ import {ZomatoApiServiceClient} from '../services/zomato-api-service-client';
 export class RestaurantSearchListComponent implements OnInit {
 
   category;
+  location;
+  searchKeyword;
   restaurants = [];
 
   constructor(private zomatoService: ZomatoApiServiceClient, private route: ActivatedRoute) {
@@ -17,12 +19,32 @@ export class RestaurantSearchListComponent implements OnInit {
   }
 
   setParams(params) {
-    this.category = params['searchValue'];
-    this.loadRestaurants(this.category);
+    this.location = params['locationValue'];
+    this.searchKeyword = params['searchValue'];
+    if (params['categoryId'] === '0') {
+      this.category = '';
+    } else {
+      this.category = params['categoryId'];
+    }
+    this.loadRestaurants(this.location, this.searchKeyword, this.category);
   }
 
-  loadRestaurants(category) {
-    this.zomatoService.findRestaurants('', '', category)
+  loadRestaurants(location, searchKeyword, category) {
+    let entity_type = 'city';
+
+    if (location === '') {
+      entity_type = '';
+    }
+    if (searchKeyword === undefined) {
+      searchKeyword = '';
+    }
+    if (category === undefined) {
+      category = '';
+    }
+
+
+
+    this.zomatoService.findRestaurants(entity_type, location, searchKeyword, category)
       .then(response => {
         this.restaurants = response.restaurants;
         console.log(response);

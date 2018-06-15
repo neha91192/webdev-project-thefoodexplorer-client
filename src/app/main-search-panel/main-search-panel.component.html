@@ -1,10 +1,30 @@
-<div class="row">
-  <div class="col-sm-12 col-md-2 col-lg-2">Location</div>
-  <div class="col-sm-12 col-md-6 col-lg-6">
-    <input [(ngModel)]="searchValue"  class="form-control"/>
-  </div>
-  <div class="col-sm-12 col-md-2 col-lg-2">
-    <button routerLink="/search/{{searchValue}}" class="btn btn-danger">Search</button>
-  </div>
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-12 col-md-3 col-lg-3">
+        <input id="typeahead-format" type="text" [(ngModel)]="locationValue"
+               [ngbTypeahead]="fetchLocations" [resultFormatter]="formatter"
+               placeholder="Enter location" class="form-control"/></div>
+      <div class="col-sm-12 col-md-3 col-lg-2">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-danger" id="dropdownBasic1"
+                  ngbDropdownToggle>{{selectedCategory}}
+          </button>
 
+          <div class="pre-scrollable dropdown" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button (click)="changeCategoryValue(category.name)" *ngFor="let category of categories"
+                    class="dropdown-item">{{category.name}}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-5">
+        <input [(ngModel)]="searchValue" placeholder="Search for food, restaurants, places" class="form-control"/>
+      </div>
+      <div class="col-sm-12 col-md-2 col-lg-2">
+        <button routerLink="/search/{{locationValue}}/{{selectedCategoryId}}/{{searchValue}}"
+                class="btn btn-danger">Search</button>
+      </div>
+    </div>
+  </div>
 </div>
