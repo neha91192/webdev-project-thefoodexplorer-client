@@ -10,12 +10,13 @@ import {ZomatoApiServiceClient} from '../services/zomato-api-service-client';
 })
 export class MainSearchPanelComponent implements OnInit {
 
-  locations = [{id: '', name: 'Boston'}, {id: '', name: 'Chicago'}, {id: '', name: 'Denver'}, {id: '', name: 'New York City'}];
+  locations = [{id: '289', name: 'Boston'}, {id: '', name: 'Chicago'}, {id: '', name: 'Denver'}, {id: '', name: 'New York City'}];
   categories = [];
   searchValue: '';
   selectedCategory: String = 'Categories';
-  selectedCategoryId: '';
-  locationValue: '';
+  selectedCategoryId;
+  locationValue;
+  selectedLocationId;
   constructor(private service: ZomatoApiServiceClient) {
       this.fetchCategoriesFromAPI();
   }
@@ -44,9 +45,11 @@ export class MainSearchPanelComponent implements OnInit {
     this.service.fetchCategories()
       .then(response => {
         response.categories.map(category => this.categories.push(category.categories));
-          console.log(this.categories);
+          // console.log(this.categories);
       });
   }
+
+
 
   changeCategoryValue(categoryName) {
     this.selectedCategory = categoryName;
@@ -58,6 +61,8 @@ export class MainSearchPanelComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.selectedCategoryId = 'ALL';
+    this.selectedLocationId = 'ALL';
   }
 
 }
