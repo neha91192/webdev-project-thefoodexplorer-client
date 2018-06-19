@@ -1,5 +1,4 @@
 .app-header {
-  height: 50px;
   background: #dc3545;
   color: aliceblue;
   width: 100%;
@@ -12,4 +11,24 @@
   padding-left: 15px;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+.link-title {
+  padding: 10px;
+  padding-right: 20px;
+
+}
+
+.icon-padding{
+  padding-top: 3px;
+  padding-right: 3px;
+}
+.text-padding{
+  padding-left: 2px;
+  padding-bottom: 5px;
+}
+
+
+.link-title:hover  {
+  background-color:  #e9ecef;
+  color: black;
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ZomatoApiServiceClient} from '../services/zomato-api-service-client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home-quick-search',
@@ -7,7 +9,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeQuickSearchComponent implements OnInit {
 
-  constructor() { }
+  locationId;
+  popularCuisines = [];
+  cuisineData = [];
+  cuisines = [];
+
+
+  constructor(private service: ZomatoApiServiceClient, private router: Router) {
+    this.locationId = 289;
+      this.fetchPopularCuisinesForCity();
+
+  }
+
+  fetchPopularCuisinesForCity() {
+      this.service.fetchPopularCuisinesForCity(this.locationId)
+        .then(cuisines => {
+          this.popularCuisines = cuisines.top_cuisines;
+          this.fetchCuisineData();
+         });
+
+  }
+
+  fetchCuisineData() {
+    this.service.fetchPopularCuisines(this.locationId).then(
+      cuisines => {
+        const keys = Object.keys(cuisines.cuisines);
+        for (let i = 0; i < keys.length; i++) {
+          const index = this.popularCuisines.indexOf(cuisines.cuisines[i].cuisine.cuisine_name);
+          if (index > -1) {
+            this.cuisineData.push({id: cuisines.cuisines[i].cuisine.cuisine_id, name: this.popularCuisines[index]});
+          }
+        }
+        console.log(this.cuisineData);
+      });
+
+  }
+
+
+
+  search(cusineId) {
+    this.router.navigate(['/search'], { queryParams: { cuisine: cusineId},
+      queryParamsHandling: 'merge' });
+
+  }
 
   ngOnInit() {
   }
