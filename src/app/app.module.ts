@@ -23,13 +23,13 @@ import {routing} from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FacebookLoginComponent } from './facebook-login/facebook-login.component';
-<<<<<<< HEAD
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileHeaderComponent } from './profile-header/profile-header.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
-=======
 import {RegistrationServiceClient} from './services/registration-service-client';
->>>>>>> 14cf641da7b161c7cbfa675dc7ea12bced27cb21
+import {LoginServiceClient} from './services/login-service-client';
+import {RegistrationComponent} from './registration/registration.component';
+import {SharedService} from './services/shared-service-client';
 
 @NgModule({
   declarations: [
@@ -52,6 +52,7 @@ import {RegistrationServiceClient} from './services/registration-service-client'
     FacebookLoginComponent,
     ProfileComponent,
     ProfileHeaderComponent,
+    RegistrationComponent,
     UpdateProfileComponent
   ],
   imports: [
@@ -62,7 +63,9 @@ import {RegistrationServiceClient} from './services/registration-service-client'
   ],
   providers: [
     ZomatoApiServiceClient,
-    RegistrationServiceClient
+    RegistrationServiceClient,
+    LoginServiceClient,
+    SharedService
   ],
   bootstrap: [AppComponent],
   schemas: [

@@ -19,21 +19,16 @@
     </div>
 
       <div *ngIf="isLogin" class="padding">
-        <app-login-form></app-login-form>
+        <app-login-form [c] = c></app-login-form>
       </div>
     <div *ngIf="isSignUp" class="padding">
-     <app-registration></app-registration>
+    <app-registration [c] = c [loginFailureMessage] = this.loginFailureMessage></app-registration>
     </div>
 
 
 
   </div>
   <div class="modal-footer">
-
-    <div class="text-danger float-left"
-         *ngIf="loginFailureMessage !== undefined || loginFailureMessage !==''">
-      {{loginFailureMessage}}</div>
-
 
   </div>
 </ng-template>

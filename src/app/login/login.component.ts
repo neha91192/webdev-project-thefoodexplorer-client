@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-import {isLoop} from 'tslint';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +9,9 @@ import {isLoop} from 'tslint';
 })
 export class LoginComponent implements OnInit {
   closeResult: string;
-
   username;
   password;
-  loginFailureMessage;
+
   isLogin;
   isSignUp;
 
@@ -45,23 +43,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  login(c) {
-    const user = {
-      username: this.username,
-      password: this.password
-    };
-    console.log(user);
-    // this.service.login(user).then((response) => {
-    //   if (response === 'login failed') {
-    //     // alert('login failed');
-    //     this.loginFailureMessage = 'Incorrect Username or Password';
-    //   } else {
-    //     c('Cross click');
-    //     this.router.navigate(['profile']);
-    //   }
-    //
-    // });
-  }
+
 
   toggleLogin() {
 
