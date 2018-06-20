@@ -8,13 +8,9 @@ import {Router} from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  goToUpdate() {
-    this.router.navigate(['profile/update']);
   }
 
 }
