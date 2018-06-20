@@ -23,6 +23,13 @@ import {routing} from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FacebookLoginComponent } from './facebook-login/facebook-login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileHeaderComponent } from './profile-header/profile-header.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import {RegistrationServiceClient} from './services/registration-service-client';
+import {LoginServiceClient} from './services/login-service-client';
+import {RegistrationComponent} from './registration/registration.component';
+import {SharedService} from './services/shared-service-client';
 import {ProfileComponent} from './profile/profile.component';
 import {ProfileHeaderComponent} from './profile-header/profile-header.component';
 import {UpdateProfileComponent} from './update-profile/update-profile.component';
@@ -50,6 +57,8 @@ import { ProfileOverviewComponent } from './profile-overview/profile-overview.co
     FacebookLoginComponent,
     ProfileComponent,
     ProfileHeaderComponent,
+    RegistrationComponent,
+    UpdateProfileComponent,
     UpdateProfileComponent,
     ProfileContentsComponent,
     ProfileOverviewComponent
@@ -62,6 +71,9 @@ import { ProfileOverviewComponent } from './profile-overview/profile-overview.co
   ],
   providers: [
     ZomatoApiServiceClient,
+    RegistrationServiceClient,
+    LoginServiceClient,
+    SharedService
   ],
   bootstrap: [AppComponent],
   schemas: [
