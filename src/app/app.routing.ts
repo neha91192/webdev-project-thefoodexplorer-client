@@ -1,11 +1,15 @@
 import { Routes, RouterModule } from '@angular/router';
 import {RestaurantSearchComponent} from './restaurant-search/restaurant-search.component';
 import {HomeComponent} from './home/home.component';
+import {ProfileComponent} from './profile/profile.component';
+import {UpdateProfileComponent} from './update-profile/update-profile.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
-  { path: 'search', component: RestaurantSearchComponent}
+  { path: 'search', component: RestaurantSearchComponent},
+  { path: 'profile', component: ProfileComponent},
+  { path: 'profile/update', component: UpdateProfileComponent}
 
 
 ];

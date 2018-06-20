@@ -33,8 +33,13 @@
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <app-login></app-login>
       <li class="nav-item link-title">
+        <a (click)="profile()">
         <i class="material-icons icon-padding">account_box</i>
-        <span class="text-padding">Profile</span></li>
+        <span class="text-padding">
+         Profile
+        </span>
+        </a>
+      </li>
       <li class="nav-item link-title">
         <i class="material-icons icon-padding">power_settings_new</i>
         <span class="text-padding">Logout</span></li>

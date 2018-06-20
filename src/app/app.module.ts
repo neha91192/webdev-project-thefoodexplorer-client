@@ -22,8 +22,10 @@ import {ZomatoApiServiceClient} from './services/zomato-api-service-client';
 import {routing} from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { FacebookLoginComponent } from './facebook-login/facebook-login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileHeaderComponent } from './profile-header/profile-header.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +45,10 @@ import { FacebookLoginComponent } from './facebook-login/facebook-login.componen
     RestaurantSearchListComponent,
     LoginComponent,
     LoginFormComponent,
-    RegistrationComponent,
-    FacebookLoginComponent
+    FacebookLoginComponent,
+    ProfileComponent,
+    ProfileHeaderComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,
