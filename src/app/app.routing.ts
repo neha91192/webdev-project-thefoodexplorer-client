@@ -3,6 +3,7 @@ import {RestaurantSearchComponent} from './restaurant-search/restaurant-search.c
 import {HomeComponent} from './home/home.component';
 import {ProfileComponent} from './profile/profile.component';
 import {UpdateProfileComponent} from './update-profile/update-profile.component';
+import {ProfileOverviewComponent} from './profile-overview/profile-overview.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},

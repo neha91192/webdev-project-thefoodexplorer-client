@@ -34,6 +34,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {ProfileHeaderComponent} from './profile-header/profile-header.component';
 import {UpdateProfileComponent} from './update-profile/update-profile.component';
 import { ProfileContentsComponent } from './profile-contents/profile-contents.component';
+import { ProfileOverviewComponent } from './profile-overview/profile-overview.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ProfileContentsComponent } from './profile-contents/profile-contents.co
     RegistrationComponent,
     UpdateProfileComponent,
     UpdateProfileComponent,
-    ProfileContentsComponent
+    ProfileContentsComponent,
+    ProfileOverviewComponent
   ],
   imports: [
     BrowserModule,
