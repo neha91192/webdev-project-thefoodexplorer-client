@@ -1,52 +1,26 @@
-<app-header></app-header>
 <div ng-view>
   <div class="container">
     <div id="profileSection" class="container-fluid">
-      <h2 id="profileHeading">Profile</h2>
-
-      <label>Username</label>
-      <div id="usernameInput">
-        <input [(ngModel)]="user.username"
-               placeholder="Username"
-               class="form-control"/>
+      <div id="profileHeaderDiv" class="container">
+        <div class="row">
+          <div class="col-3">
+            <img src="https://profile.actionsprout.com/default.jpeg" width="200px" height="200px"/>
+          </div>
+          <div class="col-6">
+            <h2>Name</h2>
+            <h4>Address</h4>
+            <div>
+              Friends
+              Reviews
+              Photos
+            </div>
+          </div>
+          <div class="col-3">
+            <a href="">Add Profile photo</a><br/>
+            <a routerLink="/profile/update">Update profile</a><br/>
+          </div>
+        </div>
       </div>
-      <label>First name</label>
-      <div id="firstNameInput">
-        <input [(ngModel)]="user.firstName"
-               placeholder="First name"
-               class="form-control"/>
-      </div>
-      <label>Last name</label>
-      <div id="lastNameInput">
-        <input [(ngModel)]="user.lastName"
-               placeholder="Last name"
-               class="form-control"/>
-      </div>
-      <label>Email</label>
-      <div id="emailInput">
-        <input [(ngModel)]="user.email"
-               placeholder="Email"
-               class="form-control"/>
-      </div>
-      <label>Phone</label>
-      <div id="phoneInput">
-        <input [(ngModel)]="user.phone"
-               placeholder="Phone number"
-               class="form-control"/>
-      </div>
-      <label>Address</label>
-      <div id="addressInput">
-        <input [(ngModel)]="user.address"
-               placeholder="Address"
-               class="form-control"/>
-      </div>
-      <div id="updateBtnDiv">
-        <button id="updateBtn"(click)="update(user)"
-                class="btn btn-secondary btn-block">
-          Update
-        </button>
-      </div>
-
     </div>
   </div>
 </div>
