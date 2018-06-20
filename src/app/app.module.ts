@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -21,6 +22,7 @@ import {ZomatoApiServiceClient} from './services/zomato-api-service-client';
 import {routing} from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { FacebookLoginComponent } from './facebook-login/facebook-login.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
     RestaurantSearchAdsComponent,
     RestaurantSearchListComponent,
     LoginComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    FacebookLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,10 @@ import { LoginFormComponent } from './login-form/login-form.component';
   providers: [
     ZomatoApiServiceClient
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }
 
