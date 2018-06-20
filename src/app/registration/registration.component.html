@@ -1,0 +1,75 @@
+<div class="container-fluid login-form-body">
+  <div class="row form-padding">
+    <div class="col-sm-12 col-md-3 col-lg-3">
+      <label for="name"><h5>Name</h5></label>
+    </div>
+    <div class="col-sm-12 col-md-9 col-lg-9" (keypress)="clear()">
+      <input [(ngModel)]="this.name"  id="name"
+             class="form-control" placeholder="Firstname">
+    </div>
+  </div>
+    <div class="row form-padding">
+    <div class="col-sm-12 col-md-3 col-lg-3">
+      <label for="username"><h5>Username</h5></label>
+    </div>
+    <div class="col-sm-12 col-md-9 col-lg-9" (keypress)="clear()">
+      <input [(ngModel)]="this.username" id="username"
+             class="form-control" placeholder="Username">
+    </div>
+  </div>
+  <div class="row form-padding">
+    <div class="col-sm-12 col-md-3 col-lg-3">
+      <label for="password"><h5>Password</h5></label>
+    </div>
+    <div class="col-sm-12 col-md-9 col-lg-9" (keypress)="clear()">
+      <input [(ngModel)]="this.password" type="password" id="password"
+             class="form-control" placeholder="Password">
+    </div>
+  </div>
+  <div class="row form-padding">
+    <div class="col-sm-12 col-md-3 col-lg-3">
+      <label for="confirmPassword"><h5>Confirm Password</h5></label>
+    </div>
+    <div class="col-sm-12 col-md-9 col-lg-9" (keypress)="clear()">
+      <input [(ngModel)]="this.confirmPassword" type="password" id="confirmPassword"
+             class="form-control" placeholder="Confirm Password">
+    </div>
+
+  </div>
+  <div class="row form-padding">
+    <div class="col-3">
+      <h5>Sign up as</h5>
+    </div>
+
+    <div class="col-9">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-danger" id="dropdownBasic1"
+                ngbDropdownToggle>{{selectedUserType}}
+        </button>
+
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button (click)="changeDropdownValue('Customer')"
+                  class="dropdown-item">Customer
+          </button>
+          <button (click)="changeDropdownValue('Blogger')"
+                  class="dropdown-item">Blogger
+          </button>
+          <button (click)="changeDropdownValue('Owner')"
+                  class="dropdown-item">Owner
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    </div>
+  <div class="row form-padding">
+    <div class="col-3">
+
+    </div>
+    <div class="col-9">
+      <button (click)="register()" class="btn btn-danger">Register</button>
+    </div>
+  </div>
+
+</div>

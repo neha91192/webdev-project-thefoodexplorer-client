@@ -1,0 +1,15 @@
+.form-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+
+}
+.login-form-body {
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: #d6d8db;
+}
+input-padding {
+  padding: 10px;
+}
