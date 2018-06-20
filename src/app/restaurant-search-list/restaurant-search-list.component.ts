@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ZomatoApiServiceClient} from '../services/zomato-api-service-client';
+import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
 
 @Component({
   selector: 'app-restaurant-search-list',

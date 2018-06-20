@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ZomatoApiServiceClient} from '../services/zomato-api-service-client';
+import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
 import {Router} from '@angular/router';
 
 @Component({
