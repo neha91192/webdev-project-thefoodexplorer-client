@@ -1,0 +1,40 @@
+.link-title {
+  padding: 12px;
+  padding-right: 20px;
+}
+
+.form-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+
+}
+.icon-padding{
+  padding-top: 5px;
+}
+.text-padding{
+  padding-left: 2px;
+  padding-bottom: 5px;
+}
+.modal-header {
+  background-color: #dc3545;
+  color: aliceblue;
+}
+.close {
+  color: white;
+}
+
+.modal-footer {
+  background-color: #e9ecef;
+}
+.login-footer {
+  text-align: left;
+}
+
+.link-title:hover  {
+  background-color:  #e9ecef;
+  color: black;
+}
+.padding {
+  padding: 15px;
+}
