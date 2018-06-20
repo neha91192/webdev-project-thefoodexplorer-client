@@ -7,21 +7,23 @@
   </div>
   <div class="modal-body">
 
-
-    <div class="row">
-      <div class="col-4"></div>
-      <div class="col-2">
-        <button (click)="toggleLogin()" class="btn btn-danger"> Log in</button>
-      </div>
-      <div class="col-2">
-      <button (click)="toggleSignup()" class="btn btn-danger"> Sign up</button>
-      </div>
-      <div class="col-4"></div>
+    <div class="row justify-content-center">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-outline-success" [ngClass]="{'active': this.isLogin}">
+        <input type="radio" name="options" id="option1" autocomplete="off" (click)="toggleLogin()"> Log In
+      </label>
+      <label class="btn btn-outline-success" [ngClass]="{'active': this.isSignUp}">
+        <input type="radio" name="options" id="option2" autocomplete="off" (click)="toggleSignup()"> Sign up
+      </label>
+    </div>
     </div>
 
       <div *ngIf="isLogin" class="padding">
         <app-login-form></app-login-form>
       </div>
+    <div *ngIf="isSignUp" class="padding">
+     <app-registration></app-registration>
+    </div>
 
 
 

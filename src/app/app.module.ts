@@ -21,6 +21,7 @@ import {ZomatoApiServiceClient} from './services/zomato-api-service-client';
 import {routing} from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
     RestaurantSearchAdsComponent,
     RestaurantSearchListComponent,
     LoginComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
