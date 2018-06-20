@@ -18,12 +18,13 @@ import { MainSearchPanelComponent } from './main-search-panel/main-search-panel.
 import { RestaurantSearchFiltersComponent } from './restaurant-search-filters/restaurant-search-filters.component';
 import { RestaurantSearchAdsComponent } from './restaurant-search-ads/restaurant-search-ads.component';
 import { RestaurantSearchListComponent } from './restaurant-search-list/restaurant-search-list.component';
-import {ZomatoApiServiceClient} from './services/zomato-api-service-client';
+import {ZomatoApiServiceClient} from './api-services/zomato-api-service-client';
 import {routing} from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FacebookLoginComponent } from './facebook-login/facebook-login.component';
+import {RegistrationServiceClient} from './services/registration-service-client';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { FacebookLoginComponent } from './facebook-login/facebook-login.componen
     routing
   ],
   providers: [
-    ZomatoApiServiceClient
+    ZomatoApiServiceClient,
+    RegistrationServiceClient
   ],
   bootstrap: [AppComponent],
   schemas: [
