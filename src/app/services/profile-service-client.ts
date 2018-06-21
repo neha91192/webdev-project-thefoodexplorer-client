@@ -3,10 +3,7 @@ export class ProfileServiceClient {
 
   fetchProfile(role) {
     return fetch(this.PROFILE_URL.replace('ROLE', role), {
-      credentials: 'include',
-      headers: {
-        'content-type': 'application/json'
-      }
+      credentials: 'include'
     }).then(response => response.json());
   }
 }

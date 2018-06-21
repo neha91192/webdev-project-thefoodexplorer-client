@@ -9,7 +9,8 @@
                  height="120" width="145" />
           </div>
           <div class="col-sm-7">
-            <h2 id="restaurant-list-details-name-row1" >{{restaurant.restaurant.name}}</h2>
+            <h2 id="restaurant-list-details-name-row1" routerLink="/restaurant/{{restaurant.restaurant.id}}" >
+              {{restaurant.restaurant.name}}</h2>
             <h6>{{restaurant.restaurant.location.locality}}</h6>
             <p id="restaurant-list-details-address-row1">{{restaurant.restaurant.location.address}}</p>
           </div>

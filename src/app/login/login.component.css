@@ -38,3 +38,7 @@
 .padding {
   padding: 15px;
 }
+
+.info {
+  font-style: italic;
+}
