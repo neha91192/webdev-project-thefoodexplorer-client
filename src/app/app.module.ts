@@ -39,6 +39,13 @@ import { ProfileFollowingComponent } from './profile-following/profile-following
 import { ProfileInterestsComponent } from './profile-interests/profile-interests.component';
 import {ProfileServiceClient} from './services/profile-service-client';
 import { RestaurantDetailsPageComponent } from './restaurant-details-page/restaurant-details-page.component';
+import { UpdateProfileProfileTabComponent } from './update-profile-profile-tab/update-profile-profile-tab.component';
+import { UpdateProfilePasswordTabComponent } from './update-profile-password-tab/update-profile-password-tab.component';
+import { UpdateProfileEmailTabComponent } from './update-profile-email-tab/update-profile-email-tab.component';
+import { UpdateProfileLocationsTabComponent } from './update-profile-locations-tab/update-profile-locations-tab.component';
+import { UpdateProfilePrivacySettingsTabComponent } from './update-profile-privacy-settings-tab/update-profile-privacy-settings-tab.component';
+import { UpdateProfileFriendsTabComponent } from './update-profile-friends-tab/update-profile-friends-tab.component';
+
 
 @NgModule({
   declarations: [
@@ -71,7 +78,13 @@ import { RestaurantDetailsPageComponent } from './restaurant-details-page/restau
     ProfileFollowersComponent,
     ProfileFollowingComponent,
     ProfileInterestsComponent,
-    RestaurantDetailsPageComponent
+    RestaurantDetailsPageComponent,
+    UpdateProfileProfileTabComponent,
+    UpdateProfilePasswordTabComponent,
+    UpdateProfileEmailTabComponent,
+    UpdateProfileLocationsTabComponent,
+    UpdateProfilePrivacySettingsTabComponent,
+    UpdateProfileFriendsTabComponent
   ],
   imports: [
     BrowserModule,

@@ -8,62 +8,21 @@
         <div class="col-3">
           <h4>Name's Account Settings</h4>
           <ul>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="#news">Password</a></li>
-            <li><a href="#contact">Email</a></li>
-            <li><a href="#about">Locations</a></li>
-            <li><a href="#about">Friends</a></li>
-            <li><a href="#about">Privacy Settings</a></li>
+            <li><a (click)="showUpdateProfile()">Profile</a></li>
+            <li><a (click)="showUpdatePassword()">Password</a></li>
+            <li><a (click)="showUpdateEmail()">Email</a></li>
+            <li><a (click)="showUpdateLocations()">Locations</a></li>
+            <li><a (click)="showUpdateFriends()">Friends</a></li>
+            <li><a (click)="showUpdatePrivacy()">Privacy Settings</a></li>
           </ul>
         </div>
         <div class="col-6">
-          <h2 id="profileHeading">Profile</h2>
-          <img src="https://profile.actionsprout.com/default.jpeg" width="200px" height="200px"/>
-          <div>file chooser</div>
-          <div>
-            <label>Username</label>
-            <div id="usernameInput">
-              <input [(ngModel)]="user.username"
-                     placeholder="Username"
-                     class="form-control"/>
-            </div>
-            <label>First name</label>
-            <div id="firstNameInput">
-              <input [(ngModel)]="user.firstName"
-                     placeholder="First name"
-                     class="form-control"/>
-            </div>
-            <label>Last name</label>
-            <div id="lastNameInput">
-              <input [(ngModel)]="user.lastName"
-                     placeholder="Last name"
-                     class="form-control"/>
-            </div>
-            <label>Email</label>
-            <div id="emailInput">
-              <input [(ngModel)]="user.email"
-                     placeholder="Email"
-                     class="form-control"/>
-            </div>
-            <label>Phone</label>
-            <div id="phoneInput">
-              <input [(ngModel)]="user.phone"
-                     placeholder="Phone number"
-                     class="form-control"/>
-            </div>
-            <label>Address</label>
-            <div id="addressInput">
-              <input [(ngModel)]="user.address"
-                     placeholder="Address"
-                     class="form-control"/>
-            </div>
-            <div>
-              <button id="updateBtn"(click)="update(user)"
-                      class="btn btn-secondary">
-                Update
-              </button>
-            </div>
-          </div>
+          <div *ngIf="updateProfile"><app-update-profile-profile-tab></app-update-profile-profile-tab></div>
+          <div *ngIf="updatePassword"><app-update-profile-password-tab></app-update-profile-password-tab></div>
+          <div *ngIf="updateEmail"><app-update-profile-email-tab></app-update-profile-email-tab></div>
+          <div *ngIf="updateLocations"><app-update-profile-locations-tab></app-update-profile-locations-tab></div>
+          <div *ngIf="updateFriends"><app-update-profile-friends-tab></app-update-profile-friends-tab></div>
+          <div *ngIf="updatePrivacySettings"><app-update-profile-privacy-settings-tab></app-update-profile-privacy-settings-tab></div>
         </div>
       </div>
     </div>
