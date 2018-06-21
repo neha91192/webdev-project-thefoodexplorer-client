@@ -38,7 +38,7 @@ export class RegistrationComponent implements OnInit {
       this.service.register(user).then(newUser => {
         this.sharedService.user = newUser;
         this.c('Cross click');
-        this.router.navigate(['home']);
+        this.router.navigate(['profile']);
       });
 
     }

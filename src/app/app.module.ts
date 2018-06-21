@@ -37,6 +37,8 @@ import { ProfileReviewsComponent } from './profile-reviews/profile-reviews.compo
 import { ProfileFollowersComponent } from './profile-followers/profile-followers.component';
 import { ProfileFollowingComponent } from './profile-following/profile-following.component';
 import { ProfileInterestsComponent } from './profile-interests/profile-interests.component';
+import {ProfileServiceClient} from './services/profile-service-client';
+import { RestaurantDetailsPageComponent } from './restaurant-details-page/restaurant-details-page.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import { ProfileInterestsComponent } from './profile-interests/profile-interests
     ProfileReviewsComponent,
     ProfileFollowersComponent,
     ProfileFollowingComponent,
-    ProfileInterestsComponent
+    ProfileInterestsComponent,
+    RestaurantDetailsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +83,8 @@ import { ProfileInterestsComponent } from './profile-interests/profile-interests
     ZomatoApiServiceClient,
     RegistrationServiceClient,
     LoginServiceClient,
-    SharedService
+    SharedService,
+    ProfileServiceClient
   ],
   bootstrap: [AppComponent],
   schemas: [

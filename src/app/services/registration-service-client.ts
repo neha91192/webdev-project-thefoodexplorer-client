@@ -5,7 +5,7 @@ export class RegistrationServiceClient {
     return fetch(this.REGISTRATION_URL, {
       method: 'post',
       body: JSON.stringify(user),
-      credentials: 'same-origin',
+      credentials: 'include',
       headers: {
         'content-type': 'application/json'
       }

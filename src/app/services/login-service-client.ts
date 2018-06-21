@@ -5,12 +5,13 @@ export class LoginServiceClient {
     return fetch(this.LOGIN_URL, {
       method: 'post',
       body: JSON.stringify(credentials),
+      credentials: 'include',
       headers: {
         'content-type': 'application/json'
       }
     }).then(response => {
       if (response.status === 401) {
-        return 'login failed';
+        return null;
       } else {
         return response.json();
       }

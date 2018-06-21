@@ -1,9 +1,9 @@
 export class ProfileServiceClient {
   PROFILE_URL = 'http://localhost:8080/api/ROLE/profile';
 
-  profile(role) {
+  fetchProfile(role) {
     return fetch(this.PROFILE_URL.replace('ROLE', role), {
-      credentials: 'same-origin',
+      credentials: 'include',
       headers: {
         'content-type': 'application/json'
       }

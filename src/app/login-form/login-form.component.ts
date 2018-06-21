@@ -30,8 +30,8 @@ export class LoginFormComponent implements OnInit {
     };
     console.log(user);
     this.service.login(user).then((resp) => {
-      if (resp === 'login failed') {
-
+      if (resp === null) {
+        this.loginFailureMessage = 'Invalid username or password';
       } else {
         this.sharedService.user = resp;
         c('Cross click');
