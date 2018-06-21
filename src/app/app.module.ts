@@ -30,11 +30,13 @@ import {RegistrationServiceClient} from './services/registration-service-client'
 import {LoginServiceClient} from './services/login-service-client';
 import {RegistrationComponent} from './registration/registration.component';
 import {SharedService} from './services/shared-service-client';
-import {ProfileComponent} from './profile/profile.component';
-import {ProfileHeaderComponent} from './profile-header/profile-header.component';
-import {UpdateProfileComponent} from './update-profile/update-profile.component';
 import { ProfileContentsComponent } from './profile-contents/profile-contents.component';
 import { ProfileOverviewComponent } from './profile-overview/profile-overview.component';
+import { ProfileFriendsComponent } from './profile-friends/profile-friends.component';
+import { ProfileReviewsComponent } from './profile-reviews/profile-reviews.component';
+import { ProfileFollowersComponent } from './profile-followers/profile-followers.component';
+import { ProfileFollowingComponent } from './profile-following/profile-following.component';
+import { ProfileInterestsComponent } from './profile-interests/profile-interests.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,12 @@ import { ProfileOverviewComponent } from './profile-overview/profile-overview.co
     UpdateProfileComponent,
     UpdateProfileComponent,
     ProfileContentsComponent,
-    ProfileOverviewComponent
+    ProfileOverviewComponent,
+    ProfileFriendsComponent,
+    ProfileReviewsComponent,
+    ProfileFollowersComponent,
+    ProfileFollowingComponent,
+    ProfileInterestsComponent
   ],
   imports: [
     BrowserModule,
