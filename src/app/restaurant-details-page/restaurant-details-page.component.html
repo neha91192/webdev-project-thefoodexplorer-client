@@ -1,15 +1,45 @@
 <app-header></app-header>
-<div class="container">
-  <div class="row container-header">
+<div class="row padding container-header">
 
-  </div>
-  <div class="row padding">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Restaurants</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Restaurant name</li>
-      </ol>
-    </nav>
+</div>
+<div class="padding inner-container">
+<nav aria-label="breadcrumb padding">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Restaurants</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{restaurant.name}}</li>
+  </ol>
+</nav>
+  <div class="container">
+    <div class="row">
+      <img src="{{restaurant.featured_image}}"
+           class="img-fluid img-thumbnail" alt="Responsive image">
+    </div>
+    <div class="row">
+      <div class="details-section">
+        <h3 class="padding">{{restaurant.name}}</h3>
+        <div class="row">
+          <div class="col-11">
+            <h6 class="text-secondary text-padding">{{restaurant.location.locality_verbose}}</h6>
+          </div>
+          <div class="col-1 float-right">
+            <h5>{{restaurant.user_rating.aggregate_rating}}</h5>
+          </div>
+        </div>
+
+      </div>
+      <div class="row padding">
+        <div class="row padding">
+          <nav class="nav nav-pills nav-justified restaurant-info-tab">
+            <a class="nav-item nav-link text-padding" href="#">Information</a>
+            <a class="nav-item nav-link text-padding" href="#">Menu</a>
+            <a class="nav-item nav-link text-padding" href="#">Reviews</a>
+            <a class="nav-item nav-link text-padding" href="#">Reservation</a>
+          </nav>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
+
