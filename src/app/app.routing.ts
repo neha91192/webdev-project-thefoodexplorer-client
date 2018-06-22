@@ -5,6 +5,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {UpdateProfileComponent} from './update-profile/update-profile.component';
 import {ProfileOverviewComponent} from './profile-overview/profile-overview.component';
 import {RestaurantDetailsPageComponent} from './restaurant-details-page/restaurant-details-page.component';
+import {OwnerSignupComponent} from './owner-signup/owner-signup.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -12,7 +13,8 @@ const appRoutes: Routes = [
   { path: 'search', component: RestaurantSearchComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'profile/update', component: UpdateProfileComponent},
-  { path: 'restaurant/:restaurantId', component: RestaurantDetailsPageComponent}
+  { path: 'restaurant/:restaurantId', component: RestaurantDetailsPageComponent},
+  { path: 'register', component: OwnerSignupComponent}
 
 ];
 //

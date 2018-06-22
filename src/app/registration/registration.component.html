@@ -54,21 +54,23 @@
           <button (click)="changeDropdownValue('Blogger')"
                   class="dropdown-item">Blogger
           </button>
-          <button (click)="changeDropdownValue('Owner')"
-                  class="dropdown-item">Owner
-          </button>
         </div>
       </div>
     </div>
-
-
     </div>
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-9">
+      <span>Are you a restaurant owner? Click <a class="text-danger"
+                                                (click)="openRegisterOwner()"> here</a> to sign up</span>
+    </div>
+  </div>
   <div class="row form-padding">
     <div class="col-3">
 
     </div>
     <div class="col-4">
-      <button (click)="register()" class="btn btn-block btn-danger">Register</button>
+      <button (click)="register()" class="btn btn-block btn-success">Register</button>
     </div>
   </div>
 
