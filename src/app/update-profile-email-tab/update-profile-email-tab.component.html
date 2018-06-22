@@ -1,12 +1,13 @@
 <div class="container">
   <label>Email</label>
   <div id="emailInput">
-    <input [(ngModel)]="user.email"
+    <input [(ngModel)]="this.user.email"
            placeholder="Email"
            class="form-control"/>
   </div>
   <div>
-    <button id="updateBtn"
+    <button (click)="updateUser(user)"
+            id="updateBtn"
             class="btn btn-secondary">
       Update
     </button>

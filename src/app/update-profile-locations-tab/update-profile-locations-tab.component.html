@@ -2,36 +2,37 @@
 <div>
   <label>Street</label>
   <div class="form-input">
-    <input  [(ngModel)]="this.street"
+    <input  [(ngModel)]="this.user.street"
             placeholder="Street"
             class="form-control"/>
   </div>
   <label>City</label>
   <div class="form-input">
-    <input [(ngModel)]="this.city"
+    <input [(ngModel)]="this.user.city"
            placeholder="City"
            class="form-control"/>
   </div>
   <label>State</label>
   <div class="form-input">
-    <input [(ngModel)]="this.state"
+    <input [(ngModel)]="this.user.state"
            placeholder="State"
            class="form-control"/>
   </div>
   <label>Country</label>
   <div class="form-input">
-    <input [(ngModel)]="this.country"
+    <input [(ngModel)]="this.user.country"
            placeholder="Country"
            class="form-control"/>
   </div>
   <label>pincode</label>
   <div class="form-input">
-    <input [(ngModel)]="this.pincode"
+    <input [(ngModel)]="this.user.pincode"
            placeholder="Pincode"
            class="form-control"/>
   </div>
   <div>
-    <button id="updateBtn"
+    <button (click)="updateUser(user)"
+            id="updateBtn"
             class="btn btn-secondary">
       Update
     </button>

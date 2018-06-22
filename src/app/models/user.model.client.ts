@@ -8,6 +8,8 @@ export class User {
   dateOfBirth: Date;
   city: string;
   country: string;
+  street: string;
+  pincode: string;
   state: string;
   bio: Blob;
 }

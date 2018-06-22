@@ -4,30 +4,31 @@
 <div>
   <label>Username</label>
   <div id="usernameInput" >
-    <input  [(ngModel)]="this.username"
+    <input  [(ngModel)]="this.user.username"
            placeholder="Username"
            class="form-control"/>
   </div>
   <label>First name</label>
   <div id="firstNameInput">
-    <input [(ngModel)]="this.firstName"
+    <input [(ngModel)]="this.user.firstName"
            placeholder="First name"
            class="form-control"/>
   </div>
   <label>Last name</label>
   <div id="lastNameInput">
-    <input [(ngModel)]="this.lastName"
+    <input [(ngModel)]="this.user.lastName"
            placeholder="Last name"
            class="form-control"/>
   </div>
   <label>Phone</label>
   <div id="phoneInput">
-    <input [(ngModel)]="this.phone"
+    <input [(ngModel)]="this.user.phone"
            placeholder="Phone number"
            class="form-control"/>
   </div>
   <div>
-    <button id="updateBtn"
+    <button (click)="updateUser(user)"
+            id="updateBtn"
             class="btn btn-secondary">
       Update
     </button>

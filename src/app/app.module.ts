@@ -48,6 +48,7 @@ import { UpdateProfilePrivacySettingsTabComponent } from
 import { UpdateProfileFriendsTabComponent } from './update-profile-friends-tab/update-profile-friends-tab.component';
 import { ReviewListComponent } from './review-list/review-list.component';
 import { RestaurantInformationComponent } from './restaurant-information/restaurant-information.component';
+import { CustomerServiceClient } from './services/customer-service-client';
 
 
 @NgModule({
@@ -102,7 +103,8 @@ import { RestaurantInformationComponent } from './restaurant-information/restaur
     RegistrationServiceClient,
     LoginServiceClient,
     SharedService,
-    ProfileServiceClient
+    ProfileServiceClient,
+    CustomerServiceClient
   ],
   bootstrap: [AppComponent],
   schemas: [
