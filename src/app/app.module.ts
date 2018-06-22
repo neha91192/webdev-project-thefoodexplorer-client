@@ -45,6 +45,7 @@ import { UpdateProfileEmailTabComponent } from './update-profile-email-tab/updat
 import { UpdateProfileLocationsTabComponent } from './update-profile-locations-tab/update-profile-locations-tab.component';
 import { UpdateProfilePrivacySettingsTabComponent } from './update-profile-privacy-settings-tab/update-profile-privacy-settings-tab.component';
 import { UpdateProfileFriendsTabComponent } from './update-profile-friends-tab/update-profile-friends-tab.component';
+import { RestaurantInformationComponent } from './restaurant-information/restaurant-information.component';
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import { UpdateProfileFriendsTabComponent } from './update-profile-friends-tab/u
     UpdateProfileEmailTabComponent,
     UpdateProfileLocationsTabComponent,
     UpdateProfilePrivacySettingsTabComponent,
-    UpdateProfileFriendsTabComponent
+    UpdateProfileFriendsTabComponent,
+    RestaurantInformationComponent
   ],
   imports: [
     BrowserModule,

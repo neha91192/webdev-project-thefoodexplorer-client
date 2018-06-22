@@ -28,16 +28,57 @@
         </div>
 
       </div>
-      <div class="row padding">
-        <div class="row padding">
-          <nav class="nav nav-pills nav-justified restaurant-info-tab">
-            <a class="nav-item nav-link text-padding" href="#">Information</a>
-            <a class="nav-item nav-link text-padding" href="#">Menu</a>
-            <a class="nav-item nav-link text-padding" href="#">Reviews</a>
-            <a class="nav-item nav-link text-padding" href="#">Reservation</a>
-          </nav>
+
+      <div class="inner-container">
+
+      </div>
+      <div class="details-section padding">
+        <ul class="nav nav-pills nav-justified">
+          <li (click)="selectTab('info')" class="nav-item nav-link text-padding info-tab-layout wbdv"
+              [ngClass]="{'active': isInfoTabClicked == true}">
+            Information</li>
+          <li (click)="selectTab('menu')" class="nav-item nav-link text-padding info-tab-layout wbdv"
+              [ngClass]="{'active': isMenuTabClicked == true}">
+          Menu</li>
+          <li (click)="selectTab('review')" class="nav-item nav-link text-padding info-tab-layout wbdv"
+              [ngClass]="{'active': isReviewTabClicked == true}">
+            Reviews</li>
+          <li  (click)="selectTab('reservation')" class="nav-item nav-link text-padding info-tab-layout wbdv"
+               [ngClass]="{'active': isReservationTabClicked == true}">
+            Reservation</li>
+        </ul>
+
+      </div>
+
+      <div *ngIf="isInfoTabClicked" class="details-section padding">
+        <div class=" nav-item nav-link text-padding info-tab-layout">
+         <app-restaurant-information [restaurant]="restaurant"></app-restaurant-information>
         </div>
       </div>
+      <div *ngIf="isMenuTabClicked" class="details-section padding">
+        <div class=" nav-item nav-link text-padding info-tab-layout">
+          <p> in menu tab</p>
+        </div>
+      </div>
+
+      <div *ngIf="isReviewTabClicked" class="details-section padding">
+        <div class=" nav-item nav-link text-padding info-tab-layout">
+          <p> in review tab</p>
+        </div>
+      </div>
+      <div *ngIf="isReservationTabClicked" class="details-section padding">
+        <div class=" nav-item nav-link text-padding info-tab-layout">
+          <p> in reservation tab</p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
 
     </div>
   </div>

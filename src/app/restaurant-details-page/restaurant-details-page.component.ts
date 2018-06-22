@@ -11,9 +11,15 @@ export class RestaurantDetailsPageComponent implements OnInit {
   restaurantId;
   restaurant;
 
+  // Tab selection variables
+  isInfoTabClicked;
+  isMenuTabClicked;
+  isReviewTabClicked;
+  isReservationTabClicked;
+
   constructor(private zomatoService: ZomatoApiServiceClient, private route: ActivatedRoute) {
     this.route.params.subscribe(params => this.setParams(params));
-
+    this.isInfoTabClicked = true;
   }
 
   setParams(params) {
@@ -27,6 +33,35 @@ export class RestaurantDetailsPageComponent implements OnInit {
       .then(restaurant => this.restaurant = restaurant);
   }
   ngOnInit() {
+    this.isInfoTabClicked = true;
+  }
+
+  selectTab(value) {
+    if (value === 'info') {
+      this.isInfoTabClicked = true;
+      this.isMenuTabClicked = false;
+      this.isReviewTabClicked = false;
+      this.isReservationTabClicked = false;
+    }
+    if (value === 'menu') {
+      this.isInfoTabClicked = false;
+      this.isMenuTabClicked = true;
+      this.isReviewTabClicked = false;
+      this.isReservationTabClicked = false;
+    }
+    if (value === 'review') {
+      this.isInfoTabClicked = false;
+      this.isMenuTabClicked = false;
+      this.isReviewTabClicked = true;
+      this.isReservationTabClicked = false;
+    }
+    if (value === 'reservation') {
+      this.isInfoTabClicked = false;
+      this.isMenuTabClicked = false;
+      this.isReviewTabClicked = false;
+      this.isReservationTabClicked = true;
+    }
+
   }
 
 }
