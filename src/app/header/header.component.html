@@ -19,7 +19,8 @@
 
 <nav class="navbar navbar-expand-lg app-header">
 
-  <span class="navbar-brand app-title">The Food Explorer</span>
+<img src="/assets/images/logo.jpg" height="50px">
+
   <button (click)="toggleNavbar()" type="button" class="navbar-toggler" data-toggle="collapse"
           data-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent"
           aria-expanded="false" aria-label="Toggle navigation">
@@ -29,18 +30,22 @@
   </button>
 
 
-  <div class="collapse navbar-collapse " [ngClass]="{ 'show': navbarOpen }" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }" id="navbarSupportedContent">
+    <div class="mx-auto">
+      <app-main-search-panel></app-main-search-panel></div>
+
+
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <app-login></app-login>
-      <li class="nav-item link-title">
-        <a (click)="profile()">
+      <li *ngIf="false" class="nav-item link-title">
+        <a  (click)="profile()">
         <i class="material-icons icon-padding">account_box</i>
         <span class="text-padding">
          Profile
         </span>
         </a>
       </li>
-      <li class="nav-item link-title">
+      <li *ngIf="false"  class="nav-item link-title">
         <i class="material-icons icon-padding">power_settings_new</i>
         <span class="text-padding">Logout</span></li>
     </ul>
