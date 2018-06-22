@@ -19,11 +19,11 @@
       <div class="details-section">
         <h3 class="padding">{{restaurant.name}}</h3>
         <div class="row">
-          <div class="col-11">
+          <div class="col-10">
             <h6 class="text-secondary text-padding">{{restaurant.location.locality_verbose}}</h6>
           </div>
-          <div class="col-1 float-right">
-            <h5>{{restaurant.user_rating.aggregate_rating}}</h5>
+          <div class="col-2 float-right">
+            <h5>{{restaurant.user_rating.aggregate_rating}}/5</h5>
           </div>
         </div>
 
@@ -63,7 +63,35 @@
 
       <div *ngIf="isReviewTabClicked" class="details-section padding">
         <div class=" nav-item nav-link text-padding info-tab-layout">
-          <p> in review tab</p>
+          <div class="padding">
+            <div class="row padding">
+                <h5>Write a review</h5>
+            </div>
+            <div class="row">
+              <div class="col-3">
+              <span>Rate your experience</span>
+              </div>
+              <div class="col-3 float-right">
+                <ngb-rating [rate]="reviewRating"></ngb-rating>
+              </div>
+
+            </div>
+            <div class="row padding">
+              <textarea class="form-control" rows="2" placeholder="Add your experience of visiting this Restaurant">
+              </textarea>
+            </div>
+            <div class="row padding">
+
+                <button class="btn btn-outline-success">Submit</button>
+
+
+            </div>
+          </div>
+          <div class="row padding">
+            <h5 class="padding">See all reviews of this Restaurant</h5>
+            </div>
+          <app-review-list></app-review-list>
+
         </div>
       </div>
       <div *ngIf="isReservationTabClicked" class="details-section padding">
@@ -72,13 +100,10 @@
         </div>
       </div>
 
+      <div class="details-section padding">
+        <h5>Restaurants you may like</h5>
 
-
-
-
-
-
-
+      </div>
 
     </div>
   </div>

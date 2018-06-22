@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
 import {ActivatedRoute, Router} from '@angular/router';
+import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-restaurant-details-page',
@@ -10,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class RestaurantDetailsPageComponent implements OnInit {
   restaurantId;
   restaurant;
+  reviewRating;
 
   // Tab selection variables
   isInfoTabClicked;
@@ -17,7 +19,8 @@ export class RestaurantDetailsPageComponent implements OnInit {
   isReviewTabClicked;
   isReservationTabClicked;
 
-  constructor(private zomatoService: ZomatoApiServiceClient, private route: ActivatedRoute) {
+  constructor(private zomatoService: ZomatoApiServiceClient, private route: ActivatedRoute, config: NgbRatingConfig) {
+    config.max = 5;
     this.route.params.subscribe(params => this.setParams(params));
     this.isInfoTabClicked = true;
   }
