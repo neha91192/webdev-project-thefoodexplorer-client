@@ -19,7 +19,7 @@ export class UpdateProfileProfileTabComponent implements OnInit {
   ngOnInit() {
   }
 
-  updateUser() {
+  updateUser(user) {
     this.customerService.updateUser(this.user)
       .then(response =>
       console.log(response));

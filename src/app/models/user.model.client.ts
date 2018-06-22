@@ -7,6 +7,8 @@ export class User {
   userType: string;
   dateOfBirth: Date;
   city: string;
+  phone: string;
+  email: string;
   country: string;
   street: string;
   pincode: string;

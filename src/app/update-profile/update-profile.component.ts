@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {SharedService} from '../services/shared-service-client';
+import {CustomerServiceClient} from '../services/customer-service-client';
+import {User} from '../models/user.model.client';
 
 @Component({
   selector: 'app-update-profile',
@@ -7,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateProfileComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private sharedService: SharedService, private customerService: CustomerServiceClient) {
+    this.user = this.sharedService.user;
+  }
+  user: User;
   updateProfile = true;
   updatePassword = false;
   updateEmail = false;
