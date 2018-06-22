@@ -6,6 +6,8 @@
   border-style: solid;
 }
 .quick-search-category{
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 5px;
+}
+.card-content:hover {
+  background-color: #d6d8db;
 }
