@@ -1,3 +1,40 @@
-<p>
-  update-profile-locations-tab works!
-</p>
+
+<div>
+  <label>Street</label>
+  <div class="form-input">
+    <input  [(ngModel)]="this.street"
+            placeholder="Street"
+            class="form-control"/>
+  </div>
+  <label>City</label>
+  <div class="form-input">
+    <input [(ngModel)]="this.city"
+           placeholder="City"
+           class="form-control"/>
+  </div>
+  <label>State</label>
+  <div class="form-input">
+    <input [(ngModel)]="this.state"
+           placeholder="State"
+           class="form-control"/>
+  </div>
+  <label>Country</label>
+  <div class="form-input">
+    <input [(ngModel)]="this.country"
+           placeholder="Country"
+           class="form-control"/>
+  </div>
+  <label>pincode</label>
+  <div class="form-input">
+    <input [(ngModel)]="this.pincode"
+           placeholder="Pincode"
+           class="form-control"/>
+  </div>
+  <div>
+    <button id="updateBtn"
+            class="btn btn-secondary">
+      Update
+    </button>
+  </div>
+
+</div>

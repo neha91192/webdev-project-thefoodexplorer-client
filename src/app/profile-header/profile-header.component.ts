@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {User} from '../models/user.model.client';
+import {SharedService} from '../services/shared-service-client';
 
 @Component({
   selector: 'app-profile-header',
@@ -8,8 +10,11 @@ import {Router} from '@angular/router';
 })
 export class ProfileHeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private sharedService: SharedService) {
+    this.user = this.sharedService.user;
+  }
 
+  user: User;
   ngOnInit() {
   }
 }

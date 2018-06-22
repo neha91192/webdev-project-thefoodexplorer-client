@@ -3,33 +3,27 @@
 <div>file chooser</div>
 <div>
   <label>Username</label>
-  <div id="usernameInput">
-    <input
+  <div id="usernameInput" >
+    <input  [(ngModel)]="this.username"
            placeholder="Username"
            class="form-control"/>
   </div>
   <label>First name</label>
   <div id="firstNameInput">
-    <input
+    <input [(ngModel)]="this.firstName"
            placeholder="First name"
            class="form-control"/>
   </div>
   <label>Last name</label>
   <div id="lastNameInput">
-    <input
+    <input [(ngModel)]="this.lastName"
            placeholder="Last name"
            class="form-control"/>
   </div>
   <label>Phone</label>
   <div id="phoneInput">
-    <input
+    <input [(ngModel)]="this.phone"
            placeholder="Phone number"
-           class="form-control"/>
-  </div>
-  <label>Address</label>
-  <div id="addressInput">
-    <input
-           placeholder="Address"
            class="form-control"/>
   </div>
   <div>
