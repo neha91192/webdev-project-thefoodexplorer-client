@@ -1,0 +1,100 @@
+<div class="container-fluid">
+  <div *ngIf="information !== undefined">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <h5>About this Restaurant</h5>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <h5>More Information</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6 text-secondary">
+            Phone Number
+          </div>
+          <div *ngIf="information.phone_numbers !== undefined" class="col-sm-12 col-md-6 col-lg-6 text-secondary">
+            {{information.phone_numbers}}
+          </div>
+          <div *ngIf="information.phone_numbers === undefined" class="text-secondary">
+            Not available
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6 text-secondary">
+            Average cost for two (approx):
+          </div>
+          <div *ngIf="information.average_cost_for_two === undefined" class="col-sm-12 col-md-6 col-lg-6 text-secondary">
+            Not available
+          </div>
+          <div *ngIf="information.average_cost_for_two !== undefined" class="text-secondary">
+            {{information.average_cost_for_two}}{{information.currency}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6 text-secondary">
+            Price Range:
+          </div>
+          <div *ngIf="information.price_range !== undefined" class="text-secondary">
+            {{information.price_range}}/5
+          </div>
+          <div *ngIf="information.price_range === undefined" class="text-secondary">
+           Not available
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6 text-secondary">
+            Cuisines:
+          </div>
+          <div *ngIf="information.cuisines !== undefined" class="text-secondary">
+            {{information.cuisines}}
+          </div>
+          <div *ngIf="information.cuisines === undefined" class="text-secondary">
+            Not available
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="row">
+        <ul>
+          <div class="row">
+            <li class="text-secondary">Reservation supported</li><i class="material-icons wbdv1">check</i>
+          </div>
+          <div class="row">
+            <li class="text-secondary">Delivering now</li>
+            <i *ngIf="information.is_delivering_now === 1" class="material-icons wbdv1">check</i>
+            <i *ngIf="information.is_delivering_now === 0" class="material-icons wbdv2">clear</i>
+          </div>
+          <div class="row">
+            <li class="text-secondary">Online delivery available</li>
+            <i *ngIf="information.has_online_delivery === 1" class="material-icons wbdv1">check</i>
+            <i *ngIf="information.has_online_delivery === 0" class="material-icons wbdv2">clear</i>
+          </div>
+          <div class="row">
+            <li class="text-secondary">Open table support</li>
+            <i *ngIf="information.opentable_support === 1" class="material-icons wbdv1">check</i>
+            <i *ngIf="information.opentable_support === 0" class="material-icons wbdv2">clear</i>
+          </div>
+        </ul>
+        </div>
+      </div>
+    </div>
+      <div class="row section-padding">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <h5>Address</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+        <div *ngIf="information.location.address !== undefined" class="text-secondary">
+          {{information.location.address}}
+        </div>
+          <div *ngIf="information.location.address === undefined" class="text-secondary">
+           Not available
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

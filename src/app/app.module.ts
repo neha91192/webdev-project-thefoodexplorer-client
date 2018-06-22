@@ -43,9 +43,11 @@ import { UpdateProfileProfileTabComponent } from './update-profile-profile-tab/u
 import { UpdateProfilePasswordTabComponent } from './update-profile-password-tab/update-profile-password-tab.component';
 import { UpdateProfileEmailTabComponent } from './update-profile-email-tab/update-profile-email-tab.component';
 import { UpdateProfileLocationsTabComponent } from './update-profile-locations-tab/update-profile-locations-tab.component';
-import { UpdateProfilePrivacySettingsTabComponent } from './update-profile-privacy-settings-tab/update-profile-privacy-settings-tab.component';
+import { UpdateProfilePrivacySettingsTabComponent } from
+    './update-profile-privacy-settings-tab/update-profile-privacy-settings-tab.component';
 import { UpdateProfileFriendsTabComponent } from './update-profile-friends-tab/update-profile-friends-tab.component';
 import { ReviewListComponent } from './review-list/review-list.component';
+import { RestaurantInformationComponent } from './restaurant-information/restaurant-information.component';
 
 
 @NgModule({
@@ -86,7 +88,11 @@ import { ReviewListComponent } from './review-list/review-list.component';
     UpdateProfileLocationsTabComponent,
     UpdateProfilePrivacySettingsTabComponent,
     UpdateProfileFriendsTabComponent,
+<<<<<<< HEAD
     ReviewListComponent
+=======
+    RestaurantInformationComponent
+>>>>>>> bda28e23b2fda57bd1479368f30d0bd7cbad9046
   ],
   imports: [
     BrowserModule,

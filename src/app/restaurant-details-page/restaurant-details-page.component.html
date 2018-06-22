@@ -1,15 +1,86 @@
 <app-header></app-header>
-<div class="container">
-  <div class="row container-header">
+<div class="row padding container-header">
 
-  </div>
-  <div class="row padding">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Restaurants</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Restaurant name</li>
-      </ol>
-    </nav>
+</div>
+<div class="padding inner-container">
+<nav aria-label="breadcrumb padding">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Restaurants</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{restaurant.name}}</li>
+  </ol>
+</nav>
+  <div class="container">
+    <div class="row">
+      <img src="{{restaurant.featured_image}}"
+           class="img-fluid img-thumbnail" alt="Responsive image">
+    </div>
+    <div class="row">
+      <div class="details-section">
+        <h3 class="padding">{{restaurant.name}}</h3>
+        <div class="row">
+          <div class="col-11">
+            <h6 class="text-secondary text-padding">{{restaurant.location.locality_verbose}}</h6>
+          </div>
+          <div class="col-1 float-right">
+            <h5>{{restaurant.user_rating.aggregate_rating}}</h5>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="inner-container">
+
+      </div>
+      <div class="details-section padding">
+        <ul class="nav nav-pills nav-justified">
+          <li (click)="selectTab('info')" class="nav-item nav-link text-padding info-tab-layout wbdv"
+              [ngClass]="{'active': isInfoTabClicked == true}">
+            Information</li>
+          <li (click)="selectTab('menu')" class="nav-item nav-link text-padding info-tab-layout wbdv"
+              [ngClass]="{'active': isMenuTabClicked == true}">
+          Menu</li>
+          <li (click)="selectTab('review')" class="nav-item nav-link text-padding info-tab-layout wbdv"
+              [ngClass]="{'active': isReviewTabClicked == true}">
+            Reviews</li>
+          <li  (click)="selectTab('reservation')" class="nav-item nav-link text-padding info-tab-layout wbdv"
+               [ngClass]="{'active': isReservationTabClicked == true}">
+            Reservation</li>
+        </ul>
+
+      </div>
+
+      <div *ngIf="isInfoTabClicked" class="details-section padding">
+        <div class=" nav-item nav-link text-padding info-tab-layout">
+         <app-restaurant-information [restaurant]="restaurant"></app-restaurant-information>
+        </div>
+      </div>
+      <div *ngIf="isMenuTabClicked" class="details-section padding">
+        <div class=" nav-item nav-link text-padding info-tab-layout">
+          <p> in menu tab</p>
+        </div>
+      </div>
+
+      <div *ngIf="isReviewTabClicked" class="details-section padding">
+        <div class=" nav-item nav-link text-padding info-tab-layout">
+          <p> in review tab</p>
+        </div>
+      </div>
+      <div *ngIf="isReservationTabClicked" class="details-section padding">
+        <div class=" nav-item nav-link text-padding info-tab-layout">
+          <p> in reservation tab</p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
   </div>
 </div>
+

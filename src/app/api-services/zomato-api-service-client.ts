@@ -9,6 +9,7 @@ export class ZomatoApiServiceClient {
   LOCATION_API = 'https://developers.zomato.com/api/v2.1/cities';
   CUISINE_API = 'https://developers.zomato.com/api/v2.1/cuisines?city_id=CITY_ID';
   LOCATION_DETAILS = 'https://developers.zomato.com/api/v2.1/location_details?entity_id=LOCATION_ID&entity_type=city'
+  RESTAURANT_API = 'https://developers.zomato.com/api/v2.1/restaurant?res_id=RESTAURANT_ID'
 
   findRestaurants(entityType, entityValue, searchKeyword, category, cuisine) {
       return fetch(this.API_URL.replace('ENTITY_TYPE', entityType)
@@ -56,6 +57,14 @@ export class ZomatoApiServiceClient {
           'user-key': this.API_KEY
         }
       }).then(response => response.json());
+  }
+
+  fetchRestaurant(restaurantId) {
+    return fetch(this.RESTAURANT_API.replace('RESTAURANT_ID', restaurantId), {
+      headers: {
+        'user-key': this.API_KEY
+      }
+    }).then(response => response.json());
   }
 
 }

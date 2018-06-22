@@ -1,0 +1,17 @@
+.text-padding {
+  padding-left: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.section-padding {
+  padding-top: 10px;
+}
+.material-icons.wbdv1{
+  color: green;
+}
+.material-icons.wbdv2{
+  color: red;
+}
+ul {
+  list-style-type: none;
+}

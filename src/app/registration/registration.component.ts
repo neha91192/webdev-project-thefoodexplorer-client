@@ -20,9 +20,11 @@ export class RegistrationComponent implements OnInit {
   constructor(private service: RegistrationServiceClient, private router: Router,
               private sharedService: SharedService) {
     this.selectedUserType = 'Customer';
+
   }
 
   ngOnInit() {
+
   }
 
   register() {
