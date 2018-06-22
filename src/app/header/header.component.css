@@ -32,3 +32,11 @@
   background-color:  #e9ecef;
   color: black;
 }
+.nav.nav-center {
+  margin:0;
+  float:none;
+}
+
+.navbar-inner{
+  text-align:center;
+}
