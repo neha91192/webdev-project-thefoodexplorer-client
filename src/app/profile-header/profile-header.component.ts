@@ -12,8 +12,12 @@ export class ProfileHeaderComponent implements OnInit {
 
   constructor(private router: Router, private sharedService: SharedService) {
     this.user = this.sharedService.user;
+    if (this.user.city !== null) {
+      this.addressNULL = true;
+    }
   }
 
+  addressNULL = false;
   user: User;
   ngOnInit() {
   }

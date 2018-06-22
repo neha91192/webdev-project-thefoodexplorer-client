@@ -8,12 +8,12 @@
         <div class="col-3">
           <h4>{{this.user.firstName}}'s Account Settings</h4>
           <ul>
-            <li><a (click)="showUpdateProfile()">Profile</a></li>
-            <li><a (click)="showUpdatePassword()">Password</a></li>
-            <li><a (click)="showUpdateEmail()">Email</a></li>
-            <li><a (click)="showUpdateLocations()">Locations</a></li>
-            <li><a (click)="showUpdateFriends()">Friends</a></li>
-            <li><a (click)="showUpdatePrivacy()">Privacy Settings</a></li>
+            <li><a [ngClass]="{'active': updateProfile == true}" (click)="showUpdateProfile()">Profile</a></li>
+            <li><a [ngClass]="{'active': updatePassword == true}" (click)="showUpdatePassword()">Password</a></li>
+            <li><a [ngClass]="{'active': updateEmail == true}" (click)="showUpdateEmail()">Email</a></li>
+            <li><a [ngClass]="{'active': updateLocations == true}" (click)="showUpdateLocations()">Locations</a></li>
+            <li><a [ngClass]="{'active': updateFriends == true}" (click)="showUpdateFriends()">Friends</a></li>
+            <li><a [ngClass]="{'active': updatePrivacySettings == true}" (click)="showUpdatePrivacy()">Privacy Settings</a></li>
           </ul>
         </div>
         <div class="col-6">
