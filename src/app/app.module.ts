@@ -88,11 +88,8 @@ import { RestaurantInformationComponent } from './restaurant-information/restaur
     UpdateProfileLocationsTabComponent,
     UpdateProfilePrivacySettingsTabComponent,
     UpdateProfileFriendsTabComponent,
-<<<<<<< HEAD
-    ReviewListComponent
-=======
+    ReviewListComponent,
     RestaurantInformationComponent
->>>>>>> bda28e23b2fda57bd1479368f30d0bd7cbad9046
   ],
   imports: [
     BrowserModule,
