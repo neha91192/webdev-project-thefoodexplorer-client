@@ -1,7 +1,18 @@
 img {
   border-radius: 50%;
+  border-width: 1px;
 }
 
 #profileHeaderDiv{
-padding-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.headerComponent{
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+.headerDetails{
+  padding-top: 40px;
 }

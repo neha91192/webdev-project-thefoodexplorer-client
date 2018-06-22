@@ -23,3 +23,6 @@ li a:hover:not(.active) {
   color: white;
 }
 
+.profileContentComponent{
+  padding-top: 30px;
+}

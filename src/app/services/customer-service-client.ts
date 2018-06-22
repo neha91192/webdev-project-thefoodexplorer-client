@@ -14,4 +14,18 @@ export class CustomerServiceClient {
       .then(response => {
         response.json(); });
   }
+
+  updateUserPassword(customer) {
+    return fetch(this.CUSTOMER_URL + '/password/' + customer.userId, {
+      credentials: 'include',
+      method: 'put',
+      body: JSON.stringify(customer),
+      headers: {
+        'content-type': 'application/json'
+      }
+
+    })
+      .then(response => {
+        response.json(); });
+  }
 }

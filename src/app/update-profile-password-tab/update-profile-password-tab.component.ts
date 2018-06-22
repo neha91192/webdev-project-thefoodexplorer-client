@@ -16,13 +16,25 @@ export class UpdateProfilePasswordTabComponent implements OnInit {
   }
 
   user: User;
+  password = '';
+  confirmPassword = ''
   ngOnInit() {
   }
 
-  updateUser(user) {
-    this.customerService.updateUser(this.user)
-      .then(response =>
-        console.log(response));
+  updateUser(newUser) {
+    if (this.password !== this.confirmPassword) {
+      alert('passwords do not match');
+    } else {
+      this.user.password = this.password;
+      console.log('user:', this.user);
+      this.customerService.updateUserPassword(this.user)
+        .then(response =>
+          console.log(response));
+    }
+  }
+
+  clear() {
+
   }
 
 

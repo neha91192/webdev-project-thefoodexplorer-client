@@ -1,4 +1,4 @@
-<div ng-view>
+<div class="headerComponent" ng-view>
   <div class="container">
     <div id="profileSection" class="container-fluid">
       <div id="profileHeaderDiv" class="container">
@@ -6,16 +6,16 @@
           <div class="col-3">
             <img src="https://profile.actionsprout.com/default.jpeg" width="200px" height="200px"/>
           </div>
-          <div class="col-6">
+          <div class="col-6 headerDetails">
             <h2>{{user.firstName}} {{user.lastName}}</h2>
-            <h4>Address</h4>
+            <h5 *ngIf="addressNULL" class="text-secondary">{{user.city}}, {{user.state}}</h5>
             <div>
               Friends
               Reviews
               Photos
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-3 headerDetails">
             <a href="">Add Profile photo</a><br/>
             <a routerLink="/profile/update">Update profile</a><br/>
           </div>
