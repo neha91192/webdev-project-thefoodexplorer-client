@@ -12,12 +12,14 @@ export class RestaurantSearchFiltersComponent implements OnInit {
   locations = [{id: '289', name: 'Boston'}, {id: '', name: 'Chicago'},
     {id: '', name: 'Denver'}, {id: '', name: 'New York City'}];
   categories = [];
+  cost = false;
   searchValue;
   selectedCategory: String = 'Categories';
   selectedCategoryId;
   locationValue;
   selectedLocationId;
   queryParams: ['location'] = 289;
+
 
 
   constructor(private service: ZomatoApiServiceClient, private router: Router, private activatedRoute: ActivatedRoute) {
@@ -173,7 +175,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
 
   }
 
-  cuisineMexican(){
+  cuisineMexican() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
     queryParams['cuisine'] = 73;
 
@@ -181,10 +183,32 @@ export class RestaurantSearchFiltersComponent implements OnInit {
       queryParams: queryParams});
 
   }
+  sortByCost() {
+    this.cost = true;
+  }
 
-  costLessThan20() {
+  sortByCostAsc() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
-    queryParams['cost'] = 20;
+    queryParams['sort'] = 'cost';
+    queryParams['order'] = 'asc';
+
+
+    this.router.navigate(['/search'], {relativeTo: this.activatedRoute,
+      queryParams: queryParams});
+  }
+
+  sortByCostDesc() {
+    const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
+    queryParams['sort'] = 'cost';
+    queryParams['order'] = 'desc';
+
+    this.router.navigate(['/search'], {relativeTo: this.activatedRoute,
+      queryParams: queryParams});
+  }
+
+  sortByRating() {
+    const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
+    queryParams['sort'] = 'rating';
 
     this.router.navigate(['/search'], {relativeTo: this.activatedRoute,
       queryParams: queryParams});

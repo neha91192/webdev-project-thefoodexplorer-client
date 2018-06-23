@@ -12,7 +12,7 @@
                  height="120" width="145" />
           </div>
           <div class="col-sm-7">
-            <h2 id="restaurant-list-details-name-row1" routerLink="/restaurant/{{restaurant.restaurant.id}}" >
+            <h2 class="text-danger" routerLink="/restaurant/{{restaurant.restaurant.id}}" >
               {{restaurant.restaurant.name}}</h2>
             <h6>{{restaurant.restaurant.location.locality}}</h6>
             <p id="restaurant-list-details-address-row1">{{restaurant.restaurant.location.address}}</p>
@@ -23,12 +23,10 @@
         </div>
         <div class="row container-fluid">
           <dl class="row">
-            <dt id="restaurant-list-description-cuisines-row2" class="col-sm-3">Cuisines</dt>
-            <dd class="col-sm-9">{{restaurant.restaurant.cuisines}}</dd>
+            <dt id="restaurant-list-description-cuisines-row2" class="col-sm-4">Cuisines</dt>
+            <dd class="col-sm-8">{{restaurant.restaurant.cuisines}}</dd>
             <dt id="restaurant-list-description-cost-row2" class="col-sm-3">Cost for two</dt>
-            <dd class="col-sm-9">{{restaurant.restaurant.average_cost_for_two}} {{restaurant.restaurant.currency}}</dd>
-            <dt id="restaurant-list-description-timings-row2" class="col-sm-3">Hours</dt>
-            <dd class="col-sm-9">4:30PM to 10PM (Mon-Thu),5PM to 11PM (Fri-Sat), 4PM...</dd>
+            <dd class="col-sm-8">{{restaurant.restaurant.average_cost_for_two}} {{restaurant.restaurant.currency}}</dd>
           </dl>
         </div>
       </div>
