@@ -1,6 +1,6 @@
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h4 class="modal-title">The Food Explorer - Login or Sign up</h4>
+    <span class="modal-title">The Food Explorer - Login or Sign up</span>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -9,10 +9,10 @@
 
     <div class="row justify-content-center">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-outline-success" [ngClass]="{'active': this.isLogin}">
+      <label class="btn btn-outline-danger" [ngClass]="{'active': this.isLogin}">
         <input type="radio" name="options" id="option1" autocomplete="off" (click)="toggleLogin()"> Log In
       </label>
-      <label class="btn btn-outline-success" [ngClass]="{'active': this.isSignUp}">
+      <label class="btn btn-outline-danger" [ngClass]="{'active': this.isSignUp}">
         <input type="radio" name="options" id="option2" autocomplete="off" (click)="toggleSignup()"> Sign up
       </label>
     </div>
@@ -29,10 +29,13 @@
 
   </div>
   <div class="modal-footer">
-<span class="text-primary">All you need is good food</span>
+<span class="text-primary"></span>
   </div>
 </ng-template>
 
-<li (click)="open(content)">
-  <button class="btn btn-outline-light padding"><span class="padding">Login or Register</span></button>
-</li>
+
+  <li (click)="open(content)" class="padding">
+    <button class="btn btn-outline-light padding"><span class="padding">Login or Register</span></button>
+  </li>
+
+

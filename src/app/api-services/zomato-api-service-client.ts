@@ -1,6 +1,7 @@
 export class ZomatoApiServiceClient {
 
-  API_KEY = '8cde1fa8bdef3553e358b75b2144cda0';
+  API_KEY2 = '8cde1fa8bdef3553e358b75b2144cda0';
+  API_KEY = '4f0d82b6ca90f4d6783df0f123088f88';
   API_URL =
     'https://developers.zomato.com/api/v2.1/search?entity_type=ENTITY_TYPE&entity_id=ENTITY_VALUE&q=SEARCH_KEYWORD' +
     '&category=CATEGORY&cuisines=CUISINE';

@@ -17,7 +17,7 @@
   padding-bottom: 5px;
 }
 .modal-header {
-  background-color: #dc3545;
+  background-color: #040505;
   color: aliceblue;
 }
 .close {
@@ -41,4 +41,7 @@
 
 .info {
   font-style: italic;
+}
+.modal-title {
+  font-size: 18px;
 }

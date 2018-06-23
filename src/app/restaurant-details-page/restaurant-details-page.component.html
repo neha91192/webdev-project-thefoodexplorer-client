@@ -7,15 +7,16 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="#">Home</a></li>
     <li class="breadcrumb-item"><a href="#">Restaurants</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{restaurant.name}}</li>
+    <li *ngIf="restaurant !== undefined" class="breadcrumb-item active" aria-current="page">{{restaurant.name}}</li>
   </ol>
 </nav>
   <div class="container">
-    <div class="row">
-      <img src="{{restaurant.featured_image}}"
-           class="img-fluid img-thumbnail" alt="Responsive image">
+    <div *ngIf="restaurant !== undefined" class="row">
+      <img class="img-fluid img-thumbnail" src="{{restaurant.featured_image}}"
+           onerror="if (this.src != 'error.jpg')
+             this.src = 'https://images.pexels.com/photos/54455/cook-food-kitchen-eat-54455.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'">
     </div>
-    <div class="row">
+    <div *ngIf="restaurant !== undefined" class="row">
       <div class="details-section">
         <h3 class="padding">{{restaurant.name}}</h3>
         <div class="row">

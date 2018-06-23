@@ -46,6 +46,8 @@ import { ReviewListComponent } from './review-list/review-list.component';
 import { RestaurantInformationComponent } from './restaurant-information/restaurant-information.component';
 import { CustomerServiceClient } from './services/customer-service-client';
 import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
+import { OwnerSignupComponent } from './owner-signup/owner-signup.component';
+import {UploadService} from './api-services/upload';
 
 
 @NgModule({
@@ -85,7 +87,8 @@ import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.compo
     UpdateProfileLocationsTabComponent,
     ReviewListComponent,
     RestaurantInformationComponent,
-    RestaurantMenuComponent
+    RestaurantMenuComponent,
+    OwnerSignupComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +102,8 @@ import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.compo
     LoginServiceClient,
     SharedService,
     ProfileServiceClient,
-    CustomerServiceClient
+    CustomerServiceClient,
+    UploadService
   ],
   bootstrap: [AppComponent],
   schemas: [

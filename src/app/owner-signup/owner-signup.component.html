@@ -1,0 +1,90 @@
+<app-header></app-header>
+<div class="container">
+  <div class="signupform">
+    <div class="row padding">
+      <div class="col-sm-12 col-md-4 col-lg-4">
+        <h4 class="text-danger">Sign up as Restaurant Owner</h4>
+      </div>
+    </div>
+    <div class="row padding">
+      <div class="col-sm-12 col-md-3 col-lg-3">
+        <label for="username"><h5>Username</h5></label>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <input [(ngModel)]="this.username" id="username"
+               class="form-control" placeholder="Username">
+      </div>
+    </div>
+    <div class="row padding">
+      <div class="col-sm-12 col-md-3 col-lg-3">
+        <label for="password"><h5>Password</h5></label>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <input [(ngModel)]="this.password" type="password" id="password"
+               class="form-control" placeholder="Password">
+      </div>
+
+    </div>
+    <div class="row padding">
+      <div class="col-sm-12 col-md-3 col-lg-3">
+        <label for="confirmPassword"><h5>Confirm Password</h5></label>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <input [(ngModel)]="this.confirmPassword" type="password" id="confirmPassword"
+               class="form-control" placeholder="Confirm Password">
+      </div>
+
+    </div>
+    <hr/>
+    <h5 class="text-danger">Claim your Restaurant</h5>
+    <div class="row padding">
+      <div class="col-sm-12 col-md-3 col-lg-3">
+        <label for="location"><h5>Enter Location</h5></label>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <input id="location" type="text" [(ngModel)]="locationValue"
+               placeholder="City Name" class="form-control"/>
+      </div>
+
+    </div>
+    <div class="row padding">
+      <div class="col-sm-12 col-md-3 col-lg-3">
+        <label for="restaurantName"><h5>Restaurant Name</h5></label>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-4">
+        <input id="restaurantName" [(ngModel)]="searchValue" placeholder="Enter Restaurant name" class="form-control"/>
+      </div>
+      <div class="col-sm-12 col-md-2 col-lg-2">
+        <button (click)="findRestaurants()" class="btn btn-outline-danger">Look up</button>
+      </div>
+
+    </div>
+
+    <div *ngIf="restaurantList.length > 0" class="padding">
+      <div class="row padding-around">
+        <span class="text-danger padding-around"><h5>Search Results</h5></span>
+      </div>
+      <ul *ngFor="let restaurant of restaurantList" class="list-group">
+        <div class="row">
+          <div class="col-sm-12 col-md-9 col-lg-9">
+            <li [ngClass]="{'active': restaurantId == restaurant.restaurant.id}"
+                (click)="selectRestaurant(restaurant.restaurant.id)"
+                 class="list-group-item wbdv">
+              <h5>{{restaurant.restaurant.name}}</h5>
+              <h6 class="text-secondary">{{restaurant.restaurant.location.locality}}</h6>
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+
+    <hr/>
+
+    <div *ngIf="restaurantId !== undefined" class="row padding">
+      <div class="col-sm-12 col-md-3 col-lg-3 float-right">
+        <button (click)="register()" class="btn btn-outline-danger">Create Account</button>
+      </div>
+
+    </div>
+  </div>
+</div>

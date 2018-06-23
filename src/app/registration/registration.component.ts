@@ -54,4 +54,9 @@ export class RegistrationComponent implements OnInit {
 
   }
 
+  openRegisterOwner() {
+    this.c('Cross click');
+    this.router.navigate(['register']);
+  }
+
 }
