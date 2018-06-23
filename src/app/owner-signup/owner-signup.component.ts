@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
 import { PaginationModule } from 'ngx-pagination-bootstrap';
+import {Owner} from '../models/owner-model-client';
+import {Restaurant} from '../models/restaurant.model.client';
 
 @Component({
   selector: 'app-owner-signup',
@@ -16,27 +18,47 @@ export class OwnerSignupComponent implements OnInit {
   locationId = 289;
   searchValue = '';
   resultSize;
+  noOfPages;
+  pagesList;
   currentPage;
   username;
   password;
   confirmPassword;
+
   constructor(private service: ZomatoApiServiceClient) {
     this.locationId = 289;
     this.isActive = false;
-    console.log(this.restaurantId);
+    this.noOfPages = 8;
+    this.resultSize = 80;
+    this.currentPage = 1;
   }
 
   ngOnInit() {
     this.locationId = 289;
+    this.noOfPages = 8;
+    this.resultSize = 80;
+    this.currentPage = 1;
   }
 
-  findRestaurants(start) {
-
-    this.service.findRestaurants(this.entity_type, this.locationId, this.searchValue, '', '', start , 10)
+  findRestaurants(page) {
+    const count = 10;
+    if (this.currentPage !== undefined) {
+      this.currentPage = page;
+    }
+    let start = 1;
+    if (this.currentPage !== 1) {
+      start =  (this.currentPage * 10) + 1;
+    }
+    this.service.findRestaurants(this.entity_type, this.locationId, this.searchValue, '', '', start , count)
       .then(response => {
-        this.resultSize = response.results_found;
+        if (response.results_found < 100) {
+          this.resultSize = response.results_found;
+          this.noOfPages = Math.ceil(this.resultSize / 10);
+        } else {
+          this.resultSize = 80;
+          this.noOfPages = 8;
+        }
         this.restaurantList = response.restaurants;
-
       });
   }
 
@@ -49,7 +71,11 @@ export class OwnerSignupComponent implements OnInit {
 
   register() {
     if (this.confirmPassword === this.password) {
-
+      const owner = new Owner();
+      owner.username = this.username;
+      owner.password = this.password;
+      owner.restaurant = new Restaurant();
+      owner.restaurant.id = this.restaurantId;
     } else {
       alert ('Passwords do not match!');
     }

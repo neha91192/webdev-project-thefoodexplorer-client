@@ -22,7 +22,7 @@ import {ZomatoApiServiceClient} from './api-services/zomato-api-service-client';
 import {routing} from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { FacebookLoginComponent } from './facebook-login/facebook-login.component';
+import { SocialLoginComponent } from './social-login/social-login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileHeaderComponent } from './profile-header/profile-header.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
@@ -50,7 +50,26 @@ import { OwnerSignupComponent } from './owner-signup/owner-signup.component';
 import {UploadService} from './api-services/upload-s3-service';
 import {MediaServiceClient} from './services/media-service.client';
 import {PaginationModule} from 'ngx-pagination-bootstrap';
+import {OwnerServiceClient} from './services/owner-service-client';
 
+import {SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider} from 'angular5-social-login';
+
+
+export function getAuthServiceConfigs() {
+  const config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider('2013205002267162')
+      },
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider('1054791685814-o4dtghh2uq8dspupulebnula3kgtvg5o.apps.googleusercontent.com')
+      },
+    ]
+  );
+  return config;
+}
 
 
 @NgModule({
@@ -71,7 +90,7 @@ import {PaginationModule} from 'ngx-pagination-bootstrap';
     RestaurantSearchListComponent,
     LoginComponent,
     LoginFormComponent,
-    FacebookLoginComponent,
+    SocialLoginComponent,
     ProfileComponent,
     ProfileHeaderComponent,
     RegistrationComponent,
@@ -98,7 +117,8 @@ import {PaginationModule} from 'ngx-pagination-bootstrap';
     FormsModule,
     NgbModule.forRoot(),
     routing,
-    PaginationModule
+    PaginationModule,
+    SocialLoginModule
   ],
   providers: [
     ZomatoApiServiceClient,
@@ -108,12 +128,20 @@ import {PaginationModule} from 'ngx-pagination-bootstrap';
     ProfileServiceClient,
     CustomerServiceClient,
     UploadService,
-    MediaServiceClient
+    MediaServiceClient,
+    OwnerServiceClient,
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
   ],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ]
 })
+
+
+
 export class AppModule { }
 
