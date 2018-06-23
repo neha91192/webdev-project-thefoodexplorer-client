@@ -1,47 +1,51 @@
 <div>
   Filters
-  <h6>Sort by</h6>
-  <a style="font-size: 15px" href="#">Popularity</a>
-  <br/><a style="font-size: 15px" href="#">Rating</a>
-  <br/><a style="font-size: 15px" href="#">Cost</a>
-  <br/><a style="font-size: 15px" href="#">Recently added</a>
+  <div>
+    <h6>Sort by</h6>
+    <div>
+      <a style="font-size: 15px" href="#">Has online delivery</a>
+      <br/><a style="font-size: 15px" href="#">Popularity</a>
+      <br/><a style="font-size: 15px" href="#">Rating</a>
+    </div>
+  </div>
 
-  <h6>Category</h6>
-  <a style="font-size: 15px" href="#">Dine-In</a>
-  <br/><a style="font-size: 15px" href="#">Delivery</a>
-  <br/><a style="font-size: 15px" href="#">Drinks & Nightlife</a>
-  <br/><a style="font-size: 15px" href="#">Take Out</a>
+  <div>
+    <h6>Category</h6>
+    <div>
+      <a style="font-size: 15px" (click)="searchCategoryDineIn()">Dine-In</a>
+      <br/><a style="font-size: 15px" (click)="searchCategoryDelivery()">Delivery</a>
+      <br/><a style="font-size: 15px" (click)="searchCategoryDrinks()">Drinks & Nightlife</a>
+      <br/><a style="font-size: 15px" (click)="searchCategoryTakeout()">Take Out</a>
+    </div>
+  </div>
 
-  <h6>Location</h6>
-  <a style="font-size: 15px" href="#">City</a>
 
-  <h6>Cuisine</h6>
-  <a style="font-size: 15px" href="#">Pizza</a>
-  <br/><a style="font-size: 15px" href="#">Sandwich</a>
-  <br/><a style="font-size: 15px" href="#">Fast Food</a>
-  <br/><a style="font-size: 15px" href="#">American</a>
-  <br/><a style="font-size: 15px" href="#">Italian</a>
-  <br/><a style="font-size: 15px" href="#">Donuts</a>
-  <br/><a href="#">Chinese</a>
-  <br/><a href="#">Breakfast</a>
-  <br/><a href="#">Coffee & Tea</a>
-  <br/><a href="#">Seafood</a>
+  <div>
+    <h6>Cuisine</h6>
+    <div>
+      <br/><a style="font-size: 15px" (click)="cuisineAmerican()">American</a>
+      <br/><a style="font-size: 15px" (click)="cuisineAsian()">Asian</a>
+      <br/><a style="font-size: 15px" (click)="cuisineBakery()">Bakery</a>
+      <br/><a style="font-size: 15px" (click)="cuisineBreakfast()">Breakfast</a>
+      <br/><a style="font-size: 15px" (click)="cuisineCafe()">Cafe</a>
+      <br/><a (click)="cuisineChinese()">Chinese</a>
+      <br/><a (click)="cuisineDeserts()">Deserts</a>
+      <br/><a (click)="cuisinefastFood()">Fast food</a>
+      <br/><a (click)="cuisineFrench()">French</a>
+      <br/><a (click)="cuisineFusion()">Fusion</a>
+      <br/><a (click)="cuisineIndian()">Indian</a>
+      <br/><a (click)="cuisineItalian()">Italian</a>
+      <br/><a (click)="cuisineMexican()">Mexican</a>
+    </div>
+  </div>
 
-  <h6>Establishment type</h6>
-  <a href="#">Casual Dining</a>
-  <br/><a href="#">Bakeries</a>
-  <br/><a href="#">Quick bites</a>
-  <br/><a href="#">Bars</a>
-  <br/><a href="#">Cafes</a>
-  <br/><a href="#">Fast food</a>
-  <br/><a href="#">Fine Dining</a>
-  <br/><a href="#">Wine Bars</a>
-  <br/><a href="#">Coffee & Tea</a>
-  <br/><a href="#">Seafood</a>
-
-  <h6>Cost for Two</h6>
-  <a href="#">Less than 20$</a>
-  <br/><a href="#">20$ to 30$</a>
-  <br/><a href="#">30$ to 50$</a>
-  <br/><a href="#">$50+</a>
+  <div>
+    <h6>Cost for Two</h6>
+    <div>
+      <a (click)="costLessThan20()">Less than 20$</a>
+      <br/><a href="#">20$ to 30$</a>
+      <br/><a href="#">30$ to 50$</a>
+      <br/><a href="#">$50+</a>
+    </div>
+  </div>
 </div>

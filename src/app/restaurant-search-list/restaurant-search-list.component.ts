@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-restaurant-search-list',
@@ -14,49 +15,48 @@ export class RestaurantSearchListComponent implements OnInit {
   locationId;
   searchKeyword;
   cuisine;
+  entity_type;
   restaurants = [];
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
 
   constructor(private zomatoService: ZomatoApiServiceClient, private route: ActivatedRoute) {
     // this.route.params.subscribe(params => this.setParams(params));
-
+    this.entity_type = 'city';
     this.route.queryParams.subscribe(params => this.setParams(params));
+
+
   }
 
   setParams(params) {
-    this.location = params['locationId'];
+    this.location = params['location'];
     this.searchKeyword = params['value'];
-    if (params['categoryId'] === 'ALL' || params['categoryId'] === undefined) {
-      this.category = '';
+    this.category = params['category'];
+
+    if (params['cuisine'] !== undefined) {
+      this.cuisine = params['cuisine'];
     } else {
-      this.category = params['categoryId'];
+      this.cuisine = '';
     }
-    this.cuisine = params['cuisine'];
+
+
     this.loadRestaurants(this.location, this.searchKeyword, this.category, this.cuisine);
   }
 
   loadRestaurants(location, searchKeyword, category, cuisine) {
-    const entity_type = 'city';
-    if (location === 'ALL') {
-      location = 289;
-    } else {
-      // this.fetchLocationIdFromAPI(location);
-      // location = this.locationId;
-      location = 289;
-    }
-    if (searchKeyword === undefined) {
-      searchKeyword = '';
-    } else {
-      searchKeyword = decodeURI(searchKeyword);
-     // console.log(searchKeyword);
-    }
 
-    console.log(entity_type);
+    this.location = location;
+    this.searchKeyword = decodeURI(searchKeyword);
+    this.category = category;
+    this.cuisine = cuisine;
+
+
     console.log(location);
     console.log(searchKeyword);
     console.log(category);
     console.log(cuisine);
 
-    this.zomatoService.findRestaurants(entity_type, location, searchKeyword, category, cuisine)
+    this.zomatoService.findRestaurants(this.entity_type, this.location, searchKeyword, category, cuisine)
       .then(response => {
         this.restaurants = response.restaurants;
         // console.log(response);
@@ -73,6 +73,8 @@ export class RestaurantSearchListComponent implements OnInit {
   }
   ngOnInit() {
 
+    this.category = '';
+    this.searchKeyword = '';
   }
 
 

@@ -11,12 +11,15 @@
             <li><a [ngClass]="{'active': profileInterests == true}" (click)="showProfileInterests()">Interests</a></li>
           </ul>
         </div>
-        <div class="col-9">
+        <div class="col-6">
           <div *ngIf="profileOverview"><app-profile-overview></app-profile-overview></div>
           <div *ngIf="profileReviews"><app-profile-reviews></app-profile-reviews></div>
           <div *ngIf="profileFollowers"><app-profile-followers></app-profile-followers></div>
           <div *ngIf="profilefollowing"><app-profile-following></app-profile-following></div>
           <div *ngIf="profileInterests"><app-profile-interests></app-profile-interests></div>
+        </div>
+        <div class="col-3">
+          find all people that can be followed
         </div>
 
       </div>
