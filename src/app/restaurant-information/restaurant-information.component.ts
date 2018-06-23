@@ -12,6 +12,7 @@ export class RestaurantInformationComponent implements OnInit, OnChanges {
   @Input() restaurant: object;
   mapLink;
   directionsLink;
+  infoDiag;
 
   information;
 
@@ -27,6 +28,22 @@ export class RestaurantInformationComponent implements OnInit, OnChanges {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+    const restuarantLatLong = new google.maps.LatLng(this.information.location.latitude, this.information.location.longitude);
+    const marker = new google.maps.Marker({
+      position: restuarantLatLong,
+      map: this.map,
+      title: this.information.name
+    });
+    this.infoDiag = new google.maps.InfoWindow();
+    this.addMarker(marker);
+
+  }
+
+  addMarker(marker) {
+    google.maps.event.addListener(marker, 'click', function (e) {
+      this.infoDiag.setContent('<div style = "width:200px;min-height:40px">' + this.information.location.address + '</div>');
+      this.infoDiag.open(this.map, marker);
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
