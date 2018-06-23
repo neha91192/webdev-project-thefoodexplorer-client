@@ -5,7 +5,7 @@
 <div class="padding inner-container">
 <nav aria-label="breadcrumb padding">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
     <li class="breadcrumb-item"><a href="#">Restaurants</a></li>
     <li *ngIf="restaurant !== undefined" class="breadcrumb-item active" aria-current="page">{{restaurant.name}}</li>
   </ol>
@@ -20,11 +20,11 @@
       <div class="details-section">
         <h3 class="padding">{{restaurant.name}}</h3>
         <div class="row">
-          <div class="col-10">
+          <div class="col-sm-9 col-md-10 col-lg-10">
             <h6 *ngIf="restaurant.location !== undefined" class="text-secondary text-padding">{{restaurant.location.locality_verbose}}</h6>
           </div>
-          <div class="col-2 float-right">
-            <h5>{{restaurant.user_rating.aggregate_rating}}/5</h5>
+          <div class="col-sm-3 col-md-2 col-lg-2 float-right">
+            <h5 class="text-padding">{{restaurant.user_rating.aggregate_rating}}/5</h5>
           </div>
         </div>
 
@@ -39,7 +39,7 @@
               [ngClass]="{'active': isInfoTabClicked == true}">
             Information</li>
           <li (click)="selectTab('menu')" class="nav-item nav-link text-padding info-tab-layout wbdv"
-              [ngClass]="{'active': isMenuTabClicked == true}">
+              [ngClass]="{'active': isMenuTabClicked == true}"><i class="material-icons">local_dining</i>
           Menu</li>
           <li (click)="selectTab('review')" class="nav-item nav-link text-padding info-tab-layout wbdv"
               [ngClass]="{'active': isReviewTabClicked == true}">
