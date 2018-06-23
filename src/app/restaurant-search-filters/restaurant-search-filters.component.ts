@@ -18,15 +18,16 @@ export class RestaurantSearchFiltersComponent implements OnInit {
   selectedCategoryId;
   locationValue;
   selectedLocationId;
-  queryParams: ['location'] = 289;
+  queryParams;
 
 
 
   constructor(private service: ZomatoApiServiceClient, private router: Router, private activatedRoute: ActivatedRoute) {
-
+    this.queryParams['location'] = 289;
   }
 
   ngOnInit() {
+    this.queryParams['location'] = 289;
   }
 
   searchCategoryDineIn() {

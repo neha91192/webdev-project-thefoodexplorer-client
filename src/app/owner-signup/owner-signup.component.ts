@@ -49,7 +49,8 @@ export class OwnerSignupComponent implements OnInit {
     if (this.currentPage !== 1) {
       start =  (this.currentPage * 10) + 1;
     }
-    this.service.findRestaurants(this.entity_type, this.locationId, this.searchValue, '', '', start , count)
+    this.service.findRestaurants(this.entity_type, this.locationId,
+      this.searchValue, '', '', '', '', start , count  )
       .then(response => {
         if (response.results_found < 100) {
           this.resultSize = response.results_found;
