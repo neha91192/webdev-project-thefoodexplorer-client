@@ -5,7 +5,10 @@
         <div class="row" id="restaurant-list-details-header-row1">
           <div class="col-sm-3">
             <img src={{restaurant.restaurant.thumb}}
-                 class="rounded float-left"
+                 onerror="if (this.src != 'error.jpg')
+             this.src = 'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'"
+
+            class="rounded float-left"
                  height="120" width="145" />
           </div>
           <div class="col-sm-7">

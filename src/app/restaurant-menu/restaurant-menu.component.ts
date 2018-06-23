@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UploadService} from '../api-services/upload';
 
 @Component({
   selector: 'app-restaurant-menu',
@@ -7,13 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantMenuComponent implements OnInit {
   fileToUpload: File = null;
-  constructor() { }
+  data;
+  uploadedImage;
+  constructor(private uploadService: UploadService) { }
 
   ngOnInit() {
   }
 
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
+    console.log(this.fileToUpload);
+
+  }
+
+  uploadFile() {
+    this.data = this.uploadService.uploadfile(this.fileToUpload);
+    this.uploadedImage = this.data.Location;
+    console.log(this.data.Location);
   }
 
 }

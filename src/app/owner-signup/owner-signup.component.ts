@@ -14,6 +14,9 @@ export class OwnerSignupComponent implements OnInit {
   locationValue = '';
   locationId = 289;
   searchValue = '';
+  username;
+  password;
+  confirmPassword;
   constructor(private service: ZomatoApiServiceClient) {
     this.locationId = 289;
     this.isActive = false;

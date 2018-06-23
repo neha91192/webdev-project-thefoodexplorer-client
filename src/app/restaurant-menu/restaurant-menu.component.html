@@ -1,6 +1,43 @@
-<div class="form-group">
-  <label for="file">Choose File</label>
-  <input type="file"
-         id="file"
-         (change)="handleFileInput($event.target.files)">
+
+
+
+<!--<div class="row">
+  <div class="col-2">
+    <label for="file"> Choose Image</label>
+  </div>
+  <div class="col-4">
+    <input id="file" type="file" (change)="handleFileInput($event.target.files)">
+  </div>
+</div>-->
+
+<div class="container">
+  <div class="row padding">
+    <span class="text-danger"><h5>Please upload image of Menu</h5></span>
+  </div>
+  <form class="md-form">
+    <div class="file-field">
+      <div class="z-depth-1-half mb-4">
+      </div>
+      <div class="d-flex">
+        <div class="float-left">
+          <div class="row">
+            <div class="col-3">
+              <label for="file" class="btn btn-secondary">Select Image</label>
+            </div>
+
+              <span class="padding">{{fileToUpload.name}}</span>
+              <input class="form-control" style="visibility:hidden;" id="file" type="file"
+                     (change)="handleFileInput($event.target.files)">
+          </div>
+            <div class="row">
+              <div *ngIf="fileToUpload.name !== null" class="col-2">
+                <button class="btn btn-outline-success" (click)="uploadedImage">Save Menu</button>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </form>
 </div>
+

@@ -51,6 +51,7 @@ import { RestaurantInformationComponent } from './restaurant-information/restaur
 import { CustomerServiceClient } from './services/customer-service-client';
 import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
 import { OwnerSignupComponent } from './owner-signup/owner-signup.component';
+import {UploadService} from './api-services/upload';
 
 
 @NgModule({
@@ -108,7 +109,8 @@ import { OwnerSignupComponent } from './owner-signup/owner-signup.component';
     LoginServiceClient,
     SharedService,
     ProfileServiceClient,
-    CustomerServiceClient
+    CustomerServiceClient,
+    UploadService
   ],
   bootstrap: [AppComponent],
   schemas: [
