@@ -1,18 +1,19 @@
 <div class="container">
-  <div>
+  <div *ngIf="userData !== undefined">
     <h4 class="text-danger">
-      About {{user.firstName}}
+      About {{userData.firstName}}
     </h4>
-    <p *ngIf="user.bio!== null" class="text-secondary">
-      {{user.bio}}
-    </p>
-    <p *ngIf="user.bio === null && user.dateOfBirth === null && user.city === null" class="text-secondary" >
+
+      <p class="text-secondary">
+        {{userData.bio}}
+      </p>
+    <p *ngIf="userData.bio === null && userData.dateOfBirth === null && userData.city === null" class="text-secondary" >
       You have'nt told us yet anything about you! Please update your profile</p>
-    <h6 *ngIf="user.city !== null">Where I stay</h6>
-    <p *ngIf="user.city !== null" class="text-secondary">{{user.city}} {{user.state}}</p>
-    <h6 *ngIf="user.dateOfBirth !== null">Wish me on</h6>
-    <p *ngIf="user.dateOfBirth !== null" class="text-secondary">{{user.dateOfBirth}}</p>
+    <h6 *ngIf="userData.city !== null">Where I stay</h6>
+    <p *ngIf="userData.city !== null" class="text-secondary">{{userData.city}} {{userData.state}}</p>
+    <h6 *ngIf="userData.dateOfBirth !== null">Wish me on</h6>
+    <p *ngIf="userData.dateOfBirth !== null" class="text-secondary">{{userData.dateOfBirth}}</p>
+    </div>
     <!--<h3>Things I love</h3>-->
     <!--<p>{{user.interests}}</p>-->
-  </div>
 </div>

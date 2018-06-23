@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Router} from '@angular/router';
 import {isBoolean} from 'util';
 import {SharedService} from '../services/shared-service-client';
@@ -9,10 +9,12 @@ import {User} from '../models/user.model.client';
   templateUrl: './profile-contents.component.html',
   styleUrls: ['./profile-contents.component.css']
 })
-export class ProfileContentsComponent implements OnInit {
+export class ProfileContentsComponent implements OnInit, OnChanges {
 
-  constructor(private router: Router, private sharedService: SharedService) {
-    this.user = this.sharedService.user;
+  @Input() user: User;
+  userData: User;
+
+  constructor(private router: Router) {
   }
 
   profileOverview = true;
@@ -100,15 +102,9 @@ export class ProfileContentsComponent implements OnInit {
     }
   }
 
-  showProfileInterests() {
-    if (!this.profileInterests) {
-      this.profileOverview = false;
-      this.profileFriends = false;
-      this.profileReviews = false;
-      this.profileFollowers = false;
-      this.profilefollowing = false;
-      this.profileInterests = true;
-      this.discoverPeople = false;
+  ngOnChanges(changes: SimpleChanges) {
+    if (typeof changes['user'] !== 'undefined') {
+      this.userData = this.user;
     }
   }
 }

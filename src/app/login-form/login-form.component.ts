@@ -33,7 +33,7 @@ export class LoginFormComponent implements OnInit {
       if (resp === null) {
         this.loginFailureMessage = 'Invalid username or password';
       } else {
-        this.sharedService.user = resp;
+        // this.sharedService.user = resp;
         c('Cross click');
         this.router.navigate(['profile']);
       }

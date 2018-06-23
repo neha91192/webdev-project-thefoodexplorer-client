@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div ng-view>
   <div>
-    <app-profile-header></app-profile-header>
-    <app-profile-contents></app-profile-contents>
+    <app-profile-header [user] = "user"></app-profile-header>
+    <app-profile-contents [user] = "user"></app-profile-contents>
   </div>
 </div>

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {SharedService} from '../services/shared-service-client';
+import {Component, Input, OnInit, SimpleChanges, OnChanges} from '@angular/core';
 import {User} from '../models/user.model.client';
 
 @Component({
@@ -7,14 +6,19 @@ import {User} from '../models/user.model.client';
   templateUrl: './profile-overview.component.html',
   styleUrls: ['./profile-overview.component.css']
 })
-export class ProfileOverviewComponent implements OnInit {
+export class ProfileOverviewComponent implements OnInit, OnChanges {
+ @Input() user: User;
+  constructor() {
 
-  constructor(private sharedService: SharedService) {
-    this.user = this.sharedService.user;
-    console.log(this.user);
   }
-  user: User;
+  userData: User;
   ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (typeof changes['user'] !== 'undefined') {
+      this.userData = this.user;
+    }
   }
 
 }

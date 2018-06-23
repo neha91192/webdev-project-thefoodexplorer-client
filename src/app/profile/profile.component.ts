@@ -12,15 +12,19 @@ import {User} from '../models/user.model.client';
 export class ProfileComponent implements OnInit {
 
   user: User;
-  constructor(private sharedService: SharedService, private profileService: ProfileServiceClient) {
+  constructor(private router: Router, private profileService: ProfileServiceClient) {
     this.fetchProfile();
   }
 
   fetchProfile() {
     this.profileService.fetchProfile()
       .then(user => {
-        this.sharedService.user = user;
-        this.user = user;
+        if (user === null) {
+          alert('You are not logged in! Please login to continue.');
+          this.router.navigate(['home']);
+        } else if (user !== null){
+          this.user = user;
+        }
       });
   }
 

@@ -4,6 +4,12 @@ export class ProfileServiceClient {
   fetchProfile() {
     return fetch(this.PROFILE_URL, {
       credentials: 'include'
-    }).then(response => response.json());
+    }).then(response => {
+      if (response.status === 401) {
+        return null;
+      } else {
+        return response.json();
+      }
+    });
   }
 }

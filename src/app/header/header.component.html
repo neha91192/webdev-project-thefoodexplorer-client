@@ -37,8 +37,8 @@
 
 
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <app-login></app-login>
-        <li *ngIf="false" class="nav-item link-title">
+        <div *ngIf="!isLoggedIn"><app-login></app-login></div>
+        <li *ngIf="isLoggedIn" class="nav-item link-title">
           <a  (click)="profile()">
             <i class="material-icons icon-padding">account_box</i>
             <span class="text-padding">
@@ -46,9 +46,12 @@
         </span>
           </a>
         </li>
-        <li *ngIf="false"  class="nav-item link-title">
+        <li *ngIf="isLoggedIn"  class="nav-item link-title">
+          <a (click)="logout()">
           <i class="material-icons icon-padding">power_settings_new</i>
-          <span class="text-padding">Logout</span></li>
+          <span class="text-padding">Logout</span>
+          </a>
+        </li>
       </ul>
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, SimpleChanges} from '@angular/core';
 import {SharedService} from '../services/shared-service-client';
 import {User} from '../models/user.model.client';
 
@@ -15,6 +15,12 @@ export class ProfileReviewsComponent implements OnInit {
 
   user: User;
   ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (typeof changes['user'] !== 'undefined') {
+      this.userData = this.user;
+    }
   }
 
 }

@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <input [(ngModel)]="this.firstName"
+      <input [(ngModel)]="firstName"
              placeholder="First name"
              class="form-control"/>
     </div>
     <div class="col-sm">
-      <input [(ngModel)]="this.lastName"
+      <input [(ngModel)]="lastName"
              placeholder="Last name"
              class="form-control"/>
     </div>
     <div class="col-sm">
-      <button class="btn-outline-success"><i class="fas fa-search"></i></button>
+      <button (click)="searchUsers()" class=" btn btn-outline-success"><i class="fas fa-search"></i></button>
     </div>
   </div>
 </div>

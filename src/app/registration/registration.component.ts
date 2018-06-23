@@ -17,8 +17,7 @@ export class RegistrationComponent implements OnInit {
   name;
   selectedUserType;
 
-  constructor(private service: RegistrationServiceClient, private router: Router,
-              private sharedService: SharedService) {
+  constructor(private service: RegistrationServiceClient, private router: Router) {
     this.selectedUserType = 'Customer';
 
   }
@@ -38,7 +37,6 @@ export class RegistrationComponent implements OnInit {
       user.firstName = this.name;
       user.userType = this.selectedUserType;
       this.service.register(user).then(newUser => {
-        this.sharedService.user = newUser;
         this.c('Cross click');
         this.router.navigate(['profile']);
       });
