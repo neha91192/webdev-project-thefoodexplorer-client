@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UploadService} from '../api-services/upload';
+import {UploadService} from '../api-services/upload-s3-service';
 
 @Component({
   selector: 'app-restaurant-menu',
@@ -22,7 +22,7 @@ export class RestaurantMenuComponent implements OnInit {
   }
 
   uploadFile() {
-    this.data = this.uploadService.uploadfile(this.fileToUpload);
+    this.data = this.uploadService.uploadFile(this.fileToUpload);
     this.uploadedImage = this.data.Location;
     console.log(this.data.Location);
   }

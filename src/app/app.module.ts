@@ -51,7 +51,7 @@ import { RestaurantInformationComponent } from './restaurant-information/restaur
 import { CustomerServiceClient } from './services/customer-service-client';
 import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
 import { OwnerSignupComponent } from './owner-signup/owner-signup.component';
-import {UploadService} from './api-services/upload';
+import {UploadService} from './api-services/upload-s3-service';
 
 
 @NgModule({

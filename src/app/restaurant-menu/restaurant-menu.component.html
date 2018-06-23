@@ -25,13 +25,13 @@
               <label for="file" class="btn btn-secondary">Select Image</label>
             </div>
 
-              <span class="padding">{{fileToUpload.name}}</span>
+              <span *ngIf="fileToUpload !== null" class="padding">{{fileToUpload.name}}</span>
               <input class="form-control" style="visibility:hidden;" id="file" type="file"
                      (change)="handleFileInput($event.target.files)">
-          </div>
+             </div>
             <div class="row">
-              <div *ngIf="fileToUpload.name !== null" class="col-2">
-                <button class="btn btn-outline-success" (click)="uploadedImage">Save Menu</button>
+              <div *ngIf="fileToUpload !== null" class="col-2">
+                <button class="btn btn-outline-success" (click)="uploadFile()">Save Menu</button>
               </div>
             </div>
 

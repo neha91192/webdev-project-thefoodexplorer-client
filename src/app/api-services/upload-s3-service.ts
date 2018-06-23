@@ -9,7 +9,7 @@ export class UploadService {
 
   constructor() { }
 
-  uploadfile(file) {
+  uploadFile(file) {
 
     const bucket = new S3(
       {
@@ -25,7 +25,7 @@ export class UploadService {
       Body: file
     };
 
-    return bucket.upload(params, function (err, data) {
+    bucket.upload(params, function (err, data) {
       if (err) {
         console.log('Error uploading file: ', err);
         return false;
