@@ -13,5 +13,5 @@ export class User {
   street: string;
   pincode: string;
   state: string;
-  bio: Blob;
+  bio: string;
 }

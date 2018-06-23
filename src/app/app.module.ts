@@ -32,7 +32,6 @@ import {RegistrationComponent} from './registration/registration.component';
 import {SharedService} from './services/shared-service-client';
 import { ProfileContentsComponent } from './profile-contents/profile-contents.component';
 import { ProfileOverviewComponent } from './profile-overview/profile-overview.component';
-import { ProfileFriendsComponent } from './profile-friends/profile-friends.component';
 import { ProfileReviewsComponent } from './profile-reviews/profile-reviews.component';
 import { ProfileFollowersComponent } from './profile-followers/profile-followers.component';
 import { ProfileFollowingComponent } from './profile-following/profile-following.component';
@@ -43,9 +42,6 @@ import { UpdateProfileProfileTabComponent } from './update-profile-profile-tab/u
 import { UpdateProfilePasswordTabComponent } from './update-profile-password-tab/update-profile-password-tab.component';
 import { UpdateProfileEmailTabComponent } from './update-profile-email-tab/update-profile-email-tab.component';
 import { UpdateProfileLocationsTabComponent } from './update-profile-locations-tab/update-profile-locations-tab.component';
-import { UpdateProfilePrivacySettingsTabComponent } from
-    './update-profile-privacy-settings-tab/update-profile-privacy-settings-tab.component';
-import { UpdateProfileFriendsTabComponent } from './update-profile-friends-tab/update-profile-friends-tab.component';
 import { ReviewListComponent } from './review-list/review-list.component';
 import { RestaurantInformationComponent } from './restaurant-information/restaurant-information.component';
 import { CustomerServiceClient } from './services/customer-service-client';
@@ -78,7 +74,6 @@ import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.compo
     UpdateProfileComponent,
     ProfileContentsComponent,
     ProfileOverviewComponent,
-    ProfileFriendsComponent,
     ProfileReviewsComponent,
     ProfileFollowersComponent,
     ProfileFollowingComponent,
@@ -88,8 +83,6 @@ import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.compo
     UpdateProfilePasswordTabComponent,
     UpdateProfileEmailTabComponent,
     UpdateProfileLocationsTabComponent,
-    UpdateProfilePrivacySettingsTabComponent,
-    UpdateProfileFriendsTabComponent,
     ReviewListComponent,
     RestaurantInformationComponent,
     RestaurantMenuComponent

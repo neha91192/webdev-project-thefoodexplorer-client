@@ -2,12 +2,6 @@
 <img src="https://profile.actionsprout.com/default.jpeg" width="200px" height="200px"/>
 <div>file chooser</div>
 <div>
-  <label>Username</label>
-  <div id="usernameInput" >
-    <input  [(ngModel)]="this.user.username"
-           placeholder="Username"
-           class="form-control"/>
-  </div>
   <label>First name</label>
   <div id="firstNameInput">
     <input [(ngModel)]="this.user.firstName"
@@ -20,12 +14,39 @@
            placeholder="Last name"
            class="form-control"/>
   </div>
+  <label>Date of birth</label>
+  <div class="form-group">
+    <input [(ngModel)]="this.user.dateOfBirth" type="date" class="form-control" id="dob">
+    <!--<ngb-datepicker #dp [(ngModel)]="this.user.dateOfBirth" (navigate)="date = $event.next"></ngb-datepicker>-->
+    <!--<form class="form-inline">-->
+      <!--<div class="form-group">-->
+        <!--<div class="input-group">-->
+          <!--<input class="form-control" placeholder="MM-dd-yyyy"-->
+                 <!--[bsConfig]="{ dateInputFormat: 'MM-dd-yyyy'}"-->
+                 <!--name="dp" [(ngModel)]="this.user.dateOfBirth" ngbDatepicker #d="ngbDatepicker">-->
+          <!--<div class="input-group-append">-->
+            <!--<button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">-->
+              <!--<img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>-->
+            <!--</button>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</form>-->
+  </div>
   <label>Phone</label>
   <div id="phoneInput">
     <input [(ngModel)]="this.user.mobileNumber"
            placeholder="Phone number"
            class="form-control"/>
   </div>
+  <label>Bio</label>
+  <div id="bioInput">
+    <textarea [(ngModel)]="this.user.bio"
+           placeholder="Write about yourself"
+           class="form-control">
+    </textarea>
+  </div>
+
   <div>
     <button (click)="updateUser(user)"
             id="updateBtn"
