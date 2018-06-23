@@ -7,11 +7,14 @@ import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/cor
 })
 export class RestaurantInformationComponent implements OnInit, OnChanges {
   @Input() restaurant: object;
+  mapLink;
+  directionsLink;
 
   information;
 
   constructor() {
     console.log(this.restaurant);
+    this.mapLink = 'http://maps.google.com/maps?daddr=LATITUDE,LONGITUDE';
   }
 
   ngOnInit() {
@@ -21,6 +24,8 @@ export class RestaurantInformationComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['restaurant'] !== 'undefined') {
       this.information = this.restaurant;
+      this.directionsLink = this.mapLink.replace('LATITUDE', this.information.location.latitude)
+        .replace('LONGITUDE', this.information.location.longitude);
       console.log(this.information);
     }
   }

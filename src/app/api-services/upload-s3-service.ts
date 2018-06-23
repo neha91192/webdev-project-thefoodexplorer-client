@@ -25,15 +25,10 @@ export class UploadService {
       Body: file
     };
 
-    bucket.upload(params, function (err, data) {
-      if (err) {
-        console.log('Error uploading file: ', err);
-        return false;
-      }
+    return bucket.upload(params).promise();
 
-      console.log('Successfully uploaded file.', data);
-      return data;
-    });
+
+
   }
 
 }

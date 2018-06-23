@@ -21,7 +21,7 @@
         <h3 class="padding">{{restaurant.name}}</h3>
         <div class="row">
           <div class="col-10">
-            <h6 class="text-secondary text-padding">{{restaurant.location.locality_verbose}}</h6>
+            <h6 *ngIf="restaurant.location !== undefined" class="text-secondary text-padding">{{restaurant.location.locality_verbose}}</h6>
           </div>
           <div class="col-2 float-right">
             <h5>{{restaurant.user_rating.aggregate_rating}}/5</h5>
@@ -58,7 +58,7 @@
       </div>
       <div *ngIf="isMenuTabClicked" class="details-section padding">
         <div class=" nav-item nav-link text-padding info-tab-layout">
-          <app-restaurant-menu></app-restaurant-menu>
+          <app-restaurant-menu [restaurant]="restaurant"></app-restaurant-menu>
         </div>
       </div>
 
@@ -78,7 +78,7 @@
 
             </div>
             <div class="row padding">
-              <textarea class="form-control" rows="2" placeholder="Add your experience of visiting this Restaurant">
+              <textarea class="form-control" rows="2" placeholder="Add your experience of visiting this RestaurantModelClient">
               </textarea>
             </div>
             <div class="row padding">
@@ -89,7 +89,7 @@
             </div>
           </div>
           <div class="row padding">
-            <h5 class="padding">See all reviews of this Restaurant</h5>
+            <h5 class="padding">See all reviews of this RestaurantModelClient</h5>
             </div>
           <app-review-list></app-review-list>
 
