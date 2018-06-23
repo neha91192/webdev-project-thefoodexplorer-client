@@ -10,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
 export class FacebookLoginComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit() {
   }
 }

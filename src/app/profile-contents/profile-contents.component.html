@@ -5,23 +5,20 @@
           <h4>{{user.firstName}}'s profile</h4>
           <ul>
             <li><a [ngClass]="{'active': profileOverview == true}" (click)="showProfileOverview()">Profile Overview</a></li>
-            <li><a [ngClass]="{'active': profileFriends == true}" (click)="showProfileFriends()">Friends</a></li>
             <li><a [ngClass]="{'active': profileReviews == true}" (click)="showProfileReviews()">Reviews</a></li>
             <li><a [ngClass]="{'active': profileFollowers == true}" (click)="showProfileFollowers()">Followers</a></li>
             <li><a [ngClass]="{'active': profilefollowing == true}" (click)="showProfileFollowing()">Following</a></li>
             <li><a [ngClass]="{'active': profileInterests == true}" (click)="showProfileInterests()">Interests</a></li>
           </ul>
         </div>
-        <div class="col-6">
+        <div class="col-9">
           <div *ngIf="profileOverview"><app-profile-overview></app-profile-overview></div>
-          <div *ngIf="profileFriends"><app-profile-friends></app-profile-friends></div>
           <div *ngIf="profileReviews"><app-profile-reviews></app-profile-reviews></div>
           <div *ngIf="profileFollowers"><app-profile-followers></app-profile-followers></div>
           <div *ngIf="profilefollowing"><app-profile-following></app-profile-following></div>
           <div *ngIf="profileInterests"><app-profile-interests></app-profile-interests></div>
         </div>
-        <div class="col-3">
-        </div>
+
       </div>
     </div>
 </div>

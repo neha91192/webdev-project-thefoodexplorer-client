@@ -11,24 +11,17 @@ import {User} from '../models/user.model.client';
 })
 export class ProfileComponent implements OnInit {
 
-  userType;
   user: User;
   constructor(private sharedService: SharedService, private profileService: ProfileServiceClient) {
-    this.userType = this.sharedService.user.userType;
-    let userTypeParam;
-    if (this.userType === 'Customer') {
-      userTypeParam = 'customer';
-    } if (this.userType === 'Blogger') {
-      userTypeParam = 'blogger';
-    } if (this.userType === 'Owner') {
-      userTypeParam = 'owner';
-    }
-    this.fetchProfile(userTypeParam);
+    this.fetchProfile();
   }
 
-  fetchProfile(userType) {
-    this.profileService.fetchProfile(userType)
-      .then(user => this.user = user);
+  fetchProfile() {
+    this.profileService.fetchProfile()
+      .then(user => {
+        this.sharedService.user = user;
+        this.user = user;
+      });
   }
 
   ngOnInit() {

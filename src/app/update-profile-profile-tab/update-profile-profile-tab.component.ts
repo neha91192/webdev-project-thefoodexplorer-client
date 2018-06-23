@@ -16,13 +16,14 @@ export class UpdateProfileProfileTabComponent implements OnInit {
   }
 
   user: User;
+  dateOfBirth;
   ngOnInit() {
   }
 
   updateUser(user) {
     this.customerService.updateUser(this.user)
-      .then(response =>
-      console.log(response));
+      .then( () =>
+        alert('Updated successfully! '));
   }
 
 }

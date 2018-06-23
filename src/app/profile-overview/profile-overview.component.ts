@@ -11,6 +11,7 @@ export class ProfileOverviewComponent implements OnInit {
 
   constructor(private sharedService: SharedService) {
     this.user = this.sharedService.user;
+    console.log(this.user);
   }
   user: User;
   ngOnInit() {

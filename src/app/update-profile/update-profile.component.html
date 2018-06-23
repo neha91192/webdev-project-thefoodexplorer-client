@@ -12,8 +12,6 @@
             <li><a [ngClass]="{'active': updatePassword == true}" (click)="showUpdatePassword()">Password</a></li>
             <li><a [ngClass]="{'active': updateEmail == true}" (click)="showUpdateEmail()">Email</a></li>
             <li><a [ngClass]="{'active': updateLocations == true}" (click)="showUpdateLocations()">Locations</a></li>
-            <li><a [ngClass]="{'active': updateFriends == true}" (click)="showUpdateFriends()">Friends</a></li>
-            <li><a [ngClass]="{'active': updatePrivacySettings == true}" (click)="showUpdatePrivacy()">Privacy Settings</a></li>
           </ul>
         </div>
         <div class="col-6">
@@ -21,8 +19,6 @@
           <div *ngIf="updatePassword"><app-update-profile-password-tab></app-update-profile-password-tab></div>
           <div *ngIf="updateEmail"><app-update-profile-email-tab></app-update-profile-email-tab></div>
           <div *ngIf="updateLocations"><app-update-profile-locations-tab></app-update-profile-locations-tab></div>
-          <div *ngIf="updateFriends"><app-update-profile-friends-tab></app-update-profile-friends-tab></div>
-          <div *ngIf="updatePrivacySettings"><app-update-profile-privacy-settings-tab></app-update-profile-privacy-settings-tab></div>
         </div>
       </div>
     </div>
