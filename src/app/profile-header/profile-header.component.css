@@ -1,6 +1,10 @@
 img {
   border-radius: 50%;
-  border-width: 1px;
+  border-width: 0.5px;
+  border-style: solid;
+  border: #dddddd;
+
+
 }
 
 #profileHeaderDiv{
@@ -15,6 +19,16 @@ img {
 
 .headerDetails{
   padding-top: 40px;
+
+}
+
+.borderRight{
+  border-right: #dddddd;
+  border-top: #f1f1f1;
+  border-bottom: #f1f1f1;
+  border-left: #f1f1f1;
+  border-style: solid;
+  border-width: 0.5px;
 }
 
 a{

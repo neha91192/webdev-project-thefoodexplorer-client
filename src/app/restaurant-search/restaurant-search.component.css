@@ -34,3 +34,17 @@
   background-color: #dddddd;
   color: black;
 }
+
+.header{
+  padding-top: 30px;
+  padding-bottom: 20px;
+
+  /*padding: 10px;*/
+}
+
+.filters{
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #d6d8db;
+  border-radius: 4px;
+}

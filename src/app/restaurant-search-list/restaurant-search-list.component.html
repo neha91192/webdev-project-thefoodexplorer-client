@@ -2,7 +2,7 @@
   <ul class="list-group">
     <li *ngFor="let restaurant of restaurants" class="list-group-item">
       <div>
-        <div class="row" id="restaurant-list-details-header-row1">
+        <div class="row-sm" id="restaurant-list-details-header-row1">
           <div class="col-sm-3">
             <img src={{restaurant.restaurant.thumb}}
                  onerror="if (this.src != 'error.jpg')
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="row container-fluid">
-          <dl class="row">
+          <dl class="row-sm">
             <dt id="restaurant-list-description-cuisines-row2" class="col-sm-4">Cuisines</dt>
             <dd class="col-sm-8">{{restaurant.restaurant.cuisines}}</dd>
             <dt id="restaurant-list-description-cost-row2" class="col-sm-3">Cost for two</dt>
