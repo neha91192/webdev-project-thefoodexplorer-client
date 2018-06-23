@@ -1,4 +1,5 @@
-import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
+import {Component, OnInit, OnChanges, SimpleChanges, Input, ViewChild} from '@angular/core';
+import { } from '@types/googlemaps';
 
 @Component({
   selector: 'app-restaurant-information',
@@ -6,6 +7,8 @@ import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/cor
   styleUrls: ['./restaurant-information.component.css']
 })
 export class RestaurantInformationComponent implements OnInit, OnChanges {
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
   @Input() restaurant: object;
   mapLink;
   directionsLink;
@@ -18,7 +21,12 @@ export class RestaurantInformationComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    console.log(this.restaurant);
+    const mapProp = {
+      center: new google.maps.LatLng(this.information.location.latitude, this.information.location.longitude),
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
   }
 
   ngOnChanges(changes: SimpleChanges) {

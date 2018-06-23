@@ -27,10 +27,9 @@ export class OwnerSignupComponent implements OnInit {
     this.locationId = 289;
   }
 
-  findRestaurants() {
+  findRestaurants(start) {
 
-
-    this.service.findRestaurants(this.entity_type, this.locationId, this.searchValue, '', '')
+    this.service.findRestaurants(this.entity_type, this.locationId, this.searchValue, '', '', start , 10)
       .then(response => {
         this.restaurantList = response.restaurants;
 

@@ -49,6 +49,7 @@ import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.compo
 import { OwnerSignupComponent } from './owner-signup/owner-signup.component';
 import {UploadService} from './api-services/upload-s3-service';
 import {MediaServiceClient} from './services/media-service.client';
+import { DirectionMapComponent } from './direction-map/direction-map.component';
 
 
 @NgModule({
@@ -89,7 +90,8 @@ import {MediaServiceClient} from './services/media-service.client';
     ReviewListComponent,
     RestaurantInformationComponent,
     RestaurantMenuComponent,
-    OwnerSignupComponent
+    OwnerSignupComponent,
+    DirectionMapComponent
   ],
   imports: [
     BrowserModule,
