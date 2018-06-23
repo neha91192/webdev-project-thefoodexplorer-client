@@ -52,6 +52,7 @@ import {PaginationModule} from 'ngx-pagination-bootstrap';
 import {OwnerServiceClient} from './services/owner-service-client';
 
 import {SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider} from 'angular5-social-login';
+import { ProfileDiscoverPeopleComponent } from './profile-discover-people/profile-discover-people.component';
 
 
 export function getAuthServiceConfigs() {
@@ -109,7 +110,8 @@ export function getAuthServiceConfigs() {
     ReviewListComponent,
     RestaurantInformationComponent,
     RestaurantMenuComponent,
-    OwnerSignupComponent
+    OwnerSignupComponent,
+    ProfileDiscoverPeopleComponent
   ],
   imports: [
     BrowserModule,

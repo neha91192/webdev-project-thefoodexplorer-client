@@ -22,8 +22,19 @@ export class ProfileContentsComponent implements OnInit {
   profileFollowers = false;
   profilefollowing = false;
   profileInterests = false;
+  discoverPeople = false;
   user: User;
   ngOnInit() {
+  }
+
+  discoverPeopleTab() {
+    this.profileOverview = false;
+    this.profileFriends = false;
+    this.profileReviews = false;
+    this.profileFollowers = false;
+    this.profilefollowing = false;
+    this.profileInterests = false;
+    this.discoverPeople = true;
   }
   showProfileOverview() {
     if (!this.profileOverview) {
@@ -33,6 +44,8 @@ export class ProfileContentsComponent implements OnInit {
       this.profileFollowers = false;
       this.profilefollowing = false;
       this.profileInterests = false;
+      this.discoverPeople = false;
+
     }
     this.router.navigate(['/profile_overview']);
 
@@ -46,6 +59,7 @@ export class ProfileContentsComponent implements OnInit {
       this.profileFollowers = false;
       this.profilefollowing = false;
       this.profileInterests = false;
+      this.discoverPeople = false;
     }
     this.router.navigate(['/profile']);
   }
@@ -58,6 +72,7 @@ export class ProfileContentsComponent implements OnInit {
       this.profileFollowers = false;
       this.profilefollowing = false;
       this.profileInterests = false;
+      this.discoverPeople = false;
     }
   }
 
@@ -69,6 +84,7 @@ export class ProfileContentsComponent implements OnInit {
       this.profileFollowers = true;
       this.profilefollowing = false;
       this.profileInterests = false;
+      this.discoverPeople = false;
     }
   }
 
@@ -80,6 +96,7 @@ export class ProfileContentsComponent implements OnInit {
       this.profileFollowers = false;
       this.profilefollowing = true;
       this.profileInterests = false;
+      this.discoverPeople = false;
     }
   }
 
@@ -91,6 +108,7 @@ export class ProfileContentsComponent implements OnInit {
       this.profileFollowers = false;
       this.profilefollowing = false;
       this.profileInterests = true;
+      this.discoverPeople = false;
     }
   }
 }
