@@ -79,7 +79,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
       queryParams: queryParams});
   }
 
-  cuisineAsian(){
+  cuisineAsian() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
     queryParams['cuisine'] = 3;
 
@@ -87,7 +87,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
       queryParams: queryParams});
   }
 
-  cuisineBakery(){
+  cuisineBakery() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
     queryParams['cuisine'] = 5;
 
@@ -95,7 +95,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
       queryParams: queryParams});
   }
 
-  cuisineBreakfast(){
+  cuisineBreakfast() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
     queryParams['cuisine'] = 182;
 
@@ -104,7 +104,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
 
   }
 
-  cuisineCafe(){
+  cuisineCafe() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
     queryParams['cuisine'] = 30;
 
@@ -113,7 +113,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
 
   }
 
-  cuisineChinese(){
+  cuisineChinese() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
     queryParams['cuisine'] = 25;
 
@@ -122,7 +122,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
 
   }
 
-  cuisineDeserts(){
+  cuisineDeserts() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
     queryParams['cuisine'] = 100;
 
@@ -131,7 +131,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
 
   }
 
-  cuisinefastFood(){
+  cuisinefastFood() {
 
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
     queryParams['cuisine'] = 40;
@@ -140,7 +140,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
       queryParams: queryParams});
   }
 
-  cuisineFrench(){
+  cuisineFrench() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
     queryParams['cuisine'] = 45;
 
@@ -149,7 +149,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
 
   }
 
-  cuisineFusion(){
+  cuisineFusion() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
     queryParams['cuisine'] = 274;
 
@@ -158,7 +158,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
 
   }
 
-  cuisineIndian(){
+  cuisineIndian() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
     queryParams['cuisine'] = 148;
 
@@ -167,7 +167,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
 
   }
 
-  cuisineItalian(){
+  cuisineItalian() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
     queryParams['cuisine'] = 55;
 
