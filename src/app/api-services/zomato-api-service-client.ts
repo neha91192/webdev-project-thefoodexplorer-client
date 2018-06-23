@@ -5,7 +5,7 @@ export class ZomatoApiServiceClient {
   API_KEY = 'eafbc8c63c2978776ed8e183e7ea8659';
   API_URL =
     'https://developers.zomato.com/api/v2.1/search?entity_type=ENTITY_TYPE&entity_id=ENTITY_VALUE&q=SEARCH_KEYWORD' +
-    '&category=CATEGORY&cuisines=CUISINE&start=START&count=COUNT';
+    '&category=CATEGORY&cuisines=CUISINE&sort=SORT&order=ORDER&start=START&count=COUNT';
 
   CATEGORY_API = 'https://developers.zomato.com/api/v2.1/categories';
   LOCATION_API = 'https://developers.zomato.com/api/v2.1/cities';
@@ -14,11 +14,14 @@ export class ZomatoApiServiceClient {
     'entity_type=city';
   RESTAURANT_API = 'https://developers.zomato.com/api/v2.1/restaurant?res_id=RESTAURANT_ID';
 
-  findRestaurants(entityType, entityValue, searchKeyword, category, cuisine, start, count) {
+  findRestaurants(entityType, entityValue, searchKeyword, category, cuisine, sort, order, start, count) {
       return fetch(this.API_URL.replace('ENTITY_TYPE', entityType)
         .replace('ENTITY_VALUE', entityValue)
           .replace('CATEGORY', category).replace('SEARCH_KEYWORD', searchKeyword)
-          .replace('CUISINE', cuisine).replace('START', start).replace('COUNT', count),
+          .replace('CUISINE', cuisine)
+          .replace('SORT', sort)
+          .replace('ORDER', order)
+          .replace('START', start).replace('COUNT', count),
         {
           headers: {
             'user-key': this.API_KEY

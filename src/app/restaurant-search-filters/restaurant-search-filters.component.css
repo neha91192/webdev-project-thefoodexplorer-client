@@ -37,3 +37,16 @@
   background-color: #dddddd;
   color: black;
 }
+
+.filter{
+  font-size: 15px;
+}
+
+.heading{
+  font-weight: bold;
+}
+
+.padding{
+  padding: 10px;
+}
+

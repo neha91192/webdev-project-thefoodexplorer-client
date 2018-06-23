@@ -55,7 +55,7 @@ export class MainSearchPanelComponent implements OnInit {
     this.service.fetchCategories()
       .then(response => {
         response.categories.map(category => this.categories.push(category.categories));
-          // console.log(this.categories);
+          console.log(this.categories);
       });
   }
 
@@ -83,7 +83,7 @@ export class MainSearchPanelComponent implements OnInit {
    * Initializes default value
    */
   ngOnInit() {
-    this.selectedCategoryId = 'ALL';
+    this.selectedCategoryId = '';
     this.selectedLocationId = 289;
     this.locationValue = 'Boston';
     this.searchValue = '';

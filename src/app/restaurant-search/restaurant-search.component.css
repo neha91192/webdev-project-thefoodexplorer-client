@@ -2,9 +2,6 @@
   padding-bottom: 10px
 }
 
-#restaurant-list-details-name-row1{
-  color: #ff3c42
-}
 
 #restaurant-list-details-address-row1{
   color: #6c757d
@@ -36,4 +33,18 @@
 #restaurant-list-description-menu-button-row3:hover {
   background-color: #dddddd;
   color: black;
+}
+
+.header{
+  padding-top: 30px;
+  padding-bottom: 20px;
+
+  /*padding: 10px;*/
+}
+
+.filters{
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #d6d8db;
+  border-radius: 4px;
 }

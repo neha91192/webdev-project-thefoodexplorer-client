@@ -1,47 +1,43 @@
 <div>
-  Filters
-  <h6>Sort by</h6>
-  <a style="font-size: 15px" href="#">Popularity</a>
-  <br/><a style="font-size: 15px" href="#">Rating</a>
-  <br/><a style="font-size: 15px" href="#">Cost</a>
-  <br/><a style="font-size: 15px" href="#">Recently added</a>
+  <h5 class="heading padding">Filters</h5>
+  <div class="filter">
+    <div class="padding">
+      <h6 class="heading text-danger">Sort by</h6>
+      <a class="heading text-secondary" (click)="sortByCostAsc()">Cost</a>
+      <!--<br/><a style="font-size: 15px" (click)="sortByCost()">Cost</a>-->
+      <br/><a class="text-secondary" (click)="sortByCostAsc()">Ascending</a>
+      <br/><a class="text-secondary" (click)="sortByCostDesc()">Descending</a>
+      <br/><a class="heading text-secondary" (click)="sortByRating()">Rating</a>
+    </div>
 
-  <h6>Category</h6>
-  <a style="font-size: 15px" href="#">Dine-In</a>
-  <br/><a style="font-size: 15px" href="#">Delivery</a>
-  <br/><a style="font-size: 15px" href="#">Drinks & Nightlife</a>
-  <br/><a style="font-size: 15px" href="#">Take Out</a>
 
-  <h6>Location</h6>
-  <a style="font-size: 15px" href="#">City</a>
+  <div class="padding">
+    <h6 class="heading text-danger">Category</h6>
+    <div>
+      <a class="text-secondary" (click)="searchCategoryDineIn()">Dine-In</a>
+      <br/><a class="text-secondary" (click)="searchCategoryDelivery()">Delivery</a>
+      <br/><a class="text-secondary" (click)="searchCategoryDrinks()">Drinks & Nightlife</a>
+      <br/><a class="text-secondary" (click)="searchCategoryTakeout()">Take Out</a>
+    </div>
+  </div>
 
-  <h6>Cuisine</h6>
-  <a style="font-size: 15px" href="#">Pizza</a>
-  <br/><a style="font-size: 15px" href="#">Sandwich</a>
-  <br/><a style="font-size: 15px" href="#">Fast Food</a>
-  <br/><a style="font-size: 15px" href="#">American</a>
-  <br/><a style="font-size: 15px" href="#">Italian</a>
-  <br/><a style="font-size: 15px" href="#">Donuts</a>
-  <br/><a href="#">Chinese</a>
-  <br/><a href="#">Breakfast</a>
-  <br/><a href="#">Coffee & Tea</a>
-  <br/><a href="#">Seafood</a>
-
-  <h6>Establishment type</h6>
-  <a href="#">Casual Dining</a>
-  <br/><a href="#">Bakeries</a>
-  <br/><a href="#">Quick bites</a>
-  <br/><a href="#">Bars</a>
-  <br/><a href="#">Cafes</a>
-  <br/><a href="#">Fast food</a>
-  <br/><a href="#">Fine Dining</a>
-  <br/><a href="#">Wine Bars</a>
-  <br/><a href="#">Coffee & Tea</a>
-  <br/><a href="#">Seafood</a>
-
-  <h6>Cost for Two</h6>
-  <a href="#">Less than 20$</a>
-  <br/><a href="#">20$ to 30$</a>
-  <br/><a href="#">30$ to 50$</a>
-  <br/><a href="#">$50+</a>
+  <div class="padding">
+    <h6 class="heading text-danger">Cuisine</h6>
+    <div>
+      <a class="text-secondary" (click)="cuisineAmerican()">American</a>
+      <br/><a class="text-secondary" (click)="cuisineAsian()">Asian</a>
+      <br/><a class="text-secondary" (click)="cuisineBakery()">Bakery</a>
+      <br/><a class="text-secondary" (click)="cuisineBreakfast()">Breakfast</a>
+      <br/><a class="text-secondary" (click)="cuisineCafe()">Cafe</a>
+      <br/><a class="text-secondary" (click)="cuisineChinese()">Chinese</a>
+      <br/><a class="text-secondary" (click)="cuisineDeserts()">Deserts</a>
+      <br/><a class="text-secondary" (click)="cuisinefastFood()">Fast food</a>
+      <br/><a class="text-secondary" (click)="cuisineFrench()">French</a>
+      <br/><a class="text-secondary" (click)="cuisineFusion()">Fusion</a>
+      <br/><a class="text-secondary" (click)="cuisineIndian()">Indian</a>
+      <br/><a class="text-secondary" (click)="cuisineItalian()">Italian</a>
+      <br/><a class="text-secondary" (click)="cuisineMexican()">Mexican</a>
+    </div>
+  </div>
+  </div>
 </div>

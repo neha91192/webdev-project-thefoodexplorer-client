@@ -1,7 +1,7 @@
 <div ng-view>
     <div class="container profileContentComponent">
       <div class="row">
-        <div id="filters-font-size" class="col-3">
+        <div id="filters-font-size" class="col-3 borderRight">
           <h4>{{user.firstName}}'s profile</h4>
           <ul>
             <li><a [ngClass]="{'active': profileOverview == true}" (click)="showProfileOverview()">Profile Overview</a></li>
@@ -11,12 +11,15 @@
             <li><a [ngClass]="{'active': profileInterests == true}" (click)="showProfileInterests()">Interests</a></li>
           </ul>
         </div>
-        <div class="col-9">
+        <div class="col-6 borderRight">
           <div *ngIf="profileOverview"><app-profile-overview></app-profile-overview></div>
           <div *ngIf="profileReviews"><app-profile-reviews></app-profile-reviews></div>
           <div *ngIf="profileFollowers"><app-profile-followers></app-profile-followers></div>
           <div *ngIf="profilefollowing"><app-profile-following></app-profile-following></div>
           <div *ngIf="profileInterests"><app-profile-interests></app-profile-interests></div>
+        </div>
+        <div class="col-3">
+          find all people that can be followed
         </div>
 
       </div>
