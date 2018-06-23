@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
+import { PaginationModule } from 'ngx-pagination-bootstrap';
 
 @Component({
   selector: 'app-owner-signup',
@@ -14,6 +15,8 @@ export class OwnerSignupComponent implements OnInit {
   locationValue = '';
   locationId = 289;
   searchValue = '';
+  resultSize;
+  currentPage;
   username;
   password;
   confirmPassword;
@@ -31,6 +34,7 @@ export class OwnerSignupComponent implements OnInit {
 
     this.service.findRestaurants(this.entity_type, this.locationId, this.searchValue, '', '', start , 10)
       .then(response => {
+        this.resultSize = response.results_found;
         this.restaurantList = response.restaurants;
 
       });
@@ -44,7 +48,16 @@ export class OwnerSignupComponent implements OnInit {
   }
 
   register() {
-      console.log('register');
+    if (this.confirmPassword === this.password) {
+
+    } else {
+      alert ('Passwords do not match!');
+    }
   }
+
+  getPageData($event) {
+    console.log('Page data');
+  }
+
 
 }

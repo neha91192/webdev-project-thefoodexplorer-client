@@ -24,7 +24,7 @@ export class RestaurantInformationComponent implements OnInit, OnChanges {
   ngOnInit() {
     const mapProp = {
       center: new google.maps.LatLng(this.information.location.latitude, this.information.location.longitude),
-      zoom: 15,
+      zoom: 12,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
@@ -34,14 +34,14 @@ export class RestaurantInformationComponent implements OnInit, OnChanges {
       map: this.map,
       title: this.information.name
     });
-    this.infoDiag = new google.maps.InfoWindow();
-    this.addMarker(marker);
+    this.addMarker(marker, this.information.name, this.information.location.address);
 
   }
 
-  addMarker(marker) {
+  addMarker(marker, name, address) {
     google.maps.event.addListener(marker, 'click', function (e) {
-      this.infoDiag.setContent('<div style = "width:200px;min-height:40px">' + this.information.location.address + '</div>');
+      this.infoDiag = new google.maps.InfoWindow();
+      this.infoDiag.setContent('<div style = "width:200px;min-height:40px">' + '<h5>' + name + '</h5>' + address + '</div>');
       this.infoDiag.open(this.map, marker);
     });
   }
