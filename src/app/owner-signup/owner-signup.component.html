@@ -35,7 +35,12 @@
       </div>
 
     </div>
-    <hr/>
+    <div class="row">
+      <div class="col-9">
+        <hr/>
+      </div>
+
+    </div>
     <h5 class="text-danger">Claim your Restaurant</h5>
     <div class="row padding">
       <div class="col-sm-12 col-md-3 col-lg-3">
@@ -55,14 +60,35 @@
         <input id="restaurantName" [(ngModel)]="searchValue" placeholder="Enter Restaurant name" class="form-control"/>
       </div>
       <div class="col-sm-12 col-md-2 col-lg-2">
-        <button (click)="findRestaurants()" class="btn btn-outline-danger">Look up</button>
+        <button (click)="findRestaurants(1)" class="btn btn-outline-danger">Look up</button>
       </div>
 
     </div>
 
     <div *ngIf="restaurantList.length > 0" class="padding">
       <div class="row padding-around">
-        <span class="text-danger padding-around"><h5>Search Results</h5></span>
+        <div class="col-sm-12 col-md-5 col-lg-5">
+          <span class="text-danger padding-around"><h5>Search Results</h5></span>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 padding">
+         <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+              <li class="page-item disabled">
+                <a class="page-link" (click)="findRestaurants(1)" tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" (click)="findRestaurants(11)">1</a></li>
+              <li class="page-item"><a class="page-link" (click)="findRestaurants(21)">2</a></li>
+              <li class="page-item"><a class="page-link" (click)="findRestaurants(31)">3</a></li>
+              <li class="page-item">
+                <a class="page-link" (click)="findRestaurants(41)">Next</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!--<ng-pagination [position]="'right'" [pageSize]="10" [itemsCount]="resultSize"
+                         (getPageData)="getPageData($event)"></ng-pagination>-->
+
+        </div>
       </div>
       <ul *ngFor="let restaurant of restaurantList" class="list-group">
         <div class="row">

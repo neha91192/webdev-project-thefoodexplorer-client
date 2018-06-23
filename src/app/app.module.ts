@@ -47,6 +47,9 @@ import { CustomerServiceClient } from './services/customer-service-client';
 import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
 import { OwnerSignupComponent } from './owner-signup/owner-signup.component';
 import {UploadService} from './api-services/upload-s3-service';
+import {MediaServiceClient} from './services/media-service.client';
+import {PaginationModule} from 'ngx-pagination-bootstrap';
+
 
 
 @NgModule({
@@ -93,7 +96,8 @@ import {UploadService} from './api-services/upload-s3-service';
     BrowserModule,
     FormsModule,
     NgbModule.forRoot(),
-    routing
+    routing,
+    PaginationModule
   ],
   providers: [
     ZomatoApiServiceClient,
@@ -102,7 +106,8 @@ import {UploadService} from './api-services/upload-s3-service';
     SharedService,
     ProfileServiceClient,
     CustomerServiceClient,
-    UploadService
+    UploadService,
+    MediaServiceClient
   ],
   bootstrap: [AppComponent],
   schemas: [

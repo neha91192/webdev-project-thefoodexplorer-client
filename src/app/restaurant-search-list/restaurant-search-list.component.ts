@@ -56,7 +56,7 @@ export class RestaurantSearchListComponent implements OnInit {
     console.log(category);
     console.log(cuisine);
 
-    this.zomatoService.findRestaurants(this.entity_type, this.location, searchKeyword, category, cuisine)
+    this.zomatoService.findRestaurants(this.entity_type, location, searchKeyword, category, cuisine, '', '')
       .then(response => {
         this.restaurants = response.restaurants;
         // console.log(response);

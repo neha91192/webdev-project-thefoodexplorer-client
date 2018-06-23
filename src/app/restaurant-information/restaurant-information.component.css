@@ -8,9 +8,11 @@
 }
 .material-icons.wbdv1{
   color: green;
+  padding-top: 2px;
 }
 .material-icons.wbdv2{
   color: red;
+  padding-top: 2px;
 }
 ul {
   list-style-type: none;
@@ -18,3 +20,16 @@ ul {
 .padding-left {
   padding-left: 10px;
 }
+.padding {
+  padding: 15px;
+}
+.info-title {
+  font-size: 22px;
+  color: #dc3545;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.new-padding {
+  padding-top: 5px;
+}
+
