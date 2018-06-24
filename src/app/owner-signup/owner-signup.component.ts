@@ -34,7 +34,7 @@ export class OwnerSignupComponent implements OnInit {
     this.noOfPages = 8;
     this.resultSize = 80;
     this.currentPage = 1;
-    this.restaurantId = 16774318;
+    // this.restaurantId = 16774318;
   }
 
   ngOnInit() {

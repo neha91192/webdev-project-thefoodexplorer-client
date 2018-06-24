@@ -54,6 +54,7 @@ import {SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLogin
 import { ProfileDiscoverPeopleComponent } from './profile-discover-people/profile-discover-people.component';
 import { AdminComponent } from './admin/admin.component';
 import {UserServiceClient} from './services/user-service-client';
+import {ReviewServiceClient} from './services/review-service-client';
 
 
 export function getAuthServiceConfigs() {
@@ -133,6 +134,7 @@ export function getAuthServiceConfigs() {
     MediaServiceClient,
     OwnerServiceClient,
     UserServiceClient,
+    ReviewServiceClient,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs

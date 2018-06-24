@@ -25,7 +25,7 @@ export class RestaurantDetailsPageComponent implements OnInit {
   isReservationTabClicked;
 
   constructor(private zomatoService: ZomatoApiServiceClient, private reviewService: ReviewServiceClient,
-              private route: ActivatedRoute, config: NgbRatingConfig) {
+              private route: ActivatedRoute, config: NgbRatingConfig, private router: Router) {
     config.max = 5;
     this.route.params.subscribe(params => this.setParams(params));
     this.isInfoTabClicked = true;
@@ -84,8 +84,18 @@ export class RestaurantDetailsPageComponent implements OnInit {
     this.review.restaurant.restaurantId = this.restaurantId;
     this.reviewService
       .submitReview(this.review)
-      .then((response) =>
-        console.log(response));
+      .then((response) => {
+        if (response === null) {
+          alert ('You are not logged in. Please login to continue');
+          this.router.navigate(['home']);
+        } else {
+          this.reviewContent = '';
+          this.reviewRating = '';
+          alert ('Review added successfully');
+          console.log(response);
+        }
+      }
+       );
 
   }
 
