@@ -56,7 +56,7 @@ export class ZomatoApiServiceClient {
       .then(response => response.json());
   }
 
-  fetchPopularCuisinesForCity(locationId) {
+  fetchPopularityForCity(locationId) {
     return fetch(this.LOCATION_DETAILS.replace('LOCATION_ID', locationId),
       {
         headers: {
