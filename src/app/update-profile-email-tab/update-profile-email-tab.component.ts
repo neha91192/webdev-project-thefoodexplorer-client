@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges, OnChanges} from '@angular/core';
 import {SharedService} from '../services/shared-service-client';
 import {CustomerServiceClient} from '../services/customer-service-client';
 import {User} from '../models/user.model.client';
@@ -8,14 +8,13 @@ import {User} from '../models/user.model.client';
   templateUrl: './update-profile-email-tab.component.html',
   styleUrls: ['./update-profile-email-tab.component.css']
 })
-export class UpdateProfileEmailTabComponent implements OnInit {
-
+export class UpdateProfileEmailTabComponent implements OnInit, OnChanges {
+  @Input() user: User;
   constructor(private sharedService: SharedService, private customerService: CustomerServiceClient) {
-    this.user = this.sharedService.user;
-    console.log(this.user);
+
   }
 
-  user: User;
+  userData: User;
   ngOnInit() {
   }
 
@@ -25,5 +24,11 @@ export class UpdateProfileEmailTabComponent implements OnInit {
         console.log(response));
   }
 
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (typeof changes['user'] !== 'undefined') {
+      this.userData = this.user;
+    }
+  }
 
 }

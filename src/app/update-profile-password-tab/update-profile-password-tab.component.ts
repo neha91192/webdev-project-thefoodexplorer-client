@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, SimpleChanges, OnChanges, Input} from '@angular/core';
 import {SharedService} from '../services/shared-service-client';
 import {CustomerServiceClient} from '../services/customer-service-client';
 import {User} from '../models/user.model.client';
@@ -8,14 +8,14 @@ import {User} from '../models/user.model.client';
   templateUrl: './update-profile-password-tab.component.html',
   styleUrls: ['./update-profile-password-tab.component.css']
 })
-export class UpdateProfilePasswordTabComponent implements OnInit {
+export class UpdateProfilePasswordTabComponent implements OnInit, OnChanges {
+  @Input user: User;
 
-  constructor(private sharedService: SharedService, private customerService: CustomerServiceClient) {
-    this.user = this.sharedService.user;
-    console.log(this.user);
+  constructor(private customerService: CustomerServiceClient) {
+
   }
 
-  user: User;
+  userData: User;
   password = '';
   confirmPassword = '';
   ngOnInit() {
@@ -35,6 +35,12 @@ export class UpdateProfilePasswordTabComponent implements OnInit {
 
   clear() {
 
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (typeof changes['user'] !== 'undefined') {
+      this.userData = this.user;
+    }
   }
 
 
