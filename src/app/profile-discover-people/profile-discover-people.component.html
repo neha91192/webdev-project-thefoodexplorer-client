@@ -14,22 +14,16 @@
     <div class="col-sm">
       <button (click)="searchUsers()" class=" btn btn-outline-success"><i class="fas fa-search"></i></button>
     </div>
-
-
-
-
   </div>
   <br/>
   <div>
-    <ul class="list-group">
-      <!--<div style="padding: 10px" *ngFor="let course of courses">-->
-      <li *ngFor="let user of users" class="list-group-item">
-        {{user.firstName}} {{user.lastName}}
-        <button (click)="follow(user.userId)" class="btn btn-outline-success float-right">
+    <ul *ngFor="let u of users" class="list-group">
+      <li *ngIf="u.userId !== user.userId" class="list-group-item">
+        {{u.firstName}} {{u.lastName}}
+        <button (click)="follow(u.userId)" class="btn btn-outline-success float-right">
           <i class="fas fa-user-plus"></i>
         </button>
       </li>
-      <!--</div>-->
     </ul>
   </div>
 </div>
