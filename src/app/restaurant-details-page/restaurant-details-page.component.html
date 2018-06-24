@@ -6,7 +6,7 @@
 <nav aria-label="breadcrumb padding">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Restaurants</a></li>
+    <li class="breadcrumb-item"><a routerLink="/search">Restaurants</a></li>
     <li *ngIf="restaurant !== undefined" class="breadcrumb-item active" aria-current="page">{{restaurant.name}}</li>
   </ol>
 </nav>
@@ -45,9 +45,9 @@
           <li (click)="selectTab('review')" class="nav-item nav-link text-padding info-tab-layout wbdv"
               [ngClass]="{'active': isReviewTabClicked == true}">
             Reviews</li>
-          <li  (click)="selectTab('reservation')" class="nav-item nav-link text-padding info-tab-layout wbdv"
-               [ngClass]="{'active': isReservationTabClicked == true}">
-            Reservation</li>
+          <!--<li  (click)="selectTab('reservation')" class="nav-item nav-link text-padding info-tab-layout wbdv"-->
+               <!--[ngClass]="{'active': isReservationTabClicked == true}">-->
+            <!--Reservation</li>-->
         </ul>
 
       </div>
