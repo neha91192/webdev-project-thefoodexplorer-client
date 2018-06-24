@@ -1,5 +1,6 @@
 export class CustomerServiceClient {
-    CUSTOMER_URL = 'http://localhost:8080/api/customer?firstName=FIRSTNAME&lastName=LASTNAME';
+    CUSTOMER_URL = 'http://localhost:8080/api/customer';
+  SEARCH_URL = 'http://localhost:8080/api/customer?firstName=FIRSTNAME&lastName=LASTNAME';
 
 
   updateUser(customer) {
@@ -33,7 +34,7 @@ export class CustomerServiceClient {
   searchUsers(firstName, lastName) {
 
 
-    return fetch(this.CUSTOMER_URL
+    return fetch(this.SEARCH_URL
       .replace('FIRSTNAME', firstName)
       .replace('LASTNAME', lastName), {
     }).then(response => response.json());

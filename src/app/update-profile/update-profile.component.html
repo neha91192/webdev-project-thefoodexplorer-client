@@ -15,10 +15,10 @@
           </ul>
         </div>
         <div class="col-6">
-          <div *ngIf="updateProfile"><app-update-profile-profile-tab></app-update-profile-profile-tab></div>
-          <div *ngIf="updatePassword"><app-update-profile-password-tab></app-update-profile-password-tab></div>
-          <div *ngIf="updateEmail"><app-update-profile-email-tab></app-update-profile-email-tab></div>
-          <div *ngIf="updateLocations"><app-update-profile-locations-tab></app-update-profile-locations-tab></div>
+          <div *ngIf="updateProfile"><app-update-profile-profile-tab [user] = 'user'></app-update-profile-profile-tab></div>
+          <div *ngIf="updatePassword"><app-update-profile-password-tab [user] = 'user'></app-update-profile-password-tab></div>
+          <div *ngIf="updateEmail"><app-update-profile-email-tab [user] = 'user'></app-update-profile-email-tab></div>
+          <div *ngIf="updateLocations"><app-update-profile-locations-tab [user] = 'user'></app-update-profile-locations-tab></div>
         </div>
       </div>
     </div>
