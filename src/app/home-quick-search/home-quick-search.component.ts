@@ -22,7 +22,7 @@ export class HomeQuickSearchComponent implements OnInit {
   }
 
   fetchPopularCuisinesForCity() {
-      this.service.fetchPopularCuisinesForCity(this.locationId)
+      this.service.fetchPopularityForCity(this.locationId)
         .then(cuisines => {
           this.popularCuisines = cuisines.top_cuisines;
           this.fetchCuisineData();

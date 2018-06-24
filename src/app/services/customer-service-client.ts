@@ -1,6 +1,7 @@
 export class CustomerServiceClient {
     CUSTOMER_URL = 'http://localhost:8080/api/customer';
   SEARCH_URL = 'http://localhost:8080/api/customer?firstName=FIRSTNAME&lastName=LASTNAME';
+  FOLLOW_URL = 'http://localhost:8080/api/follow/USERID';
 
 
   updateUser(customer) {
@@ -41,6 +42,9 @@ export class CustomerServiceClient {
   }
 
   followUsers(id) {
-
+    return fetch(this.FOLLOW_URL.replace('USERID', id), {
+      method: 'post',
+      credentials: 'include'
+    }).then(response => response.json());
   }
 }
