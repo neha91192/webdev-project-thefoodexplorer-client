@@ -17,7 +17,7 @@ export class RestaurantDetailsPageComponent implements OnInit {
   reviewRating;
   reviewContent;
   review: Review;
-  reviews = [];
+  reviewList = [];
 
   // Tab selection variables
   isInfoTabClicked;
@@ -36,6 +36,7 @@ export class RestaurantDetailsPageComponent implements OnInit {
   setParams(params) {
     this.restaurantId = params['restaurantId'];
     this.fetchRestaurant(this.restaurantId);
+    this.findAllReviewsForRestaurant();
   }
 
   fetchRestaurant(restaurantId) {
@@ -104,9 +105,8 @@ export class RestaurantDetailsPageComponent implements OnInit {
     this.reviewService
       .findAllReviewsForRestaurant(this.restaurantId)
       .then(response => {
-        console.log('customer:', response);
-        this.reviews = response;
-        console.log('users:', this.reviews);
+        this.reviewList = response;
+        console.log(this.reviewList);
       });
   }
 }
