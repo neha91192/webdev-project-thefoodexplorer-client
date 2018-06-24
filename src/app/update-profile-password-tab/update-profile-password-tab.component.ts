@@ -9,7 +9,7 @@ import {User} from '../models/user.model.client';
   styleUrls: ['./update-profile-password-tab.component.css']
 })
 export class UpdateProfilePasswordTabComponent implements OnInit, OnChanges {
-  @Input user: User;
+  @Input() user: User;
 
   constructor(private customerService: CustomerServiceClient) {
 
@@ -21,13 +21,13 @@ export class UpdateProfilePasswordTabComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-  updateUser(newUser) {
+  updateUser() {
     if (this.password !== this.confirmPassword) {
       alert('passwords do not match');
     } else {
-      this.user.password = this.password;
+      this.userData.password = this.password;
       console.log('user:', this.user);
-      this.customerService.updateUserPassword(this.user)
+      this.customerService.updateUserPassword(this.userData)
         .then(response =>
           console.log(response));
     }
