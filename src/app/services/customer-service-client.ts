@@ -36,4 +36,8 @@ export class CustomerServiceClient {
       .replace('LASTNAME', lastName), {
     }).then(response => response.json());
   }
+
+  followUsers(id){
+
+  }
 }
