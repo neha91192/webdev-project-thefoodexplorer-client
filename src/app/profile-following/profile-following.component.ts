@@ -33,10 +33,13 @@ export class ProfileFollowingComponent implements OnInit, OnChanges {
   }
 
   unfollow(userId) {
-    this.customerService
-      .unfollow(userId);
-      // .then( (response) =>
-      // console.log(response));
+    if (confirm('Are you sure you want to unfollow?')) {
+      this.customerService
+        .unfollow(userId)
+        .then( (response) => {
+          this.findFollowing();
+          console.log(response);
+        });
+    }
   }
-
 }

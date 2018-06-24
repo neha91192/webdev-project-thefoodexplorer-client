@@ -31,11 +31,4 @@ export class ProfileFollowersComponent implements OnInit, OnChanges {
       console.log(response);
       });
   }
-  unfollow(userId) {
-    this.customerService
-      .unfollow(userId);
-    // .then( (response) =>
-    // console.log(response));
-  }
-
 }

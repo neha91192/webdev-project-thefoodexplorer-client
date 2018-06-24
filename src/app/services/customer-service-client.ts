@@ -21,7 +21,10 @@ export class CustomerServiceClient {
   }
 
   unfollow(userId) {
-    console.log('delete');
+    return fetch( this.FOLLOW_URL.replace('USERID', userId), {
+      method: 'put',
+      credentials: 'include'
+    });
   }
   updateUser(customer) {
     return fetch(this.CUSTOMER_URL + '/' + customer.userId, {

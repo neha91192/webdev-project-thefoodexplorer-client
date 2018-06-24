@@ -5,19 +5,6 @@
     <ul *ngFor="let user of followers" class="list-group">
       <li class="list-group-item">
         {{user.firstName}} {{user.lastName}}
-        <div class=" row float-right">
-          <div class="col-sm">
-            <p class="text-success">
-              Following
-            </p>
-          </div>
-          <div class="col-sm">
-            <button (click)="unfollow(user.userId)"
-                    class="btn btn-outline-success">
-              Unfollow
-            </button>
-          </div>
-        </div>
       </li>
     </ul>
   </div>

@@ -5,13 +5,19 @@
     <ul *ngFor="let user of following" class="list-group">
       <li class="list-group-item">
         {{user.firstName}} {{user.lastName}}
-        <button (click)="showDelete === true" class="btn btn-outline-success float-right">
-          <i class="fas fa-check"></i>
-        </button>
-        <button *ngIf="showDelete === true" (click)="unfollow(user.userId)"
-                class="btn btn-outline-success float-right">
-          <i class="fas fa-times"></i>
-        </button>
+        <div class=" row float-right">
+          <div class="col-sm">
+            <p class="text-danger">
+              Following
+            </p>
+          </div>
+          <div class="col-sm">
+            <button (click)="unfollow(user.userId)"
+                    class="btn btn-outline-danger">
+              Unfollow
+            </button>
+          </div>
+        </div>
       </li>
     </ul>
   </div>

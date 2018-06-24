@@ -6,3 +6,7 @@ ul{
 .heading{
   padding-bottom: 10px;
 }
+
+.listLength{
+  max-width: 600px;
+}
