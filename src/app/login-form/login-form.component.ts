@@ -41,6 +41,11 @@ export class LoginFormComponent implements OnInit {
     );
   }
 
+  goToAdmin(c) {
+    c('Cross click');
+    this.router.navigate(['admin']);
+  }
+
 
 
 }
