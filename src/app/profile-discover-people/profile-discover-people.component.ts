@@ -11,7 +11,10 @@ export class ProfileDiscoverPeopleComponent implements OnInit, OnChanges {
   @Input() user: User;
 
   userData: User;
-  constructor(private customerService: CustomerServiceClient) { }
+  constructor(private customerService: CustomerServiceClient) {
+    this.firstName = '';
+    this.lastName = '';
+  }
 
   firstName;
   lastName;
@@ -23,6 +26,7 @@ export class ProfileDiscoverPeopleComponent implements OnInit, OnChanges {
       .then(response => {
         console.log('customer:', response);
         this.users = response;
+        console.log('users:', this.users);
       });
   }
   ngOnChanges(changes: SimpleChanges) {
