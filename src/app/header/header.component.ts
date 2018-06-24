@@ -23,9 +23,7 @@ export class HeaderComponent implements OnInit {
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
-  profile() {
-    this.router.navigate(['/profile']);
-  }
+
 
   home() {
     this.router.navigate(['/home']);
