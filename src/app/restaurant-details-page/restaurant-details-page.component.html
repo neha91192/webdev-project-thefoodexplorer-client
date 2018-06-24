@@ -93,7 +93,7 @@
             <h5 class="padding">See all reviews of this RestaurantModelClient</h5>
           </div>
           <div class="container">
-            <ul class="list-group">
+            <ul *ngFor="let review of reviews" class="list-group">
               <li class="list-group-item">
                 <div>
                   <div class="row">
@@ -101,17 +101,17 @@
                       <img src="https://profile.actionsprout.com/default.jpeg" height="70px" width="70px"/>
                     </div>
                     <div class="col-sm-9">
-                      <h5>Name</h5>
-                      <p>Reviews, Followers</p>
-                      <a href="#">Follow</a>
+                      <h5>{{review.user.firstName}} {{review.user.lastName}}</h5>
+                      <!--<p>Reviews, Followers</p>-->
+                      <!--<a href="#">Follow</a>-->
                     </div>
                     <div class="col-sm-1">
-                      <p>4.5</p>
+                      <p>{{review.rating}}</p>
                     </div>
-                    <p>age (date posted)</p>
+                    <p>{{review.age}}</p>
                   </div>
                   <div class="row">
-                    <p>content</p>
+                    <p>{{review.content}}</p>
                   </div>
                 </div>
               </li>

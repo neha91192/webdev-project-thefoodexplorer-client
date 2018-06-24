@@ -17,6 +17,7 @@ export class RestaurantDetailsPageComponent implements OnInit {
   reviewRating;
   reviewContent;
   review: Review;
+  reviews = [];
 
   // Tab selection variables
   isInfoTabClicked;
@@ -71,7 +72,6 @@ export class RestaurantDetailsPageComponent implements OnInit {
       this.isReviewTabClicked = false;
       this.isReservationTabClicked = true;
     }
-
   }
 
   submitReview() {
@@ -95,9 +95,18 @@ export class RestaurantDetailsPageComponent implements OnInit {
           console.log(response);
         }
       }
-       );
+       ).then((response) =>
+        console.log(response));
 
   }
 
-
+  findAllReviewsForRestaurant() {
+    this.reviewService
+      .findAllReviewsForRestaurant(this.restaurantId)
+      .then(response => {
+        console.log('customer:', response);
+        this.reviews = response;
+        console.log('users:', this.reviews);
+      });
+  }
 }
