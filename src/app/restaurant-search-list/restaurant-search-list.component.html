@@ -18,7 +18,7 @@
             <p id="restaurant-list-details-address-row1">{{restaurant.restaurant.location.address}}</p>
           </div>
           <div class="col-sm-2">
-            <p id="restaurant-list-details-rating-row1" class="rounded float-right">3.6</p>
+            <p id="restaurant-list-details-rating-row1" class="rounded float-right">{{restaurant.restaurant.user_rating.aggregate_rating}}</p>
           </div>
         </div>
         <div class="row container-fluid">

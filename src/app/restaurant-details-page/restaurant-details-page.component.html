@@ -74,25 +74,50 @@
               <span>Rate your experience</span>
               </div>
               <div class="col-3 float-right">
-                <ngb-rating [rate]="reviewRating"></ngb-rating>
+                <ngb-rating [(rate)]="reviewRating"></ngb-rating>
               </div>
 
             </div>
             <div class="row padding">
-              <textarea class="form-control" rows="2" placeholder="Add your experience of visiting this RestaurantModelClient">
+              <textarea [(ngModel)] = "reviewContent" class="form-control" rows="2" placeholder="Add your experience of visiting this Restaurant">
               </textarea>
             </div>
             <div class="row padding">
 
-                <button class="btn btn-outline-success">Submit</button>
+                <button (click)="submitReview()" class="btn btn-outline-success">Submit</button>
 
 
             </div>
           </div>
           <div class="row padding">
             <h5 class="padding">See all reviews of this RestaurantModelClient</h5>
-            </div>
-          <app-review-list></app-review-list>
+          </div>
+          <div class="container">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col-sm-2">
+                      <img src="https://profile.actionsprout.com/default.jpeg" height="70px" width="70px"/>
+                    </div>
+                    <div class="col-sm-9">
+                      <h5>Name</h5>
+                      <p>Reviews, Followers</p>
+                      <a href="#">Follow</a>
+                    </div>
+                    <div class="col-sm-1">
+                      <p>4.5</p>
+                    </div>
+                    <p>age (date posted)</p>
+                  </div>
+                  <div class="row">
+                    <p>content</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
 
         </div>
       </div>

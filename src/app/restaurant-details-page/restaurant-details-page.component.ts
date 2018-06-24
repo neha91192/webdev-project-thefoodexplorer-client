@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+import {Review} from '../models/review.model.client';
+import {Restaurant} from '../models/restaurant.model.client';
+import {ReviewServiceClient} from '../services/review-service-client';
 
 @Component({
   selector: 'app-restaurant-details-page',
@@ -12,6 +15,8 @@ export class RestaurantDetailsPageComponent implements OnInit {
   restaurantId;
   restaurant;
   reviewRating;
+  reviewContent;
+  review: Review;
 
   // Tab selection variables
   isInfoTabClicked;
@@ -19,10 +24,12 @@ export class RestaurantDetailsPageComponent implements OnInit {
   isReviewTabClicked;
   isReservationTabClicked;
 
-  constructor(private zomatoService: ZomatoApiServiceClient, private route: ActivatedRoute, config: NgbRatingConfig) {
+  constructor(private zomatoService: ZomatoApiServiceClient, private reviewService: ReviewServiceClient,
+              private route: ActivatedRoute, config: NgbRatingConfig) {
     config.max = 5;
     this.route.params.subscribe(params => this.setParams(params));
     this.isInfoTabClicked = true;
+    this.reviewRating = '';
   }
 
   setParams(params) {
@@ -64,6 +71,21 @@ export class RestaurantDetailsPageComponent implements OnInit {
       this.isReviewTabClicked = false;
       this.isReservationTabClicked = true;
     }
+
+  }
+
+  submitReview() {
+    console.log(this.reviewRating);
+    console.log(this.reviewContent);
+    this.review = new Review();
+    this.review.rating = this.reviewRating;
+    this.review.content = this.reviewContent;
+    this.review.restaurant = new Restaurant();
+    this.review.restaurant.restaurantId = this.restaurantId;
+    this.reviewService
+      .submitReview(this.review)
+      .then((response) =>
+        console.log(response));
 
   }
 

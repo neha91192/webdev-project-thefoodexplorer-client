@@ -57,6 +57,10 @@ li a:hover:not(.active) {
   color: white;
 }
 
+.padding{
+  padding-top: 15px;
+}
+
 
 
 /*#courseName, #sectionName, #seats, #grade{*/
