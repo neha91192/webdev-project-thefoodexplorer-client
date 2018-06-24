@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="container">
+  <h2 class="heading text-danger">User Admin</h2>
+  <table class="table table-striped table-responsive-lg">
+    <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Password</th>
+      <th scope="col">Firstname</th>
+      <th scope="col">Lastname</th>
+      <th scope="col">Role</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <th><input [(ngModel)]="username" class="form-control" placeholder="Username"/></th>
+      <th><input [(ngModel)]="password" class="form-control" type=password placeholder="Password"/></th>
+      <th><input [(ngModel)]="firstName" class="form-control" placeholder="FirstName"/></th>
+      <th><input [(ngModel)]="lastName" class="form-control" placeholder="LastName"/></th>
+      <th>
+        <select class="form-control" [(ngModel)]="userType">
+          <option value="Customer">Customer</option>
+          <option value="Owner">Owner</option>
+        </select>
+      </th>
+      <th>
+        <span id="spanBtn" class="float-right">
+					<button (click)="createUser()" class="btn"><i class="fa-1x fa fa-plus wbdv-create"></i></button>
+          <button (click)="updateUser()" class="btn" data-dismiss="alert" ><i class="fa-1x fa fa-check wbdv-update"></i></button>
+        </span>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users" class="template">
+      <td class="username">{{user.username}}</td>
+      <td class="password">*********</td>
+      <td class="firstName">{{user.firstName}}</td>
+      <td class="lastName">{{user.lastName}}</td>
+      <td class="userType">{{user.userType}}</td>
+      <td class="wbdv-actions">
+        <div class="float-right">
+						<button (click)="deleteUser(user.userId)" class="btn"><i id="wbdv-remove" class="fa-x fa fa-times wbdv-remove"></i></button>
+            <button (click)="renderUser(user)" class="btn"><i class="fas fa-x fa-pencil-alt"></i></button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

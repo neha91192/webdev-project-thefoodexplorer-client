@@ -53,6 +53,8 @@ import {OwnerServiceClient} from './services/owner-service-client';
 
 import {SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider} from 'angular5-social-login';
 import { ProfileDiscoverPeopleComponent } from './profile-discover-people/profile-discover-people.component';
+import { AdminComponent } from './admin/admin.component';
+import {UserServiceClient} from './services/user-service-client';
 
 
 export function getAuthServiceConfigs() {
@@ -111,7 +113,8 @@ export function getAuthServiceConfigs() {
     RestaurantInformationComponent,
     RestaurantMenuComponent,
     OwnerSignupComponent,
-    ProfileDiscoverPeopleComponent
+    ProfileDiscoverPeopleComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -131,6 +134,7 @@ export function getAuthServiceConfigs() {
     UploadService,
     MediaServiceClient,
     OwnerServiceClient,
+    UserServiceClient,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
