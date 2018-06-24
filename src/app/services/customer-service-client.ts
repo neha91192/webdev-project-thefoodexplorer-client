@@ -3,8 +3,26 @@ export class CustomerServiceClient {
   CUSTOMER_URL = this.LOCAL_SERVER + '/api/customer';
   SEARCH_URL = this.LOCAL_SERVER + '/api/customer?firstName=FIRSTNAME&lastName=LASTNAME';
   FOLLOW_URL = this.LOCAL_SERVER + '/api/follow/USERID';
+  FIND_FOLLOWERS = this.LOCAL_SERVER + '/api/follower';
+  FIND_FOLLOWING = this.LOCAL_SERVER + '/api/following';
 
+  findFollowers() {
+    return fetch(this.FIND_FOLLOWERS, {
+      credentials: 'include'
+    })
+      .then(response => response.json());
+  }
 
+  findFollowing() {
+    return fetch(this.FIND_FOLLOWING, {
+      credentials: 'include'
+    })
+      .then(response => response.json());
+  }
+
+  unfollow(userId) {
+    console.log('delete');
+  }
   updateUser(customer) {
     return fetch(this.CUSTOMER_URL + '/' + customer.userId, {
       credentials: 'include',
@@ -34,8 +52,6 @@ export class CustomerServiceClient {
   }
 
   searchUsers(firstName, lastName) {
-
-
     return fetch(this.SEARCH_URL
       .replace('FIRSTNAME', firstName)
       .replace('LASTNAME', lastName), {

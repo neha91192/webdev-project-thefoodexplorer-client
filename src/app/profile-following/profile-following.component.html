@@ -1,3 +1,18 @@
-<p>
-  profile following page
-</p>
+<div class="container">
+  <h4>Following</h4>
+  <!--<h6 class="text-secondary heading">Connect with them now!</h6>-->
+  <div>
+    <ul *ngFor="let user of following" class="list-group">
+      <li class="list-group-item">
+        {{user.firstName}} {{user.lastName}}
+        <button (click)="showDelete === true" class="btn btn-outline-success float-right">
+          <i class="fas fa-check"></i>
+        </button>
+        <button *ngIf="showDelete === true" (click)="unfollow(user.userId)"
+                class="btn btn-outline-success float-right">
+          <i class="fas fa-times"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
