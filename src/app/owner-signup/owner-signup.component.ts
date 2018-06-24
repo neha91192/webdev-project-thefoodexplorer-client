@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
 import { PaginationModule } from 'ngx-pagination-bootstrap';
-import {Owner} from '../models/owner-model-client';
+import {Owner} from '../models/owner.model.client';
 import {Restaurant} from '../models/restaurant.model.client';
+import {ProfileServiceClient} from '../services/profile-service-client';
+import {RegistrationServiceClient} from '../services/registration-service-client';
+import {OwnerServiceClient} from '../services/owner-service-client';
 
 @Component({
   selector: 'app-owner-signup',
@@ -25,12 +28,13 @@ export class OwnerSignupComponent implements OnInit {
   password;
   confirmPassword;
 
-  constructor(private service: ZomatoApiServiceClient) {
+  constructor(private service: ZomatoApiServiceClient, private ownerService: OwnerServiceClient) {
     this.locationId = 289;
     this.isActive = false;
     this.noOfPages = 8;
     this.resultSize = 80;
     this.currentPage = 1;
+    this.restaurantId = 16774318;
   }
 
   ngOnInit() {
@@ -76,7 +80,19 @@ export class OwnerSignupComponent implements OnInit {
       owner.username = this.username;
       owner.password = this.password;
       owner.restaurant = new Restaurant();
-      owner.restaurant.id = this.restaurantId;
+      owner.restaurant.restaurantId = this.restaurantId;
+      owner.userType = 1;
+      this.ownerService.register(owner).then(response => {
+        if (response === 409) {
+          alert('This restaurant has already been claimed. Please contact system administrator for more information');
+        } else {
+          if (response === 400) {
+            alert('Cannot process request, system failure');
+          } else {
+            alert('Congrats! Your restaurant has been listed on our website.');
+          }
+        }
+      });
     } else {
       alert ('Passwords do not match!');
     }

@@ -1,10 +1,12 @@
+import {UserType} from './usertype.enum.client';
+
 export class User {
   userId: number;
   username: string;
   password: string;
   firstName: string;
   lastName: string;
-  userType: string;
+  userType: UserType;
   dateOfBirth: string;
   city: string;
   mobileNumber: string;

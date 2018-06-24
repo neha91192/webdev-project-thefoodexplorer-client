@@ -39,16 +39,16 @@ x
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <div *ngIf="!isLoggedIn"><app-login></app-login></div>
         <li *ngIf="isLoggedIn" class="nav-item link-title">
-          <a  routerLink="/profile">
-            <i class="material-icons icon-padding">account_box</i>
+          <a  class="btn btn-outline-light" routerLink="/profile">
+            <i class="fa fa-user"></i>
             <span class="text-padding">
-         Profile
+         {{user.username}}
         </span>
           </a>
         </li>
         <li *ngIf="isLoggedIn"  class="nav-item link-title">
-          <a (click)="logout()">
-          <i class="material-icons icon-padding">power_settings_new</i>
+          <a class="btn btn-outline-light" (click)="logout()">
+            <i class="fa fa-power-off"></i>
           <span class="text-padding">Logout</span>
           </a>
         </li>

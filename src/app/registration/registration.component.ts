@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {RegistrationServiceClient} from '../services/registration-service-client';
 import {User} from '../models/user.model.client';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SharedService} from '../services/shared-service-client';
+import {UserType} from '../models/usertype.enum.client';
 
 @Component({
   selector: 'app-registration',
@@ -17,8 +17,8 @@ export class RegistrationComponent implements OnInit {
   name;
   selectedUserType;
 
+
   constructor(private service: RegistrationServiceClient, private router: Router) {
-    this.selectedUserType = 'Customer';
 
   }
 
@@ -35,7 +35,7 @@ export class RegistrationComponent implements OnInit {
       user.username = this.username;
       user.password = this.password;
       user.firstName = this.name;
-      user.userType = this.selectedUserType;
+      user.userType = 0;
       this.service.register(user).then(newUser => {
         this.c('Cross click');
         this.router.navigate(['profile']);

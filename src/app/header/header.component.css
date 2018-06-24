@@ -28,10 +28,10 @@
 }
 
 
-.link-title:hover  {
-  background-color:  #e9ecef;
-  color: black;
-}
+/*.link-title:hover  {*/
+  /*background-color:  #e9ecef;*/
+  /*color: black;*/
+/*}*/
 .nav.nav-center {
   margin:0;
   float:none;
@@ -42,5 +42,9 @@
 }
 
 i.wbdv {
+  color: white;
+}
+
+a {
   color: white;
 }
