@@ -25,7 +25,6 @@ export class ProfileContentsComponent implements OnInit, OnChanges {
   profilefollowing = false;
   profileInterests = false;
   discoverPeople = false;
-  user: User;
   ngOnInit() {
   }
 

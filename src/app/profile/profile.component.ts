@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
         if (user === null) {
           alert('You are not logged in! Please login to continue.');
           this.router.navigate(['home']);
-        } else if (user !== null){
+        } else {
           this.user = user;
         }
       });

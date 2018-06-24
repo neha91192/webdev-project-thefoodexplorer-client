@@ -15,12 +15,15 @@ export class ProfileDiscoverPeopleComponent implements OnInit, OnChanges {
 
   firstName;
   lastName;
+  users = [];
   ngOnInit() {
   }
   searchUsers() {
     this.customerService.searchUsers(this.firstName, this.lastName)
-      .then(response =>
-      console.log('customer:', response));
+      .then(response => {
+        console.log('customer:', response);
+        this.users = response;
+      });
   }
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['user'] !== 'undefined') {
@@ -28,4 +31,7 @@ export class ProfileDiscoverPeopleComponent implements OnInit, OnChanges {
     }
   }
 
+  follow(userId) {
+    console.log('inside follow');
+  }
 }
