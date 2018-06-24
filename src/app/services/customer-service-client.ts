@@ -1,7 +1,8 @@
 export class CustomerServiceClient {
-    CUSTOMER_URL = 'http://localhost:8080/api/customer';
-  SEARCH_URL = 'http://localhost:8080/api/customer?firstName=FIRSTNAME&lastName=LASTNAME';
-  FOLLOW_URL = 'http://localhost:8080/api/follow/USERID';
+  LOCAL_SERVER = 'http://localhost:8080';
+  CUSTOMER_URL = this.LOCAL_SERVER + '/api/customer';
+  SEARCH_URL = this.LOCAL_SERVER + '/api/customer?firstName=FIRSTNAME&lastName=LASTNAME';
+  FOLLOW_URL = this.LOCAL_SERVER + '/api/follow/USERID';
 
 
   updateUser(customer) {
