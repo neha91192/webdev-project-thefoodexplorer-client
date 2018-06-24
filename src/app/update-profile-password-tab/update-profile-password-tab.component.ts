@@ -17,7 +17,7 @@ export class UpdateProfilePasswordTabComponent implements OnInit {
 
   user: User;
   password = '';
-  confirmPassword = ''
+  confirmPassword = '';
   ngOnInit() {
   }
 
