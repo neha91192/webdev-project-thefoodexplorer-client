@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {RegistrationServiceClient} from '../services/registration-service-client';
 import {User} from '../models/user.model.client';
-import {ActivatedRoute, Router} from '@angular/router';
-import {UserType} from '../models/usertype.enum.client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registration',
