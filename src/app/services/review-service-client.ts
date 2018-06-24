@@ -2,6 +2,7 @@ export class ReviewServiceClient {
   REVIEW_URL = 'http://localhost:8080/api/restaurant/REST_ID/review';
   REVIEW_URL = 'http://localhost:8080/api/review';
   FIND_ALL_URL =  'http://localhost:8080/api/review/ID';
+  FIND_REVIEWS_FOR_RESTAURANT =  'http://localhost:8080/api/restaurant/RESTID/review';
 
 
   submitReview(review) {
@@ -23,8 +24,7 @@ export class ReviewServiceClient {
   }
 
   findAllReviewsForRestaurant(restaurantId) {
-    return fetch(this.FIND_ALL_URL
-      .replace('ID', restaurantId))
+    return fetch(this.FIND_REVIEWS_FOR_RESTAURANT.replace('RESTID', restaurantId))
       .then(response => response.json());
   }
 

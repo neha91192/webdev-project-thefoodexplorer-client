@@ -92,7 +92,7 @@ export class RestaurantDetailsPageComponent implements OnInit {
           this.reviewContent = '';
           this.reviewRating = '';
           alert ('Review added successfully');
-          console.log(response);
+          this.findAllReviewsForRestaurant();
         }
       }
        ).then((response) =>
