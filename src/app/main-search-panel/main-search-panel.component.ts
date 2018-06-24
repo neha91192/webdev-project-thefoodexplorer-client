@@ -74,8 +74,8 @@ export class MainSearchPanelComponent implements OnInit {
   }
 
   search() {
-    this.router.navigate(['/search'], { queryParams: { location: this.selectedLocationId,
-        category: this.selectedCategoryId, value: this.searchValue}, queryParamsHandling: 'merge' });
+    this.router.navigate(['/search'], { queryParams: { locationId: this.selectedLocationId,
+        categoryId: this.selectedCategoryId, value: this.searchValue}, queryParamsHandling: 'merge' });
 
   }
 

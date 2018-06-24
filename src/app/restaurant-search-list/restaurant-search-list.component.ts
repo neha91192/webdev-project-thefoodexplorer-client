@@ -32,9 +32,9 @@ export class RestaurantSearchListComponent implements OnInit {
   }
 
   setParams(params) {
-    this.location = params['location'];
+    this.location = params['locationId'];
     this.searchKeyword = params['value'];
-    this.category = params['category'];
+    this.category = params['categoryId'];
 
     if (params['cuisine'] !== undefined) {
       this.cuisine = params['cuisine'];
