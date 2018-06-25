@@ -1,10 +1,11 @@
 export class CustomerServiceClient {
   LOCAL_SERVER = 'http://localhost:8080';
-  CUSTOMER_URL = this.LOCAL_SERVER + '/api/customer';
-  SEARCH_URL = this.LOCAL_SERVER + '/api/customer?firstName=FIRSTNAME&lastName=LASTNAME';
-  FOLLOW_URL = this.LOCAL_SERVER + '/api/follow/USERID';
-  FIND_FOLLOWERS = this.LOCAL_SERVER + '/api/follower';
-  FIND_FOLLOWING = this.LOCAL_SERVER + '/api/following';
+  REMOTE_SERVER = 'https://thefoodexplorer-server.herokuapp.com';
+  CUSTOMER_URL = this.REMOTE_SERVER + '/api/customer';
+  SEARCH_URL = this.REMOTE_SERVER + '/api/customer?firstName=FIRSTNAME&lastName=LASTNAME';
+  FOLLOW_URL = this.REMOTE_SERVER + '/api/follow/USERID';
+  FIND_FOLLOWERS = this.REMOTE_SERVER + '/api/follower';
+  FIND_FOLLOWING = this.REMOTE_SERVER + '/api/following';
 
   findFollowers() {
     return fetch(this.FIND_FOLLOWERS, {

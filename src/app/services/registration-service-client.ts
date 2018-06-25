@@ -1,5 +1,8 @@
 export class RegistrationServiceClient {
-  REGISTRATION_URL = 'http://localhost:8080/api/register';
+
+  LOCAL_SERVER = 'http://localhost:8080';
+  REMOTE_SERVER = 'https://thefoodexplorer-server.herokuapp.com';
+  REGISTRATION_URL = this.REMOTE_SERVER + '/api/register';
 
   register(user) {
     return fetch(this.REGISTRATION_URL, {

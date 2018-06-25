@@ -1,5 +1,8 @@
 export class OwnerServiceClient {
-  OWNER_URL = 'http://localhost:8080/api/owner/RESTID';
+
+  LOCAL_SERVER = 'http://localhost:8080';
+  REMOTE_SERVER = 'https://thefoodexplorer-server.herokuapp.com';
+  OWNER_URL = this.REMOTE_SERVER + '/api/owner/RESTID';
 
   register(owner) {
     return fetch(this.OWNER_URL.replace('RESTID', owner.restaurant.restaurantId), {

@@ -1,5 +1,8 @@
 export class UserServiceClient {
-  USER_URL = 'http://localhost:8080/api/user';
+
+  LOCAL_SERVER = 'http://localhost:8080';
+  REMOTE_SERVER = 'https://thefoodexplorer-server.herokuapp.com';
+  USER_URL = this.REMOTE_SERVER + '/api/user';
 
   findAllUsers() {
     return fetch(this.USER_URL, {

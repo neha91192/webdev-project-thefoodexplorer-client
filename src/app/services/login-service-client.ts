@@ -1,6 +1,8 @@
 export class LoginServiceClient {
-  LOGIN_URL = 'http://localhost:8080/api/login';
-  LOGOUT_URL = 'http://localhost:8080/api/logout';
+  REMOTE_SERVER = 'https://thefoodexplorer-server.herokuapp.com';
+  LOCAL_SERVER = 'http://localhost:8080';
+  LOGIN_URL =  this.REMOTE_SERVER + '/api/login';
+  LOGOUT_URL = this.REMOTE_SERVER + '/api/logout';
 
   login(credentials) {
     return fetch(this.LOGIN_URL, {

@@ -1,8 +1,11 @@
 export class ReviewServiceClient {
-  REVIEW_URL = 'http://localhost:8080/api/restaurant/REST_ID/review';
-  REVIEW_ONLY_URL = 'http://localhost:8080/api/review';
-  FIND_ALL_URL =  'http://localhost:8080/api/review/ID';
-  FIND_REVIEWS_FOR_RESTAURANT =  'http://localhost:8080/api/restaurant/REST_ID/review';
+  LOCAL_SERVER = 'http://localhost:8080';
+  REMOTE_SERVER = 'https://thefoodexplorer-server.herokuapp.com';
+
+  REVIEW_URL = this.REMOTE_SERVER + '/api/restaurant/REST_ID/review';
+  REVIEW_ONLY_URL = this.REMOTE_SERVER + '/api/review';
+  FIND_ALL_URL =  this.REMOTE_SERVER + 'http://localhost:8080/api/review/ID';
+  FIND_REVIEWS_FOR_RESTAURANT =  this.REMOTE_SERVER + 'http://localhost:8080/api/restaurant/REST_ID/review';
 
 
   submitReview(review) {

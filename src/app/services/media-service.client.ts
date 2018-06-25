@@ -1,6 +1,8 @@
 export class MediaServiceClient {
-  MEDIA_URL = 'http://localhost:8080/api/restaurant/REST_ID/media';
-  MEDIA_ONLY_URL = 'http://localhost:8080/api/media';
+  REMOTE_SERVER = 'https://thefoodexplorer-server.herokuapp.com';
+  LOCAL_SERVER = 'http://localhost:8080';
+  MEDIA_URL = this.REMOTE_SERVER + '/api/restaurant/REST_ID/media';
+  MEDIA_ONLY_URL = this.REMOTE_SERVER + '/api/media';
 
   findMediaForRestaurant(restaurantId) {
     return fetch(this.MEDIA_URL.replace('REST_ID', restaurantId), {

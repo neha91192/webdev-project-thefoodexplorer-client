@@ -1,5 +1,8 @@
 export class ProfileServiceClient {
-  PROFILE_URL = 'http://localhost:8080/api/profile';
+
+  LOCAL_SERVER = 'http://localhost:8080';
+  REMOTE_SERVER = 'https://thefoodexplorer-server.herokuapp.com';
+  PROFILE_URL = this.REMOTE_SERVER + '/api/profile';
 
   fetchProfile() {
     return fetch(this.PROFILE_URL, {
