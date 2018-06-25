@@ -5,6 +5,7 @@ import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 import {Review} from '../models/review.model.client';
 import {Restaurant} from '../models/restaurant.model.client';
 import {ReviewServiceClient} from '../services/review-service-client';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-restaurant-details-page',
@@ -27,20 +28,12 @@ export class RestaurantDetailsPageComponent implements OnInit {
   isReservationTabClicked;
 
   constructor(private zomatoService: ZomatoApiServiceClient, private reviewService: ReviewServiceClient,
-              private route: ActivatedRoute, config: NgbRatingConfig, private router: Router) {
+              private route: ActivatedRoute, config: NgbRatingConfig, private router: Router,
+              private location: Location) {
     config.max = 5;
     this.route.params.subscribe(params => this.setParams(params));
     this.isInfoTabClicked = true;
     this.reviewRating = '';
-
-       // this.router.events.map(event => {
-    //   if (event instanceof  NavigationEnd) {
-    //     return event;
-    //   }
-    // }).subscribe(e => {
-    //   console.log('prev:', this.backurl);
-    //   this.backurl = e.url;
-    // });
 
   }
 
@@ -121,6 +114,6 @@ export class RestaurantDetailsPageComponent implements OnInit {
       });
   }
   back() {
-    this.router.navigateByUrl(this.backurl);
+    this.location.back();
   }
 }

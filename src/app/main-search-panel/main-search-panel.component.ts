@@ -25,28 +25,14 @@ export class MainSearchPanelComponent implements OnInit {
 
   formatter = (result: any) => result;
 
-  // fetchLocations = (text$: Observable<string>) =>
-  //   text$.pipe(
-  //     debounceTime(200),
-  //     distinctUntilChanged(),
-  //     map(term => term === '' ? []
-  //       : this.locations.filter(city => city.name.toLowerCase()
-  //         .indexOf(term.toLowerCase()) > -1).slice(0, 10))
-  //   )
-
-  /**
-   * For typeahead location input dropdown
-   * @param {Observable<string>} text$
-   * @returns {Observable<any[] | {id: string; name: string}[]>}
-   */
   fetchLocations = (text$: Observable<string>) =>
     text$.pipe(
       debounceTime(200),
       distinctUntilChanged(),
       map(term => term === '' ? []
         : this.locations.filter(location =>
-        location.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0 , 10)
-    ))
+          location.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0 , 10)
+      ))
 
   /**
    * Finds list of restaurant categories
@@ -75,17 +61,23 @@ export class MainSearchPanelComponent implements OnInit {
   fetchLocationsFromAPI(value: string) {
       this.service.fetchLocation(value).then((response) => {
           if (response !== null) {
+             this.locations = [];
             response.location_suggestions.map(location => {
               this.locations.push(location.name);
               this.locationMap.push({id: location.id, name: location.name});
-              console.log(this.locations);
-              console.log(this.locationMap);
+              // console.log(this.locationMap);
             });
           }
       });
   }
 
   search() {
+    this.selectedLocationId = '';
+    this.locationMap.map(city => {
+      if (city.name === this.locationValue) {
+        this.selectedLocationId = city.id;
+      }
+    });
     this.router.navigate(['/search'], { queryParams: { locationId: this.selectedLocationId,
         categoryId: this.selectedCategoryId, value: this.searchValue}, queryParamsHandling: 'merge' });
 

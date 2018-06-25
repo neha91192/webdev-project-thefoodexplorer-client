@@ -1,6 +1,6 @@
 .footer-body{
-  background-color: #b9bbbe;
-  color: black;
+  background-color: #1b1e21;
+  color: white;
 }
 .app-title{
   font-family: "Avenir Next";
@@ -14,4 +14,10 @@ hr{
   margin-bottom: 1rem;
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.padding {
+  padding: 10px;
+}
+ul {
+  list-style-type: none;
 }
