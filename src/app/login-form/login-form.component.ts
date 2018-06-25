@@ -36,11 +36,9 @@ export class LoginFormComponent implements OnInit {
         // this.sharedService.user = resp;
         c('Cross click');
         if (resp.userType === 'Owner') {
-          console.log('owner');
           this.router.navigate(['profile/owner']);
         } else if (resp.userType === 'Customer') {
           this.router.navigate(['profile']);
-          console.log('customer');
         } else {
           this.router.navigate(['admin']);
         }

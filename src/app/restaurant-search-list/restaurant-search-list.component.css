@@ -1,5 +1,5 @@
 .row-heading{
-  padding-bottom: 10px
+  padding-bottom: 7px
 }
 
 #restaurant-list-details-header-row2 {
@@ -52,4 +52,8 @@
 
 .low-padding {
   padding: 6px;
+}
+.no-padding {
+  padding-left: 5px;
+  padding-right: 5px;
 }

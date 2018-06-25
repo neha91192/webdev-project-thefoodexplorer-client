@@ -110,7 +110,7 @@
                         <p class="low-padding">{{review.age}}</p>
                       </div>
                       <div class="col-sm-9 col-lg-9 col-md-9">
-                        <h5>{{review.customer.firstName}} {{review.customer.lastName}}</h5>
+                        <h5><a routerLink="/user/{{review.customer.userId}}"> {{review.customer.firstName}} {{review.customer.lastName}}</a></h5>
                         <!--<p>Reviews, Followers</p>-->
                         <!--<a href="#">Follow</a>-->
                         <div class="row">
