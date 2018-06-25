@@ -59,13 +59,13 @@
       </div>
       <div *ngIf="isMenuTabClicked" class="details-section padding">
         <div class=" nav-item nav-link text-padding info-tab-layout">
-          <app-restaurant-menu [restaurant]="restaurant"></app-restaurant-menu>
+          <app-restaurant-menu [restaurant]="restaurant" [isOwner]="isOwner"></app-restaurant-menu>
         </div>
       </div>
 
       <div *ngIf="isReviewTabClicked" class="details-section padding">
         <div class=" nav-item nav-link text-padding info-tab-layout">
-          <div class="padding">
+          <div *ngIf="isOwner !== true" class="padding">
             <div class="row padding">
                 <h5>Write a review</h5>
             </div>
@@ -79,8 +79,11 @@
 
             </div>
             <div class="row padding">
-              <textarea [(ngModel)] = "reviewContent" class="form-control" rows="2" placeholder="Add your experience of visiting this Restaurant">
+
+                  <textarea name="formname" [(ngModel)] = "reviewContent" class="form-control" rows="2" placeholder="Add your experience of visiting this Restaurant">
               </textarea>
+
+
             </div>
             <div class="row padding">
 
@@ -90,9 +93,14 @@
             </div>
           </div>
 
-          <div *ngIf="reviewList.length === 0" class="padding">
+          <div *ngIf="reviewList.length === 0 && isOwner !== true" class="padding">
             <h5 class="text-secondary">Sorry, no reviews found yet.
               But you can be the first one to rate this Restaurant!
+            </h5>
+          </div>
+
+          <div *ngIf="reviewList.length === 0 && isOwner === true" class="padding">
+            <h5 class="text-secondary">Sorry, no reviews found yet.
             </h5>
           </div>
 

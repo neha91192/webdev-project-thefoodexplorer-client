@@ -7,6 +7,7 @@ import {Restaurant} from '../models/restaurant.model.client';
 import {ReviewServiceClient} from '../services/review-service-client';
 import { Location } from '@angular/common';
 import { User} from '../models/user.model.client';
+import {ProfileServiceClient} from '../services/profile-service-client';
 
 @Component({
   selector: 'app-restaurant-details-page',
@@ -19,8 +20,8 @@ export class RestaurantDetailsPageComponent implements OnInit {
   reviewRating;
   reviewContent;
   review: Review;
-  backurl;
   reviewList = [];
+  isOwner;
 
   // Tab selection variables
   isInfoTabClicked;
@@ -30,17 +31,19 @@ export class RestaurantDetailsPageComponent implements OnInit {
 
   constructor(private zomatoService: ZomatoApiServiceClient, private reviewService: ReviewServiceClient,
               private route: ActivatedRoute, config: NgbRatingConfig, private router: Router,
-              private location: Location) {
+              private location: Location, private profile: ProfileServiceClient) {
     config.max = 5;
     this.route.params.subscribe(params => this.setParams(params));
     this.isInfoTabClicked = true;
     this.reviewRating = '';
+    this.isOwner = false;
 
   }
 
   setParams(params) {
     this.restaurantId = params['restaurantId'];
     this.fetchRestaurant(this.restaurantId);
+    this.fetchProfile();
     this.findAllReviewsForRestaurant();
   }
 
@@ -51,6 +54,7 @@ export class RestaurantDetailsPageComponent implements OnInit {
   }
   ngOnInit() {
     this.isInfoTabClicked = true;
+    this.isOwner = false;
   }
 
   selectTab(value) {
@@ -81,16 +85,20 @@ export class RestaurantDetailsPageComponent implements OnInit {
   }
 
   submitReview() {
-
     this.review = new Review();
     this.review.rating = this.reviewRating;
     this.review.content = this.reviewContent;
     this.review.restaurant = new Restaurant();
-    this.review.restaurant.restaurantId = this.restaurantId;
-    this.review.customer = new User();
-    this.review.customer.userId = 2;
+    this.review.restaurant.name = this.restaurant.name;
+    this.review.restaurant.locationArea = this.restaurant.location.locality_verbose;
+
+    // this.review.customer = new User();
+
+    console.log(JSON.stringify(this.review));
+
+
     this.reviewService
-      .submitReview(this.review)
+      .submitReview(this.review, this.restaurantId)
       .then((response) => {
         if (response === null) {
           alert ('You are not logged in. Please login to continue');
@@ -117,5 +125,15 @@ export class RestaurantDetailsPageComponent implements OnInit {
   }
   back() {
     this.location.back();
+  }
+
+  fetchProfile() {
+    this.profile.fetchProfile().then(user => {
+      if (user !== null) {
+        if (user.userType === 'Owner') {
+          this.isOwner = true;
+        }
+      }
+      });
   }
 }

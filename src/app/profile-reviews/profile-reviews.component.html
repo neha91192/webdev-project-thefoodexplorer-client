@@ -1,7 +1,7 @@
 <div class="container">
   <h4 class="padding">Your reviews</h4>
   <div class="listLength">
-    <ul *ngFor="let review of user.reviews" class="list-group">
+    <ul *ngFor="let review of reviews" class="list-group">
       <li class="list-group-item">
         <div>
           <div class="row">
@@ -15,8 +15,9 @@
               <!--<p>Reviews, Followers</p>-->
               <!--<a href="#">Follow</a>-->
               <div class="row">
-                <div class="col-sm-11 col-lg-11 col-md-11 name text-danger">
-                  {{user.firstName}} {{user.lastName}}
+                <div class="col-sm-11 col-lg-11 col-md-11 name">
+                  <p class="text-danger" >{{review.restaurant.name}}</p>
+                  <p class="text-secondary">{{review.restaurant.locationArea}}</p>
                 </div>
                 <div class="col-sm-1 col-md-1 col-lg-1 float-right">
                   <div class="row float-right">

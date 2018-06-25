@@ -11,12 +11,14 @@ import {MediaServiceClient} from '../services/media-service.client';
 })
 export class RestaurantMenuComponent implements OnInit, OnChanges {
   @Input() restaurant: Restaurant;
+  @Input() isOwner: boolean;
   fileToUpload: File = null;
   data;
   uploadedImage;
   restaurantId;
   media: Media;
   mediaList: Media[] = [];
+  showUpload;
 
   constructor(private uploadService: UploadService, private mediaService: MediaServiceClient) {
     if (this.restaurant !== undefined) {
@@ -67,7 +69,9 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
       this.restaurantId = this.restaurant.id;
       console.log(this.restaurantId);
       this.fetchMediaForRestaurant(this.restaurantId);
-
+      if (this.isOwner === true) {
+        this.showUpload = this.isOwner;
+      }
     }
 
   }

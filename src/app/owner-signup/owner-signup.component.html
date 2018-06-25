@@ -80,8 +80,8 @@
       <ul *ngFor="let restaurant of restaurantList" class="list-group">
         <div class="row">
           <div class="col-sm-12 col-md-9 col-lg-9">
-            <li [ngClass]="{'active': restaurantId == restaurant.restaurant.id}"
-                (click)="selectRestaurant(restaurant.restaurant.id)"
+            <li [ngClass]="{'active': selectedRestaurant.restaurantId == restaurant.restaurant.id}"
+                (click)="selectRestaurant(restaurant)"
                  class="list-group-item wbdv">
               <h5>{{restaurant.restaurant.name}}</h5>
               <h6 class="text-secondary">{{restaurant.restaurant.location.locality}}</h6>
