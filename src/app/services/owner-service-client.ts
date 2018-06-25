@@ -1,5 +1,6 @@
 export class OwnerServiceClient {
   OWNER_URL = 'http://localhost:8080/api/owner/RESTID';
+  UPDATE_OWNER_URL = 'http://localhost:8080/api/owner';
 
   register(owner) {
     return fetch(this.OWNER_URL.replace('RESTID', owner.restaurant.restaurantId), {
@@ -19,5 +20,23 @@ export class OwnerServiceClient {
       }
     });
   }
+  updateOwner(owner) {
+    return fetch(this.UPDATE_OWNER_URL + '/' + owner.userId, {
+      method: 'put',
+      body: JSON.stringify(owner),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(function (response) {
+        return response.json();
+      });
+  }
+
+
+
+
+
+
 }
 

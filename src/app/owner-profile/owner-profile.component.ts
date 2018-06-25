@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {ProfileServiceClient} from '../services/profile-service-client';
 import {Owner} from '../models/owner.model.client';
+import {OwnerServiceClient} from '../services/owner-service-client';
 
 @Component({
   selector: 'app-owner-profile',
@@ -11,7 +12,9 @@ import {Owner} from '../models/owner.model.client';
 export class OwnerProfileComponent implements OnInit {
 
   user: Owner;
-  constructor(private router: Router, private profileService: ProfileServiceClient) {
+  constructor(private router: Router,
+              private profileService: ProfileServiceClient,
+              private ownerService: OwnerServiceClient) {
     this.fetchProfile();
   }
 
@@ -29,6 +32,15 @@ export class OwnerProfileComponent implements OnInit {
         }
       });
     console.log('owner user:', this.user);
+  }
+
+  update() {
+    this.ownerService.
+      updateOwner(this.user)
+      .then((response) => {
+        alert('Owner updated successfully!');
+        console.log('owner:', response);
+      });
   }
 
   // goToRestaurantPage() {
