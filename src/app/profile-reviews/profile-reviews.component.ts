@@ -13,6 +13,7 @@ export class ProfileReviewsComponent implements OnInit, OnChanges  {
 
   userData: User;
   isOtherUserProfile;
+  reviewsExist = true;
   constructor() {
     this.isOtherUserProfile = false;
   }
@@ -27,6 +28,9 @@ export class ProfileReviewsComponent implements OnInit, OnChanges  {
       this.isOtherUserProfile = true;
       this.userData = this.otherUser;
     }
+    // if (this.user.reviews === null) {
+    //   this.reviewsExist = false;
+    // }
     console.log('reviews:', this.user.reviews);
   }
 

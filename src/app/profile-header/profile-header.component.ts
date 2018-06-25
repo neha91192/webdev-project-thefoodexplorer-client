@@ -19,7 +19,6 @@ export class ProfileHeaderComponent implements OnInit, OnChanges {
   userData: User;
   ngOnInit() {
     console.log('user city:', this.user.city);
-
   }
   ngOnChanges(changes: SimpleChanges) {
 

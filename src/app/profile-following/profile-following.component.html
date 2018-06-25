@@ -5,11 +5,11 @@
     <ul *ngFor="let user of following" class="list-group">
        <li class="list-group-item">
          <div class="row">
-           <div class="col-sm-2 col-lg-2 col-md-2">
+           <div class="col-sm-4 col-lg-2 col-md-2">
              <img routerLink="/user/{{user.userId}}" src="https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png"
                   height="70px" width="70px"/>
            </div>
-           <div class="col-sm-5 col-lg-5 col-md-5 name">
+           <div class="col-sm-8 col-lg-5 col-md-5 name">
              <a class="name text-danger" routerLink="/user/{{user.userId}}"> {{user.firstName}} {{user.lastName}} </a>
            </div>
            <div class="col-sm-2 col-lg-2 col-md-2 padding-following">
@@ -17,7 +17,7 @@
                Following
              </p>
            </div>
-           <div class="col-sm-3 col-lg-3 col-md-3 padding">
+           <div class="col-sm-12 col-lg-3 col-md-3 padding">
              <button (click)="unfollow(user.userId)"
                      class="btn btn-outline-danger">
                Unfollow
@@ -27,4 +27,7 @@
       </li>
     </ul>
   </div>
+  <!--<div *ngIf="!followingExist" class="text-secondary">-->
+    <!--You haven't followed anyone yet! Find foodies like you in Discover People-->
+  <!--</div>-->
 </div>
