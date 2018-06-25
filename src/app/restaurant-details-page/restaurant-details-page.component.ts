@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
-import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 import {Review} from '../models/review.model.client';
 import {Restaurant} from '../models/restaurant.model.client';

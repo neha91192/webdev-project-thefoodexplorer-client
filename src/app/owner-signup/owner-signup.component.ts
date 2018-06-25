@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
-import { PaginationModule } from 'ngx-pagination-bootstrap';
 import {Owner} from '../models/owner.model.client';
 import {Restaurant} from '../models/restaurant.model.client';
-import {ProfileServiceClient} from '../services/profile-service-client';
-import {RegistrationServiceClient} from '../services/registration-service-client';
 import {OwnerServiceClient} from '../services/owner-service-client';
 import {Router} from '@angular/router';
 

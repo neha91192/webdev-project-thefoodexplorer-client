@@ -121,7 +121,7 @@ import {ReviewServiceClient} from './services/review-service-client';
     NgbModule.forRoot(),
     routing,
     PaginationModule,
-    SocialLoginModule
+    // SocialLoginModule
   ],
   providers: [
     ZomatoApiServiceClient,

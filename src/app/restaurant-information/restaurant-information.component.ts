@@ -1,5 +1,4 @@
 import {Component, OnInit, OnChanges, SimpleChanges, Input, ViewChild} from '@angular/core';
-import { } from '@types/googlemaps';
 
 @Component({
   selector: 'app-restaurant-information',

@@ -9,7 +9,7 @@ import {
 
 
 @Component({
-  selector: 'app-facebook-login',
+  selector: 'app-social-login.component',
   templateUrl: './social-login.component.html',
   styleUrls: ['./social-login.component.css']
 })
