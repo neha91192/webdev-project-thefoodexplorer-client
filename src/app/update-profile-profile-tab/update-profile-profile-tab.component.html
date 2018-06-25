@@ -4,25 +4,25 @@
 <div class="padding">
   <label>First name</label>
   <div id="firstNameInput">
-    <input [(ngModel)]="userData.firstName"
+    <input *ngIf="userData !== undefined" [(ngModel)]="userData.firstName"
            placeholder="First name"
            class="form-control"/>
   </div>
   <label>Last name</label>
   <div id="lastNameInput">
-    <input [(ngModel)]="userData.lastName"
+    <input *ngIf="userData !== undefined"  [(ngModel)]="userData.lastName"
            placeholder="Last name"
            class="form-control"/>
   </div>
   <label>Phone</label>
   <div id="phoneInput">
-    <input [(ngModel)]="userData.mobileNumber"
+    <input  *ngIf="userData !== undefined" [(ngModel)]="userData.mobileNumber"
            placeholder="Phone number"
            class="form-control"/>
   </div>
   <label>Bio</label>
   <div id="bioInput">
-    <textarea [(ngModel)]="userData.bio"
+    <textarea *ngIf="userData !== undefined"  [(ngModel)]="userData.bio"
            placeholder="Write about yourself"
            class="form-control">
     </textarea>

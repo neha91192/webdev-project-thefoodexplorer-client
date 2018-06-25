@@ -11,8 +11,8 @@ import {Router} from '@angular/router';
 })
 export class MainSearchPanelComponent implements OnInit {
 
-  locations = [{id: '289', name: 'Boston'}, {id: '', name: 'Chicago'},
-    {id: '', name: 'Denver'}, {id: '', name: 'New York City'}];
+  locations = [];
+  locationMap = [];
   categories = [];
   searchValue;
   selectedCategory: String = 'Categories';
@@ -45,7 +45,7 @@ export class MainSearchPanelComponent implements OnInit {
       distinctUntilChanged(),
       map(term => term === '' ? []
         : this.locations.filter(location =>
-        location['name'].toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0 , 10)
+        location.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0 , 10)
     ))
 
   /**
@@ -55,7 +55,6 @@ export class MainSearchPanelComponent implements OnInit {
     this.service.fetchCategories()
       .then(response => {
         response.categories.map(category => this.categories.push(category.categories));
-          console.log(this.categories);
       });
   }
 
@@ -73,6 +72,19 @@ export class MainSearchPanelComponent implements OnInit {
     });
   }
 
+  fetchLocationsFromAPI(value: string) {
+      this.service.fetchLocation(value).then((response) => {
+          if (response !== null) {
+            response.location_suggestions.map(location => {
+              this.locations.push(location.name);
+              this.locationMap.push({id: location.id, name: location.name});
+              console.log(this.locations);
+              console.log(this.locationMap);
+            });
+          }
+      });
+  }
+
   search() {
     this.router.navigate(['/search'], { queryParams: { locationId: this.selectedLocationId,
         categoryId: this.selectedCategoryId, value: this.searchValue}, queryParamsHandling: 'merge' });
@@ -85,7 +97,7 @@ export class MainSearchPanelComponent implements OnInit {
   ngOnInit() {
     this.selectedCategoryId = '';
     this.selectedLocationId = 289;
-    this.locationValue = 'Boston';
+    // this.locationValue = 'Boston';
     this.searchValue = '';
   }
 

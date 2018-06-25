@@ -37,7 +37,12 @@ export class RegistrationComponent implements OnInit {
       user.userType = 0;
       this.service.register(user).then(newUser => {
         this.c('Cross click');
-        this.router.navigate(['profile']);
+        if (user !== null) {
+          this.router.navigate(['profile']);
+        } else {
+          alert ('Username is already taken.');
+        }
+
       });
 
     }

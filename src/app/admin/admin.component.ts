@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../services/user-service-client';
 import {User} from '../models/user.model.client';
+import {ProfileServiceClient} from '../services/profile-service-client';
+import {Router, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -9,7 +11,10 @@ import {User} from '../models/user.model.client';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private userService: UserServiceClient) { }
+  constructor(private userService: UserServiceClient, private profile: ProfileServiceClient,
+              private router: Router) {
+    // this.fetchProfile();
+  }
   users = [];
   username;
   password;
@@ -19,7 +24,8 @@ export class AdminComponent implements OnInit {
   user: User;
 
   ngOnInit() {
-    this.findAllUsers();
+    this.fetchProfile();
+    // this.findAllUsers();
   }
 
   findAllUsers() {
@@ -41,8 +47,18 @@ export class AdminComponent implements OnInit {
   createUser() {
     this.userService
       .createUser(this.username, this.password, this.firstName, this.lastName, this.userType)
-      .then((response) => alert('Created user'))
-      .then(() => this.findAllUsers());
+      .then((response) => {
+        if (response !== null) {
+          alert('User created successfully');
+          this.username = '';
+          this.password = '';
+          this.firstName = '';
+          this.lastName = '';
+          this.findAllUsers();
+        } else {
+          alert('User with this username already exists');
+        }
+      });
   }
 
   updateUser() {
@@ -53,7 +69,13 @@ export class AdminComponent implements OnInit {
     this.user.userType = this.userType;
     this.userService
       .updateUser(this.user)
-      .then((response) => alert('User Updated'))
+      .then((response) => {
+        alert('User Updated');
+        this.username = '';
+        this.password = '';
+        this.firstName = '';
+        this.lastName = '';
+      })
       .then( () => this.findAllUsers());
   }
 
@@ -65,6 +87,15 @@ export class AdminComponent implements OnInit {
     this.password = user.password;
     this.user = user;
 
+  }
+
+  fetchProfile() {
+    this.profile.fetchProfile().then(user => {
+      if (user === null || (user !== null && user.userType !== 'Admin')) {
+        alert('You are not authorized to see this page');
+        this.router.navigate(['home']);
+      }
+    }).then(() => this.findAllUsers());
   }
 
 }
