@@ -18,6 +18,7 @@ export class OwnerProfileComponent implements OnInit {
     this.fetchProfile();
   }
 
+  showCity = true;
   ngOnInit() {
   }
 
@@ -29,9 +30,13 @@ export class OwnerProfileComponent implements OnInit {
           this.router.navigate(['home']);
         } else {
           this.user = user;
+          if ((this.user.city === null) || (this.user.city === '')) {
+            this.showCity = false;
+          }
         }
       });
     console.log('owner user:', this.user);
+
   }
 
   update() {
