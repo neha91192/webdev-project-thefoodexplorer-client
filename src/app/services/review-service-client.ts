@@ -14,8 +14,7 @@ export class ReviewServiceClient {
       body: JSON.stringify(review),
       credentials: 'include',
       headers: {
-        'content-type': 'application/json',
-         'accept': 'application/json'
+        'content-type': 'application/json; charset=utf-8'
       }
     }).then((response) => {
       if (response.status === 401) {
