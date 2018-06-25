@@ -14,7 +14,8 @@ export class ReviewServiceClient {
       body: JSON.stringify(review),
       credentials: 'include',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+         'accept': 'application/json'
       }
     }).then((response) => {
       if (response.status === 401) {
@@ -34,11 +35,7 @@ export class ReviewServiceClient {
   deleteReview(review) {
     return fetch(this.REVIEW_ONLY_URL + review.reviewId, {
       method: 'delete',
-      credentials: 'include',
-      body: JSON.stringify(review),
-      headers: {
-        'content-type': 'application/json'
-      }
+      credentials: 'include'
     });
   }
 

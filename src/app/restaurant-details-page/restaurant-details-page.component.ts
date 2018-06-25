@@ -6,6 +6,7 @@ import {Review} from '../models/review.model.client';
 import {Restaurant} from '../models/restaurant.model.client';
 import {ReviewServiceClient} from '../services/review-service-client';
 import { Location } from '@angular/common';
+import { User} from '../models/user.model.client';
 
 @Component({
   selector: 'app-restaurant-details-page',
@@ -80,13 +81,14 @@ export class RestaurantDetailsPageComponent implements OnInit {
   }
 
   submitReview() {
-    console.log(this.reviewRating);
-    console.log(this.reviewContent);
+
     this.review = new Review();
     this.review.rating = this.reviewRating;
     this.review.content = this.reviewContent;
     this.review.restaurant = new Restaurant();
     this.review.restaurant.restaurantId = this.restaurantId;
+    this.review.customer = new User();
+    this.review.customer.userId = 2;
     this.reviewService
       .submitReview(this.review)
       .then((response) => {

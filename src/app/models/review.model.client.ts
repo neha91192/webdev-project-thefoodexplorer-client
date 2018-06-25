@@ -5,8 +5,7 @@ export class Review {
   reviewId: number;
   age: number;
   content: string;
-  likes: number;
   rating: number;
-  user: User;
+  customer: User;
   restaurant: Restaurant;
 }
