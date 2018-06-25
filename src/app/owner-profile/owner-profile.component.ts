@@ -10,12 +10,14 @@ import {Owner} from '../models/owner.model.client';
 })
 export class OwnerProfileComponent implements OnInit {
 
+  isValid;
   user: Owner;
   constructor(private router: Router, private profileService: ProfileServiceClient) {
     this.fetchProfile();
   }
 
   ngOnInit() {
+    this.isValid = false;
   }
 
   fetchProfile() {
@@ -34,5 +36,7 @@ export class OwnerProfileComponent implements OnInit {
   // goToRestaurantPage() {
   //
   // }
+
+
 
 }
