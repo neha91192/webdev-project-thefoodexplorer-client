@@ -10,14 +10,10 @@
           </div>
           <div *ngIf="userData !== undefined" class="col-6 headerDetails">
             <h2 class="text-danger">{{userData.firstName}} {{userData.lastName}}</h2>
-            <h5 *ngIf="addressNULL" class="text-secondary">{{userData.city}}</h5>
-            <div>
-              Reviews
-              Photos
-            </div>
+            <h5 class="text-secondary">{{userData.city}}</h5>
           </div>
           <div class="col-sm-3 headerDetails">
-            <a routerLink="/profile/update"><i class="fas fa-1x fa-pencil-alt"></i>Update profile</a><br/>
+            <a *ngIf="isOtherUserProfile !== true" routerLink="/profile/update"><i class="fas fa-1x fa-pencil-alt"></i>Update profile</a><br/>
           </div>
         </div>
       </div>

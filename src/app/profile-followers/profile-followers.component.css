@@ -11,3 +11,6 @@ ul{
 .text_padding{
   padding-top: 5px;
 }
+.listLength{
+  max-width: 600px;
+}

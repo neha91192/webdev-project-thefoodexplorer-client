@@ -1,10 +1,10 @@
 <div class="container">
   <h4>Following</h4>
   <!--<h6 class="text-secondary heading">Connect with them now!</h6>-->
-  <div>
+  <div class="listLength">
     <ul *ngFor="let user of following" class="list-group">
-      <li class="list-group-item">
-        {{user.firstName}} {{user.lastName}}
+       <li class="list-group-item">
+        <a routerLink="/user/{{user.userId}}"> {{user.firstName}} {{user.lastName}} </a>
         <div class=" row float-right">
           <div class="col-sm">
             <p class="text-danger">

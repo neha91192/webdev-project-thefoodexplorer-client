@@ -9,18 +9,27 @@ import {CustomerServiceClient} from '../services/customer-service-client';
 })
 export class ProfileFollowersComponent implements OnInit, OnChanges {
   @Input() user: User;
+  @Input() otherUser: User;
 
   userData: User;
+  isOtherUserProfile;
   showDelete = false;
   followers = [];
-  constructor(private customerService: CustomerServiceClient) { }
+  constructor(private customerService: CustomerServiceClient) {
+    this.isOtherUserProfile = false;
+  }
 
   ngOnInit() {
+    this.isOtherUserProfile = false;
     this.findFollowers();
   }
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['user'] !== 'undefined') {
       this.userData = this.user;
+    }
+    if (typeof changes['otherUser'] !== 'undefined') {
+      this.isOtherUserProfile = true;
+      this.userData = this.otherUser;
     }
   }
   findFollowers() {

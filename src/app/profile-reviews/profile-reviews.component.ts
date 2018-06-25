@@ -9,16 +9,24 @@ import {User} from '../models/user.model.client';
 export class ProfileReviewsComponent implements OnInit, OnChanges  {
 
   @Input() user: User;
+  @Input() otherUser: User;
 
   userData: User;
+  isOtherUserProfile;
   constructor() {
+    this.isOtherUserProfile = false;
   }
   ngOnInit() {
+    this.isOtherUserProfile = false;
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['user'] !== 'undefined') {
       this.userData = this.user;
+    }
+    if (typeof changes['otherUser'] !== 'undefined') {
+      this.isOtherUserProfile = true;
+      this.userData = this.otherUser;
     }
   }
 

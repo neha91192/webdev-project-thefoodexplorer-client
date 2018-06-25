@@ -7,12 +7,14 @@
       <p class="text-secondary">
         {{userData.bio}}
       </p>
-    <p *ngIf="userData.bio === null && userData.dateOfBirth === null && userData.city === null" class="text-secondary" >
-      You have'nt told us yet anything about you! Please update your profile</p>
+    <div *ngIf="!isOtherUserProfile">
+      <p *ngIf="userData.bio === null && userData.dateOfBirth === null && userData.city === null" class="text-secondary" >
+        You have'nt told us yet anything about you! Please update your profile</p>
+    </div>
     <h6 *ngIf="userData.city !== null">Where I stay</h6>
     <p *ngIf="userData.city !== null" class="text-secondary">{{userData.city}} {{userData.state}}</p>
-    <h6 *ngIf="userData.dateOfBirth !== null">Wish me on</h6>
-    <p *ngIf="userData.dateOfBirth !== null" class="text-secondary">{{userData.dateOfBirth}}</p>
+    <!--<h6 *ngIf="userData.dateOfBirth !== null">Wish me on</h6>-->
+    <!--<p *ngIf="userData.dateOfBirth !== null" class="text-secondary">{{userData.dateOfBirth}}</p>-->
     </div>
     <!--<h3>Things I love</h3>-->
     <!--<p>{{user.interests}}</p>-->

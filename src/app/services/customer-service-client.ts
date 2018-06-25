@@ -67,4 +67,8 @@ export class CustomerServiceClient {
       credentials: 'include'
     }).then(response => response.json());
   }
+
+  findUser(userId) {
+    return fetch(this.CUSTOMER_URL + '/' + userId).then(response => response.json());
+  }
 }

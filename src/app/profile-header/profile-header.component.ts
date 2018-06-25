@@ -9,19 +9,24 @@ import {User} from '../models/user.model.client';
 })
 export class ProfileHeaderComponent implements OnInit, OnChanges {
   @Input() user: User;
+  @Input() otherUser: User;
+  isOtherUserProfile;
+
 
   constructor() {
   }
-
-  addressNULL = false;
   userData: User;
   ngOnInit() {
   }
-
-
   ngOnChanges(changes: SimpleChanges) {
-    if (typeof changes['user'] !== 'undefined') {
-      this.userData = this.user;
-    }
+
+    if (typeof changes['otherUser'] !== 'undefined') {
+      this.isOtherUserProfile = true;
+      this.userData = this.otherUser;
+      return;
+    } else if (typeof changes['user'] !== 'undefined') {
+        this.isOtherUserProfile = false;
+        this.userData = this.user; }
   }
+
 }
