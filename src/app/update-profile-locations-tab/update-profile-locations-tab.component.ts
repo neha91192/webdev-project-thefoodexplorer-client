@@ -1,5 +1,4 @@
 import {Component, Input, OnInit, SimpleChanges, OnChanges} from '@angular/core';
-import {SharedService} from '../services/shared-service-client';
 import {CustomerServiceClient} from '../services/customer-service-client';
 import {User} from '../models/user.model.client';
 

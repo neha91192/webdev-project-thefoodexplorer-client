@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {SharedService} from '../services/shared-service-client';
 import {ProfileServiceClient} from '../services/profile-service-client';
 import {User} from '../models/user.model.client';
 

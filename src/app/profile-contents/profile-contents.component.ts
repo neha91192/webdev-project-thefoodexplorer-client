@@ -1,7 +1,5 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Router} from '@angular/router';
-import {isBoolean} from 'util';
-import {SharedService} from '../services/shared-service-client';
 import {User} from '../models/user.model.client';
 
 @Component({
