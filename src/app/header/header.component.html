@@ -22,7 +22,12 @@
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <div *ngIf="!isLoggedIn"><app-login></app-login></div>
         <li *ngIf="isLoggedIn" class="nav-item link-title">
-          <a  class="btn btn-outline-light" routerLink="/profile">
+          <a *ngIf="isAdmin" class="btn btn-outline-light" routerLink="/admin">
+            <i class="fa fa-user"></i>
+            <span class="text-padding">
+         {{user.username}}
+            </span></a>
+          <a *ngIf="!isAdmin" class="btn btn-outline-light" routerLink="/profile">
             <i class="fa fa-user"></i>
             <span class="text-padding">
          {{user.username}}

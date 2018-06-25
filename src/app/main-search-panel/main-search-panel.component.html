@@ -4,7 +4,7 @@
  <div class="form-inline main-row">
     <div class="form-group">
       <div class="input-group padding">
-        <input id="typeahead-format" type="text" [(ngModel)]="locationValue"
+        <input id="typeahead-format" type="text" (input)="fetchLocationsFromAPI($event.target.value)"
                placeholder="Enter location" class="form-control"/>
       </div>
       <div class="padding">

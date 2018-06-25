@@ -38,9 +38,11 @@ export class LoginFormComponent implements OnInit {
         if (resp.userType === 'Owner') {
           console.log('owner');
           this.router.navigate(['profile/owner']);
-        } else {
+        } else if (resp.userType === 'Customer') {
           this.router.navigate(['profile']);
           console.log('customer');
+        } else {
+          this.router.navigate(['admin']);
         }
       }
       }

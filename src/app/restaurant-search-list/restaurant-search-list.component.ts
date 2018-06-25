@@ -20,11 +20,14 @@ export class RestaurantSearchListComponent implements OnInit {
   order;
 
   restaurants = [];
-  @ViewChild('gmap') gmapElement: any;
-  map: google.maps.Map;
+  // @ViewChild('gmap') gmapElement: any;
+  // map: google.maps.Map;
 
   constructor(private zomatoService: ZomatoApiServiceClient, private route: ActivatedRoute) {
     // this.route.params.subscribe(params => this.setParams(params));
+    this.category = '';
+    this.searchKeyword = '';
+    this.location = '';
     this.entity_type = 'city';
     this.route.queryParams.subscribe(params => this.setParams(params));
   }
@@ -33,6 +36,24 @@ export class RestaurantSearchListComponent implements OnInit {
     this.location = params['locationId'];
     this.searchKeyword = params['value'];
     this.category = params['categoryId'];
+
+    if (params['locationId'] !== undefined) {
+      this.location = params['locationId'];
+    } else {
+      this.location = '';
+    }
+
+    if (params['categoryId'] !== undefined) {
+      this.category = params['categoryId'];
+    } else {
+      this.category = '';
+    }
+
+    if (params['value'] !== undefined) {
+      this.searchKeyword = params['value'];
+    } else {
+      this.searchKeyword = '';
+    }
 
     if (params['cuisine'] !== undefined) {
       this.cuisine = params['cuisine'];
@@ -72,10 +93,6 @@ export class RestaurantSearchListComponent implements OnInit {
     this.zomatoService.findRestaurants(this.entity_type, location, searchKeyword, category, cuisine, sort, order, '', '')
       .then(response => {
         this.restaurants = response.restaurants;
-        console.log(response);
-        // console.log(response.restaurants);
-        // response.restaurants.map(restaurant => console.log(restaurant.restaurant.name));
-
       });
 
   }
@@ -88,6 +105,10 @@ export class RestaurantSearchListComponent implements OnInit {
 
     this.category = '';
     this.searchKeyword = '';
+    this.cuisine = '';
+    this.location = '';
+    this.sort = '';
+    this.order = '';
   }
 
 

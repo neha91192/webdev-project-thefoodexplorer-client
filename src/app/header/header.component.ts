@@ -11,6 +11,7 @@ import {LoginServiceClient} from '../services/login-service-client';
 export class HeaderComponent implements OnInit {
   navbarOpen;
   user;
+  isAdmin;
   isLoggedIn;
   constructor(private router: Router, private profile: ProfileServiceClient, private loginService: LoginServiceClient) {
     this.fetchProfile();
@@ -34,6 +35,10 @@ export class HeaderComponent implements OnInit {
       if (user !== null) {
         this.user = user;
         this.isLoggedIn = true;
+        if (user.userType === 'Admin') {
+          this.isAdmin = true;
+        }
+
       }
 
     });

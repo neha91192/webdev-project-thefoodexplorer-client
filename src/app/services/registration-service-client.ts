@@ -9,6 +9,12 @@ export class RegistrationServiceClient {
       headers: {
         'content-type': 'application/json'
       }
-    }).then(response => response.json());
+    }).then(response => {
+      if (response.status === 409) {
+        return null;
+      } else {
+        return response.json();
+      }
+    });
   }
 }

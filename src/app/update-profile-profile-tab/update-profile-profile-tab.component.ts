@@ -12,7 +12,6 @@ export class UpdateProfileProfileTabComponent implements OnInit, OnChanges {
   constructor( private customerService: CustomerServiceClient) {
 
   }
-  // dateOfBirth: Date;
   userData: User;
   ngOnInit() {
 
@@ -20,16 +19,10 @@ export class UpdateProfileProfileTabComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['user'] !== 'undefined') {
       this.userData = this.user;
-      // const dobArray = this.user.dateOfBirth.split('-');
-      // const dateString = dobArray[0] + '/' + dobArray[1] + '/' + dobArray[2];
-      // this.dateOfBirth = new Date(dateString);
-      // console.log(this.dateOfBirth);
     }
   }
 
   updateUser() {
-    console.log('user date:', this.userData.dateOfBirth);
-    // this.userData.dateOfBirth = '11-09-1992';
     this.customerService.updateUser(this.userData)
       .then( () =>
         alert('Profile updated successfully! '));

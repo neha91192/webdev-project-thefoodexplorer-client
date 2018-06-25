@@ -1,45 +1,37 @@
 <div>
   <ul class="list-group">
     <li *ngFor="let restaurant of restaurants" class="list-group-item">
-      <div>
         <div class="row row-heading">
-          <div class="col-sm-3 col-md-3 col-lg-3">
+          <div class="col-sm-12 col-md-5 col-lg-3 low-padding">
             <img src={{restaurant.restaurant.thumb}}
                  onerror="if (this.src != 'error.jpg')
              this.src = 'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'"
             class="rounded float-left"
                  height="120" width="145" />
           </div>
-          <div class="col-sm-7 col-lg-7 col-md-7">
+          <div class="col-sm-9 col-lg-7 col-md-5 low-padding">
             <h2 class="text-danger" routerLink="/restaurant/{{restaurant.restaurant.id}}" >
               {{restaurant.restaurant.name}}</h2>
             <h6>{{restaurant.restaurant.location.locality}}</h6>
             <p id="restaurant-list-details-address-row1">{{restaurant.restaurant.location.address}}</p>
           </div>
-          <div class="col-sm-2 col-lg-2 col-md-2">
-            <!--<p [ngStyle]="{'background-color': restaurant.restaurant.user_rating.rating_color}"-->
-               <!--id="restaurant-list-details-rating-row1"-->
-               <!--class="rounded float-right">{{restaurant.restaurant.user_rating.aggregate_rating}}</p>-->
+          <div class="col-sm-2 col-lg-2 col-md-2 padding-top">
             <p id="restaurant-list-details-rating-row1"
                class="rounded float-right">{{restaurant.restaurant.user_rating.aggregate_rating}}</p>
           </div>
         </div>
 
-<<<<<<< HEAD
+
         <div class="row row-heading">
-=======
-        <div class="row" id="restaurant-list-details-header-row2">
->>>>>>> dd708b82c9ce2e8ecfd36243dd575309fa115fa5
-          <div class="col-sm-3 col-md-3 col-lg-3">
+          <div class="col-md-5 col-lg-3">
           </div>
-          <div class="col-sm-7 col-lg-7 col-md-7">
+          <div class="col-sm-12 col-lg-7 col-md-7">
             <h6 routerLink="/restaurant/{{restaurant.restaurant.id}}" >
               Cuisines: <span class="text-secondary">{{restaurant.restaurant.cuisines}}</span></h6>
             <h6>
               Cost for two: <span class="text-secondary">{{restaurant.restaurant.average_cost_for_two}} {{restaurant.restaurant.currency}}</span>
             </h6>
           </div>
-        </div>
       </div>
     </li>
   </ul>

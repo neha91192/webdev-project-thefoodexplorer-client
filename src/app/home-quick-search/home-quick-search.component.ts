@@ -40,7 +40,6 @@ export class HomeQuickSearchComponent implements OnInit {
             this.cuisineData.push({id: cuisines.cuisines[i].cuisine.cuisine_id, name: this.popularCuisines[index]});
           }
         }
-        console.log(this.cuisineData);
       });
 
   }

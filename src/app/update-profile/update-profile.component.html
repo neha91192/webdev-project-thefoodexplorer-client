@@ -5,8 +5,8 @@
     <div id="profileSection" class="container-fluid">
 
       <div class="row">
-        <div class="col-3">
-          <h4>{{this.user.firstName}}'s Account Settings</h4>
+        <div class="col-sm-12 col-md-4 col-lg-3 padding">
+          <h4 *ngIf="this.user!==undefined">{{this.user.firstName}}'s Account Settings</h4>
           <ul>
             <li><a [ngClass]="{'active': updateProfile == true}" (click)="showUpdateProfile()">Profile</a></li>
             <li><a [ngClass]="{'active': updatePassword == true}" (click)="showUpdatePassword()">Password</a></li>
@@ -14,7 +14,7 @@
             <li><a [ngClass]="{'active': updateLocations == true}" (click)="showUpdateLocations()">Locations</a></li>
           </ul>
         </div>
-        <div class="col-6">
+        <div class="col-sm-12 col-md-6 col-lg-6  padding">
           <div *ngIf="updateProfile"><app-update-profile-profile-tab [user] = 'user'></app-update-profile-profile-tab></div>
           <div *ngIf="updatePassword"><app-update-profile-password-tab [user] = 'user'></app-update-profile-password-tab></div>
           <div *ngIf="updateEmail"><app-update-profile-email-tab [user] = 'user'></app-update-profile-email-tab></div>
