@@ -9,18 +9,27 @@ import {CustomerServiceClient} from '../services/customer-service-client';
 })
 export class ProfileFollowingComponent implements OnInit, OnChanges {
   @Input() user: User;
+  @Input() otherUser: User;
 
   userData: User;
+  isOtherUserProfile;
   showDelete = false;
   following = [];
-  constructor(private customerService: CustomerServiceClient) { }
+  constructor(private customerService: CustomerServiceClient) {
+    this.isOtherUserProfile = false;
+  }
 
   ngOnInit() {
+    this.isOtherUserProfile = false;
     this.findFollowing();
   }
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['user'] !== 'undefined') {
       this.userData = this.user;
+    }
+    if (typeof changes['otherUser'] !== 'undefined') {
+      this.isOtherUserProfile = true;
+      this.userData = this.otherUser;
     }
   }
   findFollowing() {
@@ -28,15 +37,16 @@ export class ProfileFollowingComponent implements OnInit, OnChanges {
       .findFollowing()
       .then((response) => {
         this.following = response;
-        console.log(response);
       });
   }
 
   unfollow(userId) {
-    this.customerService
-      .unfollow(userId);
-      // .then( (response) =>
-      // console.log(response));
+    if (confirm('Are you sure you want to unfollow?')) {
+      this.customerService
+        .unfollow(userId)
+        .then( (response) => {
+          this.findFollowing();
+        });
+    }
   }
-
 }

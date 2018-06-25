@@ -8,6 +8,8 @@ import {User} from '../models/user.model.client';
 })
 export class ProfileOverviewComponent implements OnInit, OnChanges {
  @Input() user: User;
+ @Input() otherUser: User;
+ isOtherUserProfile;
   constructor() {
 
   }
@@ -18,6 +20,10 @@ export class ProfileOverviewComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['user'] !== 'undefined') {
       this.userData = this.user;
+    }
+    if (typeof changes['otherUser'] !== 'undefined') {
+      this.isOtherUserProfile = true;
+      this.userData = this.otherUser;
     }
   }
 

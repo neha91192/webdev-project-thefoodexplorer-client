@@ -23,13 +23,16 @@
     </div>
   </div>
   <br/>
-  <div>
+  <div class="listLength">
     <ul *ngFor="let u of users" class="list-group">
-      <li *ngIf="u.userId !== user.userId" class="list-group-item">
+      <li *ngIf="u.userId !== userData.userId" class="list-group-item">
         {{u.firstName}} {{u.lastName}}
-        <button (click)="follow(u.userId)" class="btn btn-outline-success float-right">
-          <i class="fas fa-user-plus"></i>
+        <button *ngIf="following.indexOf(u.userId) === -1"
+                (click)="follow(u.userId)"
+                class="btn btn-outline-success float-right">
+          Follow
         </button>
+        <p *ngIf="following.indexOf(u.userId) > -1" class="text-danger float-right">Following</p>
       </li>
     </ul>
   </div>

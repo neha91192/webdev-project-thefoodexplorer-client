@@ -7,6 +7,8 @@ import {ProfileOverviewComponent} from './profile-overview/profile-overview.comp
 import {RestaurantDetailsPageComponent} from './restaurant-details-page/restaurant-details-page.component';
 import {OwnerSignupComponent} from './owner-signup/owner-signup.component';
 import {AdminComponent} from './admin/admin.component';
+import {UserProfile} from 'aws-sdk/clients/opsworks';
+import {UserProfileComponent} from './user-profile/user-profile.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -16,7 +18,8 @@ const appRoutes: Routes = [
   { path: 'profile/update', component: UpdateProfileComponent},
   { path: 'restaurant/:restaurantId', component: RestaurantDetailsPageComponent},
   { path: 'register', component: OwnerSignupComponent},
-  { path: 'admin', component: AdminComponent}
+  { path: 'admin', component: AdminComponent},
+  { path: 'user/:userId', component: UserProfileComponent}
 
 ];
 //

@@ -21,7 +21,10 @@ export class CustomerServiceClient {
   }
 
   unfollow(userId) {
-    console.log('delete');
+    return fetch( this.FOLLOW_URL.replace('USERID', userId), {
+      method: 'put',
+      credentials: 'include'
+    });
   }
   updateUser(customer) {
     return fetch(this.CUSTOMER_URL + '/' + customer.userId, {
@@ -63,5 +66,9 @@ export class CustomerServiceClient {
       method: 'post',
       credentials: 'include'
     }).then(response => response.json());
+  }
+
+  findUser(userId) {
+    return fetch(this.CUSTOMER_URL + '/' + userId).then(response => response.json());
   }
 }

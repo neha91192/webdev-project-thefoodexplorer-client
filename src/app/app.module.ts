@@ -33,7 +33,6 @@ import { ProfileOverviewComponent } from './profile-overview/profile-overview.co
 import { ProfileReviewsComponent } from './profile-reviews/profile-reviews.component';
 import { ProfileFollowersComponent } from './profile-followers/profile-followers.component';
 import { ProfileFollowingComponent } from './profile-following/profile-following.component';
-import { ProfileInterestsComponent } from './profile-interests/profile-interests.component';
 import {ProfileServiceClient} from './services/profile-service-client';
 import { RestaurantDetailsPageComponent } from './restaurant-details-page/restaurant-details-page.component';
 import { UpdateProfileProfileTabComponent } from './update-profile-profile-tab/update-profile-profile-tab.component';
@@ -55,6 +54,7 @@ import { ProfileDiscoverPeopleComponent } from './profile-discover-people/profil
 import { AdminComponent } from './admin/admin.component';
 import {UserServiceClient} from './services/user-service-client';
 import {ReviewServiceClient} from './services/review-service-client';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 // export function getAuthServiceConfigs() {
@@ -102,7 +102,6 @@ import {ReviewServiceClient} from './services/review-service-client';
     ProfileReviewsComponent,
     ProfileFollowersComponent,
     ProfileFollowingComponent,
-    ProfileInterestsComponent,
     RestaurantDetailsPageComponent,
     UpdateProfileProfileTabComponent,
     UpdateProfilePasswordTabComponent,
@@ -113,7 +112,8 @@ import {ReviewServiceClient} from './services/review-service-client';
     RestaurantMenuComponent,
     OwnerSignupComponent,
     ProfileDiscoverPeopleComponent,
-    AdminComponent
+    AdminComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

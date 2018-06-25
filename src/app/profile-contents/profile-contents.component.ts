@@ -10,9 +10,12 @@ import {User} from '../models/user.model.client';
 export class ProfileContentsComponent implements OnInit, OnChanges {
 
   @Input() user: User;
+  @Input() otherUser: User;
   userData: User;
+  isOtherUserProfile;
 
   constructor(private router: Router) {
+    this.isOtherUserProfile = false;
   }
 
   profileOverview = true;
@@ -24,6 +27,7 @@ export class ProfileContentsComponent implements OnInit, OnChanges {
   profileInterests = false;
   discoverPeople = false;
   ngOnInit() {
+    this.isOtherUserProfile = false;
   }
 
   discoverPeopleTab() {
@@ -102,6 +106,10 @@ export class ProfileContentsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['user'] !== 'undefined') {
       this.userData = this.user;
+    }
+    if (typeof changes['otherUser'] !== 'undefined') {
+      this.isOtherUserProfile = true;
+      this.userData = this.otherUser;
     }
   }
 }

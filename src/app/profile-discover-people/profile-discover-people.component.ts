@@ -19,14 +19,19 @@ export class ProfileDiscoverPeopleComponent implements OnInit, OnChanges {
   firstName;
   lastName;
   users = [];
+  following = [];
+  displayUsers = [];
   ngOnInit() {
+    this.findFollowing();
   }
   searchUsers() {
     this.customerService.searchUsers(this.firstName, this.lastName)
       .then(response => {
-        console.log('customer:', response);
+        // console.log('customer:', response);
         this.users = response;
         console.log('users:', this.users);
+        console.log('following:', this.following);
+
       });
   }
   ngOnChanges(changes: SimpleChanges) {
@@ -38,6 +43,16 @@ export class ProfileDiscoverPeopleComponent implements OnInit, OnChanges {
   follow(userId) {
     // console.log('inside follow');
     this.customerService
-      .followUsers(userId);
+      .followUsers(userId)
+      .then(() => alert('User followed successfully!'));
+  }
+  findFollowing() {
+    this.customerService
+      .findFollowing()
+      .then((response) => {
+        response.map(followingUser => this.following.push(followingUser.userId));
+        // this.following = response;
+        // console.log(response);
+      });
   }
 }
