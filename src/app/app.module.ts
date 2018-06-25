@@ -33,7 +33,6 @@ import { ProfileOverviewComponent } from './profile-overview/profile-overview.co
 import { ProfileReviewsComponent } from './profile-reviews/profile-reviews.component';
 import { ProfileFollowersComponent } from './profile-followers/profile-followers.component';
 import { ProfileFollowingComponent } from './profile-following/profile-following.component';
-import { ProfileInterestsComponent } from './profile-interests/profile-interests.component';
 import {ProfileServiceClient} from './services/profile-service-client';
 import { RestaurantDetailsPageComponent } from './restaurant-details-page/restaurant-details-page.component';
 import { UpdateProfileProfileTabComponent } from './update-profile-profile-tab/update-profile-profile-tab.component';
@@ -103,7 +102,6 @@ export function getAuthServiceConfigs() {
     ProfileReviewsComponent,
     ProfileFollowersComponent,
     ProfileFollowingComponent,
-    ProfileInterestsComponent,
     RestaurantDetailsPageComponent,
     UpdateProfileProfileTabComponent,
     UpdateProfilePasswordTabComponent,
