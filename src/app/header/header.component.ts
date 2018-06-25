@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   navbarOpen;
   user;
   isAdmin;
+  isOwner;
   isLoggedIn;
   constructor(private router: Router, private profile: ProfileServiceClient, private loginService: LoginServiceClient) {
     this.fetchProfile();
@@ -37,6 +38,8 @@ export class HeaderComponent implements OnInit {
         this.isLoggedIn = true;
         if (user.userType === 'Admin') {
           this.isAdmin = true;
+        } else if (user.userType === 'Owner') {
+          this.isOwner = true;
         }
 
       }

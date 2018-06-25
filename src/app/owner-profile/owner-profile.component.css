@@ -1,0 +1,64 @@
+img {
+  border-radius: 50%;
+  border-width: 0.5px;
+  border-style: solid;
+  border: #dddddd;
+
+
+}
+
+#profileHeaderDiv{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.headerComponent{
+  background-color: #f1f1f1;
+  height: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.headerDetails{
+  padding-top: 40px;
+
+}
+
+.borderRight{
+  border-right: #dddddd;
+  border-top: #f1f1f1;
+  border-bottom: #f1f1f1;
+  border-left: #f1f1f1;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+a{
+  color: #d9534f;
+}
+
+.restaurantBtn{
+  padding-top: 40px;
+  padding-left: 10px;
+}
+
+.profileContentComponent{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.padding{
+  padding-bottom: 10px;
+}
+
+.padding-btn{
+  padding-top: 15px;
+}
+
+.input-width{
+  max-width: 700px;
+}
+
+.padding-low{
+  padding-left: 10px;
+}
