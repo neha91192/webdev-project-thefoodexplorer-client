@@ -1,8 +1,8 @@
 export class Restaurant {
   restaurantId: number;
-  noOfPeople: number;
+  name: string;
+  locationArea: string;
   time: Date;
-  reservationId: number;
   userId: number;
   id: number;
 }

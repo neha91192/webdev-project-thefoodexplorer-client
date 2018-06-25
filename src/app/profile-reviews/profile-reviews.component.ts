@@ -1,5 +1,6 @@
 import {Component, Input, OnInit, SimpleChanges, OnChanges} from '@angular/core';
 import {User} from '../models/user.model.client';
+import {ReviewServiceClient} from '../services/review-service-client';
 
 @Component({
   selector: 'app-profile-reviews',
@@ -11,14 +12,25 @@ export class ProfileReviewsComponent implements OnInit, OnChanges  {
   @Input() user: User;
   @Input() otherUser: User;
 
+  reviews = [];
+
   userData: User;
   isOtherUserProfile;
   reviewsExist = true;
   constructor() {
+  constructor(private reviewService: ReviewServiceClient) {
     this.isOtherUserProfile = false;
   }
   ngOnInit() {
     this.isOtherUserProfile = false;
+  }
+
+  findReviews () {
+    this.reviewService.findAllReviewsForUser(this.userData.userId)
+      .then((reviews) => {
+        this.reviews = reviews;
+      }
+    );
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -32,6 +44,7 @@ export class ProfileReviewsComponent implements OnInit, OnChanges  {
     //   this.reviewsExist = false;
     // }
     console.log('reviews:', this.user.reviews);
+    this.findReviews();
   }
 
 }

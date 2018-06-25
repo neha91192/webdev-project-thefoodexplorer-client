@@ -39,7 +39,7 @@ export class LoginFormComponent implements OnInit {
           this.router.navigate(['profile/owner']);
         } else if (resp.userType === 'Customer') {
           this.router.navigate(['profile']);
-        } else {
+        } else if (resp.userType === 'Admin') {
           this.router.navigate(['admin']);
         }
       }

@@ -25,6 +25,7 @@ export class OwnerSignupComponent implements OnInit {
   username;
   password;
   confirmPassword;
+  selectedRestaurant: Restaurant;
 
   constructor(private service: ZomatoApiServiceClient, private ownerService: OwnerServiceClient,
               private router: Router) {
@@ -33,6 +34,7 @@ export class OwnerSignupComponent implements OnInit {
     this.noOfPages = 8;
     this.resultSize = 80;
     this.currentPage = 1;
+    this.selectedRestaurant = new Restaurant();
     // this.restaurantId = 16774318;
   }
 
@@ -41,6 +43,7 @@ export class OwnerSignupComponent implements OnInit {
     this.noOfPages = 8;
     this.resultSize = 80;
     this.currentPage = 1;
+    this.selectedRestaurant = new Restaurant();
   }
 
   findRestaurants(page) {
@@ -66,9 +69,13 @@ export class OwnerSignupComponent implements OnInit {
       });
   }
 
-  selectRestaurant(restaurantId) {
+  selectRestaurant(restaurant) {
     this.isActive = true;
-    this.restaurantId = restaurantId;
+    // this.selectedRestaurant = new Restaurant();
+    this.selectedRestaurant.restaurantId = restaurant.restaurant.id;
+    this.selectedRestaurant.name =  restaurant.restaurant.name;
+    this.selectedRestaurant.locationArea = restaurant.restaurant.location.locality_verbose;
+
     console.log(this.restaurantId);
 
   }
@@ -79,7 +86,7 @@ export class OwnerSignupComponent implements OnInit {
       owner.username = this.username;
       owner.password = this.password;
       owner.restaurant = new Restaurant();
-      owner.restaurant.restaurantId = this.restaurantId;
+      owner.restaurant = this.selectedRestaurant;
       owner.userType = 1;
       this.ownerService.register(owner).then(response => {
         if (response === 409) {
@@ -89,7 +96,7 @@ export class OwnerSignupComponent implements OnInit {
             alert('Cannot process request, system failure');
           } else {
             alert('Congrats! Your restaurant has been listed on our website.');
-            this.router.navigate(['restaurant/' + this.restaurantId]);
+            this.router.navigate(['profile/owner']);
           }
         }
       });

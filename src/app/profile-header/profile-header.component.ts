@@ -28,11 +28,13 @@ export class ProfileHeaderComponent implements OnInit, OnChanges {
       return;
     } else if (typeof changes['user'] !== 'undefined') {
         this.isOtherUserProfile = false;
-        this.userData = this.user; }
-    if ((this.user.city === '') || (this.user.city === null)) {
-      this.showCity = false;
+        this.userData = this.user;
     }
-        console.log('user data:', this.userData);
+    if (this.user !== undefined) {
+      if ((this.user.city === '') || (this.user.city === null)) {
+        this.showCity = false;
+      }
+    }
   }
 
 }
