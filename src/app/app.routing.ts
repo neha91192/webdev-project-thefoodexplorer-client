@@ -9,6 +9,7 @@ import {OwnerSignupComponent} from './owner-signup/owner-signup.component';
 import {AdminComponent} from './admin/admin.component';
 import {UserProfile} from 'aws-sdk/clients/opsworks';
 import {UserProfileComponent} from './user-profile/user-profile.component';
+import {OwnerProfileComponent} from './owner-profile/owner-profile.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
   { path: 'restaurant/:restaurantId', component: RestaurantDetailsPageComponent},
   { path: 'register', component: OwnerSignupComponent},
   { path: 'admin', component: AdminComponent},
-  { path: 'user/:userId', component: UserProfileComponent}
+  { path: 'user/:userId', component: UserProfileComponent},
+  { path: 'profile/owner', component: OwnerProfileComponent},
 
 ];
 //

@@ -2,17 +2,17 @@
   <h4>Want to know where your friends hangout?</h4>
   <h6 class="text-secondary heading">Connect with them now!</h6>
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm col-md col-lg">
       <input [(ngModel)]="firstName"
              placeholder="First name"
              class="form-control"/>
     </div>
-    <div class="col-sm">
+    <div class="col-sm col-md col-lg">
       <input [(ngModel)]="lastName"
              placeholder="Last name"
              class="form-control"/>
     </div>
-    <div class="col-sm">
+    <div class="col-sm col-md col-lg">
       <button (click)="searchUsers()" class=" btn btn-outline-danger">
         <i class="fas fa-search"></i>
       </button>
@@ -26,13 +26,21 @@
   <div class="listLength">
     <ul *ngFor="let u of users" class="list-group">
       <li *ngIf="u.userId !== userData.userId" class="list-group-item">
-        {{u.firstName}} {{u.lastName}}
-        <button *ngIf="following.indexOf(u.userId) === -1"
-                (click)="follow(u.userId)"
-                class="btn btn-outline-success float-right">
-          Follow
-        </button>
-        <p *ngIf="following.indexOf(u.userId) > -1" class="text-danger float-right">Following</p>
+        <div class="row">
+          <div class="col-sm-2 col-lg-2 col-md-2">
+            <img routerLink="/user/{{user.userId}}" src="https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png"
+                 height="70px" width="70px"/>
+          </div>
+          <div class="col-sm-10 col-lg-10 col-md-10 padding ">
+            <a class="name text-danger" routerLink="/user/{{u.userId}}"> {{u.firstName}} {{u.lastName}}</a>
+            <button *ngIf="following.indexOf(u.userId) === -1"
+                    (click)="follow(u.userId)"
+                    class="btn btn-outline-success float-right">
+              Follow
+            </button>
+            <p *ngIf="following.indexOf(u.userId) > -1" class="text-danger float-right">Following</p>
+          </div>
+        </div>
       </li>
     </ul>
   </div>

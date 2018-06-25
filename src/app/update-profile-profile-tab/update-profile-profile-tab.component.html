@@ -1,5 +1,6 @@
-<h2 id="profileHeading" class="padding">Profile</h2>
-<img src="https://profile.actionsprout.com/default.jpeg" width="200px" height="200px"/>
+<h2 id="profileHeading" class="heading-padding">Update Profile</h2>
+<img src="https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png"
+     width="200px" height="200px"/>
 <div class="padding">
   <label>First name</label>
   <div id="firstNameInput">
@@ -12,17 +13,6 @@
     <input [(ngModel)]="userData.lastName"
            placeholder="Last name"
            class="form-control"/>
-  </div>
-  <label>Date of birth</label>
-  <div class="form-group">
-    <!--<input [(ngModel)]="userData.dateOfBirth" type="date" class="form-control" id="dob">-->
-
-    <!--<datepicker [(ngModel)]="userData.dateOfBirth" [viewFormat]="'MM/DD/YYYY'" [modelFormat]="'MM-DD-YYYY'"-->
-                <!--[id]="'firstDate'" [label]="'To'"></datepicker>-->
-    <!--<input class="form-control-plaintext" id="dob" type="date" [ngModel] ="dateOfBirth"-->
-           <!--(ngModelChange)="dateOfBirth = $event">-->
-    <!--<input class="form-control" value="{{userData.dateOfBirth| date:'MM-dd-yyyy'}}" readonly/>-->
-    <!--<ngb-datepicker #dp [(ngModel)]="this.user.dateOfBirth" (navigate)="date = $event.next"></ngb-datepicker>-->
   </div>
   <label>Phone</label>
   <div id="phoneInput">
@@ -38,7 +28,7 @@
     </textarea>
   </div>
 
-  <div>
+  <div class="padding">
     <button (click)="updateUser()"
             id="updateBtn"
             class="btn btn-secondary">

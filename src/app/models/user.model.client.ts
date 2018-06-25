@@ -1,4 +1,5 @@
 import {UserType} from './usertype.enum.client';
+import {Review} from './review.model.client';
 
 export class User {
   userId: number;
@@ -16,4 +17,5 @@ export class User {
   pincode: string;
   state: string;
   bio: string;
+  reviews: [Review];
 }

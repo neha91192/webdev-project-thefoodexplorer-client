@@ -28,8 +28,8 @@ export class UpdateProfilePasswordTabComponent implements OnInit, OnChanges {
       this.userData.password = this.password;
       console.log('user:', this.user);
       this.customerService.updateUserPassword(this.userData)
-        .then(response =>
-          console.log(response));
+        .then(() =>
+          alert('Password updated successfully!'));
     }
   }
 

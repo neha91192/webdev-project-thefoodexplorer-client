@@ -27,8 +27,6 @@ export class RestaurantSearchListComponent implements OnInit {
     // this.route.params.subscribe(params => this.setParams(params));
     this.entity_type = 'city';
     this.route.queryParams.subscribe(params => this.setParams(params));
-
-
   }
 
   setParams(params) {
@@ -52,8 +50,6 @@ export class RestaurantSearchListComponent implements OnInit {
     } else {
       this.order = '';
     }
-
-
     this.loadRestaurants(this.location, this.searchKeyword, this.category, this.cuisine, this.sort, this.order);
   }
 

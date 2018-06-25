@@ -23,11 +23,11 @@ export class ProfileReviewsComponent implements OnInit, OnChanges  {
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['user'] !== 'undefined') {
       this.userData = this.user;
-    }
-    if (typeof changes['otherUser'] !== 'undefined') {
+    } else if (typeof changes['otherUser'] !== 'undefined') {
       this.isOtherUserProfile = true;
       this.userData = this.otherUser;
     }
+    console.log('reviews:', this.user.reviews);
   }
 
 }

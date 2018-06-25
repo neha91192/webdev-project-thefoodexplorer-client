@@ -10,3 +10,13 @@ ul{
 .listLength{
   max-width: 600px;
 }
+
+.name{
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.padding{
+  padding-top: 20px;
+}

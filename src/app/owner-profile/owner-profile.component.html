@@ -1,0 +1,86 @@
+<app-header></app-header>
+<div ng-view>
+  <div class="headerComponent">
+    <div class="container">
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3">
+              <!--<img src="https://profile.actionsprout.com/default.jpeg" width="200px" height="200px"/>-->
+              <img src="https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png"
+                   width="200px" height="200px"/>
+            </div>
+            <div *ngIf="user !== undefined" class="col-6 headerDetails">
+              <h2 class="text-danger">{{user.firstName}} {{user.lastName}}</h2>
+              <h5 class="text-secondary">{{user.city}}</h5>
+
+            </div>
+            <div>
+            <button class="btn btn-outline-danger float-right"
+                    *ngIf="!isValid"
+                    (click)="goToRestaurantPage()"
+                    routerLink="/restaurant/{{user.restaurant.restaurantId}}">
+              Owned restaurant page
+            </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container profileContentComponent">
+    <div class="row">
+      <div class="container-fluid">
+        <h2 id="profileHeading">Profile</h2>
+        <label>Username</label>
+        <div>
+          <input [(ngModel)]="user.username"
+                 placeholder="Username"
+                 class="form-control"/>
+        </div>
+        <label>First name</label>
+        <div>
+          <input [(ngModel)]="user.firstName"
+                 placeholder="First name"
+                 class="form-control"/>
+        </div>
+        <label>Last name</label>
+        <div>
+          <input [(ngModel)]="user.lastName"
+                 placeholder="Last name"
+                 class="form-control"/>
+        </div>
+        <label>Email</label>
+        <div>
+          <input [(ngModel)]="user.emailId"
+                 placeholder="Email"
+                 class="form-control"/>
+        </div>
+        <label>Phone</label>
+        <div>
+          <input [(ngModel)]="user.mobileNumber"
+                 placeholder="Phone number"
+                 class="form-control"/>
+        </div>
+        <label>City</label>
+        <div>
+          <input [(ngModel)]="user.city"
+                 placeholder="Address"
+                 class="form-control"/>
+        </div>
+        <label>Country</label>
+        <div>
+          <input [(ngModel)]="user.country"
+                 placeholder="Address"
+                 class="form-control"/>
+        </div>
+        <div id="updateBtnDiv">
+          <button id="updateBtn"(click)="update(user)"
+                  class="btn btn-secondary btn-block">
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

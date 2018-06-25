@@ -1,17 +1,17 @@
 <div ng-view>
     <div class="container profileContentComponent">
       <div class="row">
-        <div id="filters-font-size" class="col-3 borderRight">
+        <div id="filters-font-size" class="col-sm-3 col-md-3 col-lg-3 borderRight">
           <h4 *ngIf="userData !== undefined">{{userData.firstName}}'s profile</h4>
           <ul>
             <li><a [ngClass]="{'active': profileOverview == true}" (click)="showProfileOverview()">Profile Overview</a></li>
-            <li><a [ngClass]="{'active': profileReviews == true}" (click)="showProfileReviews()">Reviews</a></li>
+            <li *ngIf="!isOtherUserProfile"><a [ngClass]="{'active': profileReviews == true}" (click)="showProfileReviews()">Reviews</a></li>
             <li *ngIf="!isOtherUserProfile"><a [ngClass]="{'active': profileFollowers == true}" (click)="showProfileFollowers()">Followers</a></li>
             <li *ngIf="!isOtherUserProfile"><a [ngClass]="{'active': profilefollowing == true}" (click)="showProfileFollowing()">Following</a></li>
             <li *ngIf="!isOtherUserProfile"><a [ngClass]="{'active': discoverPeople == true}" (click)="discoverPeopleTab()">Discover people</a></li>
           </ul>
         </div>
-        <div class="col-9 borderRight">
+        <div class="col-sm-9 col-md-9 col-lg-9 borderRight">
           <div *ngIf="profileOverview"><app-profile-overview [user]="user" [otherUser]="otherUser"></app-profile-overview></div>
           <div *ngIf="profileReviews"><app-profile-reviews [user]="user" [otherUser]="otherUser"></app-profile-reviews></div>
           <div *ngIf="profileFollowers"><app-profile-followers [user]="user" [otherUser]="otherUser"></app-profile-followers></div>

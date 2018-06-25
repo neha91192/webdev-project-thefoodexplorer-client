@@ -32,7 +32,7 @@ export class UpdateProfileProfileTabComponent implements OnInit, OnChanges {
     // this.userData.dateOfBirth = '11-09-1992';
     this.customerService.updateUser(this.userData)
       .then( () =>
-        alert('Updated successfully! '));
+        alert('Profile updated successfully! '));
   }
 
 }

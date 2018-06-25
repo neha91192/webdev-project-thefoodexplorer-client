@@ -20,8 +20,8 @@ export class UpdateProfileEmailTabComponent implements OnInit, OnChanges {
 
   updateUser(user) {
     this.customerService.updateUser(this.user)
-      .then(response =>
-        console.log(response));
+      .then(() =>
+        alert('Email updated successfully!'));
   }
 
 

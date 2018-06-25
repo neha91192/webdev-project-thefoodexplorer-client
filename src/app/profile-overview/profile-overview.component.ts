@@ -20,8 +20,7 @@ export class ProfileOverviewComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['user'] !== 'undefined') {
       this.userData = this.user;
-    }
-    if (typeof changes['otherUser'] !== 'undefined') {
+    } else if (typeof changes['otherUser'] !== 'undefined') {
       this.isOtherUserProfile = true;
       this.userData = this.otherUser;
     }

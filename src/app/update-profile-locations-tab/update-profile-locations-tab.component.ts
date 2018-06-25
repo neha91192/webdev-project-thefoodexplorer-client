@@ -22,8 +22,8 @@ export class UpdateProfileLocationsTabComponent implements OnInit, OnChanges {
 
   updateUser(user) {
     this.customerService.updateUser(this.user)
-      .then(response =>
-        console.log(response));
+      .then(() =>
+        alert('Location updated successfully!'));
   }
 
   ngOnChanges(changes: SimpleChanges) {

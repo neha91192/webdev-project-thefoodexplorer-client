@@ -12,11 +12,14 @@ export class ProfileHeaderComponent implements OnInit, OnChanges {
   @Input() otherUser: User;
   isOtherUserProfile;
 
-
   constructor() {
   }
+
+  showCity = true;
   userData: User;
   ngOnInit() {
+    console.log('user city:', this.user.city);
+
   }
   ngOnChanges(changes: SimpleChanges) {
 
@@ -27,6 +30,10 @@ export class ProfileHeaderComponent implements OnInit, OnChanges {
     } else if (typeof changes['user'] !== 'undefined') {
         this.isOtherUserProfile = false;
         this.userData = this.user; }
+    if ((this.user.city === '') || (this.user.city === null)) {
+      this.showCity = false;
+    }
+        console.log('user data:', this.userData);
   }
 
 }

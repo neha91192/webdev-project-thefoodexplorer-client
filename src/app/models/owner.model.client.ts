@@ -6,6 +6,11 @@ export class Owner {
   username: string;
   password: string;
   firstName: string;
+  lastName: string;
+  city: string;
+  country: string;
+  emailId: string;
+  mobileNumber: string;
   userType: UserType;
   restaurant: Restaurant;
 }

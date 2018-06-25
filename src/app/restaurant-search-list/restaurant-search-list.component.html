@@ -2,7 +2,7 @@
   <ul class="list-group">
     <li *ngFor="let restaurant of restaurants" class="list-group-item">
       <div>
-        <div class="row" id="restaurant-list-details-header-row1">
+        <div class="row row-heading">
           <div class="col-sm-3 col-md-3 col-lg-3">
             <img src={{restaurant.restaurant.thumb}}
                  onerror="if (this.src != 'error.jpg')
@@ -16,12 +16,16 @@
             <h6>{{restaurant.restaurant.location.locality}}</h6>
             <p id="restaurant-list-details-address-row1">{{restaurant.restaurant.location.address}}</p>
           </div>
-          <div class="col-sm-2">
-            <p id="restaurant-list-details-rating-row1" class="rounded float-right">{{restaurant.restaurant.user_rating.aggregate_rating}}</p>
+          <div class="col-sm-2 col-lg-2 col-md-2">
+            <!--<p [ngStyle]="{'background-color': restaurant.restaurant.user_rating.rating_color}"-->
+               <!--id="restaurant-list-details-rating-row1"-->
+               <!--class="rounded float-right">{{restaurant.restaurant.user_rating.aggregate_rating}}</p>-->
+            <p id="restaurant-list-details-rating-row1"
+               class="rounded float-right">{{restaurant.restaurant.user_rating.aggregate_rating}}</p>
           </div>
         </div>
 
-        <div class="row" id="restaurant-list-details-header-row1">
+        <div class="row row-heading">
           <div class="col-sm-3 col-md-3 col-lg-3">
           </div>
           <div class="col-sm-7 col-lg-7 col-md-7">

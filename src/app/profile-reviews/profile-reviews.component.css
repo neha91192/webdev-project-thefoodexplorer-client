@@ -1,0 +1,20 @@
+ul{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.listLength{
+  max-width: 600px;
+}
+
+.name{
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.paddingContent{
+  padding-left: 15px;
+}
+
+.low-padding{
+  font-size: 15px;
+}
