@@ -6,6 +6,7 @@ import {Restaurant} from '../models/restaurant.model.client';
 import {ProfileServiceClient} from '../services/profile-service-client';
 import {RegistrationServiceClient} from '../services/registration-service-client';
 import {OwnerServiceClient} from '../services/owner-service-client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-owner-signup',
@@ -28,7 +29,8 @@ export class OwnerSignupComponent implements OnInit {
   password;
   confirmPassword;
 
-  constructor(private service: ZomatoApiServiceClient, private ownerService: OwnerServiceClient) {
+  constructor(private service: ZomatoApiServiceClient, private ownerService: OwnerServiceClient,
+              private router: Router) {
     this.locationId = 289;
     this.isActive = false;
     this.noOfPages = 8;
@@ -90,6 +92,7 @@ export class OwnerSignupComponent implements OnInit {
             alert('Cannot process request, system failure');
           } else {
             alert('Congrats! Your restaurant has been listed on our website.');
+            this.router.navigate(['restaurant/' + this.restaurantId]);
           }
         }
       });

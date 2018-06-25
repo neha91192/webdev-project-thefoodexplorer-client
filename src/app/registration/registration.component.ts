@@ -14,7 +14,7 @@ export class RegistrationComponent implements OnInit {
   password;
   confirmPassword;
   name;
-  selectedUserType;
+  // selectedUserType;
 
 
   constructor(private service: RegistrationServiceClient, private router: Router) {
@@ -26,7 +26,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   register() {
-    console.log(this.selectedUserType);
+    // console.log(this.selectedUserType);
     if (this.password !== this.confirmPassword) {
       alert('passwords do not match');
     } else {
@@ -43,9 +43,9 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  changeDropdownValue(userType) {
-      this.selectedUserType = userType;
-  }
+  // changeDropdownValue(userType) {
+  //   //     this.selectedUserType = userType;
+  //   // }
 
   clear() {
 

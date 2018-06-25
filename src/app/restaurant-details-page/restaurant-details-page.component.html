@@ -6,7 +6,7 @@
 <nav aria-label="breadcrumb padding">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
-    <li class="breadcrumb-item"><a routerLink="/search">Restaurants</a></li>
+    <li class="breadcrumb-item"><a (click)="back()">Restaurants</a></li>
     <li *ngIf="restaurant !== undefined" class="breadcrumb-item active" aria-current="page">{{restaurant.name}}</li>
   </ol>
 </nav>
@@ -90,13 +90,13 @@
             </div>
           </div>
 
-          <div *ngIf="reviewList.length === 0" class="row padding">
-            <h5 class="padding text-secondary">Sorry, no reviews found yet.
+          <div *ngIf="reviewList.length === 0" class="padding">
+            <h5 class="text-secondary">Sorry, no reviews found yet.
               But you can be the first one to rate this Restaurant!
             </h5>
           </div>
 
-          <div *ngIf="reviewList.length > 0" class="row">
+          <div *ngIf="reviewList.length > 0" class="details-section padding">
             <div class="row padding">
               <h5 class="padding">See all reviews of this Restaurant</h5>
             </div>
@@ -118,8 +118,8 @@
                             Name
                           </div>
                           <div class="col-sm-1 col-md-1 col-lg-1 float-right">
-                            <p *ngIf="review.rating >  3 || review.rating ===  3 " class="text-success">{{review.rating}}</p>
-                            <p *ngIf="review.rating < 3" class="text-danger">{{review.rating}}</p><p>/5</p>
+                            <p *ngIf="review.rating >  3 || review.rating ===  3 " class="text-success">{{review.rating}}/5</p>
+                            <p *ngIf="review.rating < 3" class="text-danger">{{review.rating}}/5</p>
                           </div>
                         </div>
                         <div class="row low-padding">

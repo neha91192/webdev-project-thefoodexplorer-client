@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 import {Review} from '../models/review.model.client';
 import {Restaurant} from '../models/restaurant.model.client';
@@ -17,6 +17,7 @@ export class RestaurantDetailsPageComponent implements OnInit {
   reviewRating;
   reviewContent;
   review: Review;
+  backurl;
   reviewList = [];
 
   // Tab selection variables
@@ -31,6 +32,16 @@ export class RestaurantDetailsPageComponent implements OnInit {
     this.route.params.subscribe(params => this.setParams(params));
     this.isInfoTabClicked = true;
     this.reviewRating = '';
+
+       // this.router.events.map(event => {
+    //   if (event instanceof  NavigationEnd) {
+    //     return event;
+    //   }
+    // }).subscribe(e => {
+    //   console.log('prev:', this.backurl);
+    //   this.backurl = e.url;
+    // });
+
   }
 
   setParams(params) {
@@ -108,5 +119,8 @@ export class RestaurantDetailsPageComponent implements OnInit {
         this.reviewList = response;
         console.log(this.reviewList);
       });
+  }
+  back() {
+    this.router.navigateByUrl(this.backurl);
   }
 }

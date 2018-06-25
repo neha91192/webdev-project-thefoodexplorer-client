@@ -57,21 +57,21 @@ import {UserServiceClient} from './services/user-service-client';
 import {ReviewServiceClient} from './services/review-service-client';
 
 
-export function getAuthServiceConfigs() {
-  const config = new AuthServiceConfig(
-    [
-      {
-        id: FacebookLoginProvider.PROVIDER_ID,
-        provider: new FacebookLoginProvider('2013205002267162')
-      },
-      {
-        id: GoogleLoginProvider.PROVIDER_ID,
-        provider: new GoogleLoginProvider('1054791685814-o4dtghh2uq8dspupulebnula3kgtvg5o.apps.googleusercontent.com')
-      },
-    ]
-  );
-  return config;
-}
+// export function getAuthServiceConfigs() {
+//   const config = new AuthServiceConfig(
+//     [
+//       {
+//         id: FacebookLoginProvider.PROVIDER_ID,
+//         provider: new FacebookLoginProvider('2013205002267162')
+//       },
+//       {
+//         id: GoogleLoginProvider.PROVIDER_ID,
+//         provider: new GoogleLoginProvider('1054791685814-o4dtghh2uq8dspupulebnula3kgtvg5o.apps.googleusercontent.com')
+//       },
+//     ]
+//   );
+//   return config;
+// }
 
 
 @NgModule({
@@ -135,10 +135,10 @@ export function getAuthServiceConfigs() {
     OwnerServiceClient,
     UserServiceClient,
     ReviewServiceClient,
-    {
-      provide: AuthServiceConfig,
-      useFactory: getAuthServiceConfigs
-    }
+    // {
+    //   provide: AuthServiceConfig,
+    //   useFactory: getAuthServiceConfigs
+    // }
   ],
   bootstrap: [AppComponent]
 })
