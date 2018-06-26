@@ -17,7 +17,6 @@ export class ProfileReviewsComponent implements OnInit, OnChanges  {
   userData: User;
   isOtherUserProfile;
   reviewsExist = true;
-  constructor() {
   constructor(private reviewService: ReviewServiceClient) {
     this.isOtherUserProfile = false;
   }
