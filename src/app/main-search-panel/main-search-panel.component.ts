@@ -88,7 +88,7 @@ export class MainSearchPanelComponent implements OnInit {
    */
   ngOnInit() {
     this.selectedCategoryId = '';
-    this.selectedLocationId = 289;
+    // this.selectedLocationId = 289;
     // this.locationValue = 'Boston';
     this.searchValue = '';
   }

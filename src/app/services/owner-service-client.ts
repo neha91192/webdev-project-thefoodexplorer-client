@@ -53,6 +53,25 @@ export class OwnerServiceClient {
   }
 
 
+  createOwner(owner) {
+    return fetch(this.UPDATE_OWNER_URL, {
+      method: 'post',
+      body: JSON.stringify(owner),
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => {
+      if (response.status === 400) {
+        return null;
+      } else if (response.status === 409) {
+        return 409;
+      } else {
+        response.json();
+      }
+    });
+  }
+
 
 
 

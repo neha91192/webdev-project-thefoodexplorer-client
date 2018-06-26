@@ -3,6 +3,7 @@ import {UserServiceClient} from '../services/user-service-client';
 import {User} from '../models/user.model.client';
 import {ProfileServiceClient} from '../services/profile-service-client';
 import {Router, RouterModule} from '@angular/router';
+import {CustomerServiceClient} from '../services/customer-service-client';
 
 @Component({
   selector: 'app-admin',
@@ -12,12 +13,15 @@ import {Router, RouterModule} from '@angular/router';
 export class AdminComponent implements OnInit {
 
   constructor(private userService: UserServiceClient, private profile: ProfileServiceClient,
+              private customerService: CustomerServiceClient,
               private router: Router) {
     // this.fetchProfile();
+    this.userType = 0;
   }
   users = [];
   username;
   password;
+  originalPassword;
   firstName;
   lastName;
   userType;
@@ -25,11 +29,12 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.fetchProfile();
+    this.userType = 0;
     // this.findAllUsers();
   }
 
   findAllUsers() {
-    this.userService.findAllUsers()
+    this.customerService.searchUsers('', '')
       .then((response) => {
         this.users = response;
         console.log(response);
@@ -62,28 +67,43 @@ export class AdminComponent implements OnInit {
   }
 
   updateUser() {
-    this.user.username = this.username;
+    console.log(this.password);
+    console.log(this.originalPassword);
     this.user.password = this.password;
+    this.user.username = this.username;
     this.user.firstName = this.firstName;
     this.user.lastName = this.lastName;
     this.user.userType = this.userType;
     this.userService
       .updateUser(this.user)
       .then((response) => {
-        alert('User Updated');
-        this.username = '';
-        this.password = '';
-        this.firstName = '';
-        this.lastName = '';
-      })
-      .then( () => this.findAllUsers());
+        if (this.originalPassword !== this.password) {
+          this.userService.updatePassword(this.user)
+            .then(() => {
+              alert('User Updated');
+              this.username = '';
+              this.password = '';
+              this.firstName = '';
+              this.lastName = '';
+              this.findAllUsers();
+            });
+        } else {
+          alert('User Updated');
+          this.username = '';
+          this.password = '';
+          this.firstName = '';
+          this.lastName = '';
+          this.findAllUsers();
+        }
+      });
   }
 
   renderUser(user) {
     this.username = user.username;
     this.firstName = user.firstName;
     this.lastName = user.lastName;
-    this.userType = user.userType;
+    // this.userType = user.userType;
+    this.originalPassword = user.password;
     this.password = user.password;
     this.user = user;
 

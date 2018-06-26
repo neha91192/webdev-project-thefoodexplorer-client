@@ -44,14 +44,20 @@
     <h5 class="text-danger">Claim your Restaurant</h5>
     <div class="row padding">
       <div class="col-sm-12 col-md-3 col-lg-3">
-        <label for="location"><h5>Enter Location</h5></label>
+        <label for="typeahead-format1"><h5>Enter Location</h5></label>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-6">
-        <input id="location" type="text" [(ngModel)]="locationValue"
+        <input id="typeahead-format1" type="text" [(ngModel)]="locationValue"
+               (input)="fetchLocationsFromAPI($event.target.value)"
+               [ngbTypeahead]="fetchLocations" [resultFormatter]="formatter"
                placeholder="City Name" class="form-control"/>
       </div>
 
     </div>
+
+
+
+
     <div class="row padding">
       <div class="col-sm-12 col-md-3 col-lg-3">
         <label for="restaurantName"><h5>Restaurant Name</h5></label>
@@ -72,8 +78,8 @@
         </div>
         <!--<div class="col-sm-12 col-md-5 col-lg-5 padding">-->
 
-          <!--<ngb-pagination [collectionSize]="resultSize" [(page)]="currentPage" aria-label="Default pagination"-->
-                          <!--(pageChange)="findRestaurants($event,page)"></ngb-pagination>-->
+        <!--<ngb-pagination [collectionSize]="resultSize" [(page)]="currentPage" aria-label="Default pagination"-->
+        <!--(pageChange)="findRestaurants($event,page)"></ngb-pagination>-->
 
         <!--</div>-->
       </div>
@@ -82,7 +88,7 @@
           <div class="col-sm-12 col-md-9 col-lg-9">
             <li [ngClass]="{'active': selectedRestaurant.restaurantId == restaurant.restaurant.id}"
                 (click)="selectRestaurant(restaurant)"
-                 class="list-group-item wbdv">
+                class="list-group-item wbdv">
               <h5>{{restaurant.restaurant.name}}</h5>
               <h6 class="text-secondary">{{restaurant.restaurant.location.locality}}</h6>
             </li>

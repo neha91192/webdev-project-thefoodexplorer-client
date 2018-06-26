@@ -4,6 +4,8 @@ import {Owner} from '../models/owner.model.client';
 import {Restaurant} from '../models/restaurant.model.client';
 import {OwnerServiceClient} from '../services/owner-service-client';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-owner-signup',
@@ -18,53 +20,36 @@ export class OwnerSignupComponent implements OnInit {
   locationValue = '';
   locationId = 289;
   searchValue = '';
-  // resultSize;
-  noOfPages;
-  pagesList;
-  currentPage;
   username;
   password;
   confirmPassword;
   selectedRestaurant: Restaurant;
+  locations = [];
+  locationMap = [];
+  selectedLocationId;
 
   constructor(private service: ZomatoApiServiceClient, private ownerService: OwnerServiceClient,
               private router: Router) {
     this.locationId = 289;
     this.isActive = false;
-   // this.noOfPages = 8;
-    // this.resultSize = 80;
-   // this.currentPage = 1;
     this.selectedRestaurant = new Restaurant();
-    // this.restaurantId = 16774318;
   }
 
   ngOnInit() {
     this.locationId = 289;
-   // this.noOfPages = 8;
-    // this.resultSize = 80;
-    // this.currentPage = 1;
     this.selectedRestaurant = new Restaurant();
   }
 
   findRestaurants() {
-    // const count = 10;
-    // if (this.currentPage !== undefined) {
-    //   this.currentPage = page;
-    // }
-    // let start = 1;
-    // if (this.currentPage !== 1) {
-    //   start =  (this.currentPage * 10) + 1;
-    // }
-    this.service.findRestaurants(this.entity_type, this.locationId,
+    this.selectedLocationId = '';
+    this.locationMap.map(city => {
+      if (city.name === this.locationValue) {
+        this.selectedLocationId = city.id;
+      }
+    });
+    this.service.findRestaurants(this.entity_type, this.selectedLocationId,
       this.searchValue, '', '', '', '', 1 , 20  )
       .then(response => {
-        // if (response.results_found < 100) {
-        //   this.resultSize = response.results_found;
-        //   this.noOfPages = Math.ceil(this.resultSize / 10);
-        // } else {
-        //   this.resultSize = 80;
-        //   this.noOfPages = 8;
-        // }
         this.restaurantList = response.restaurants;
       });
   }
@@ -79,6 +64,31 @@ export class OwnerSignupComponent implements OnInit {
     console.log(this.restaurantId);
 
   }
+
+  formatter = (result: any) => result;
+
+  fetchLocations = (text$: Observable<string>) =>
+    text$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      map(term => term === '' ? []
+        : this.locations.filter(location =>
+          location.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0 , 10)
+      ))
+
+  fetchLocationsFromAPI(value: string) {
+    this.service.fetchLocation(value).then((response) => {
+      if (response !== null) {
+        this.locations = [];
+        response.location_suggestions.map(location => {
+          this.locations.push(location.name);
+          this.locationMap.push({id: location.id, name: location.name});
+          // console.log(this.locationMap);
+        });
+      }
+    });
+  }
+
 
   register() {
     if (this.confirmPassword === this.password) {

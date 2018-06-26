@@ -16,7 +16,8 @@
               <!--<a href="#">Follow</a>-->
               <div class="row">
                 <div class="col-sm-11 col-lg-11 col-md-11 name">
-                  <p class="text-danger" >{{review.restaurant.name}}</p>
+                  <p class="text-danger" >
+                    <a routerLink="/restaurant/{{review.restaurant.restaurantId}}">{{review.restaurant.name}}</a></p>
                   <p class="text-secondary">{{review.restaurant.locationArea}}</p>
                 </div>
                 <div class="col-sm-1 col-md-1 col-lg-1 float-right">

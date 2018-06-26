@@ -3,6 +3,7 @@ export class UserServiceClient {
   LOCAL_SERVER = 'http://localhost:8080';
   REMOTE_SERVER = 'https://thefoodexplorer-server.herokuapp.com';
   USER_URL = this.REMOTE_SERVER + '/api/user';
+  PASSWORD_URL = this.REMOTE_SERVER + '/api/password/userID';
 
   findAllUsers() {
     return fetch(this.USER_URL, {
@@ -48,6 +49,19 @@ export class UserServiceClient {
 
   findUserById(userId) {
     return fetch(this.USER_URL + '/' + userId)
+      .then(function (response) {
+        return response.json();
+      });
+  }
+
+  updatePassword(user) {
+    return fetch(this.PASSWORD_URL.replace('userID', user.userId), {
+      method: 'put',
+      body: JSON.stringify(user),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
       .then(function (response) {
         return response.json();
       });

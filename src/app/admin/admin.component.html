@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-8">
-      <h2 class="heading text-danger">User Admin</h2>
+      <h2 class="heading text-danger">Customer Information (Registered Users)</h2>
     </div>
     <div class="col-4 heading">
       <a class="text-secondary float-right padding-top" routerLink="/admin/owner">
@@ -21,7 +21,7 @@
       <th scope="col">Firstname</th>
       <th scope="col">Lastname</th>
       <th scope="col">Role</th>
-      <th></th>
+      <th scope="col">Action</th>
       <th></th>
     </tr>
     <tr>
@@ -30,10 +30,7 @@
       <th><input [(ngModel)]="firstName" class="form-control" placeholder="FirstName"/></th>
       <th><input [(ngModel)]="lastName" class="form-control" placeholder="LastName"/></th>
       <th>
-        <select class="form-control" [(ngModel)]="userType">
-          <option value="0">Customer</option>
-          <option value="1">Owner</option>
-        </select>
+        Customer
       </th>
       <th>
         <span id="spanBtn" class="float-right">

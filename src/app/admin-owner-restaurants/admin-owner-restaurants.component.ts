@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {OwnerServiceClient} from '../services/owner-service-client';
+import {User} from '../models/user.model.client';
+import {UserServiceClient} from '../services/user-service-client';
+import {Owner} from '../models/owner.model.client';
+
+import {Restaurant} from '../models/restaurant.model.client';
 
 @Component({
   selector: 'app-admin-owner-restaurants',
@@ -8,9 +13,20 @@ import {OwnerServiceClient} from '../services/owner-service-client';
 })
 export class AdminOwnerRestaurantsComponent implements OnInit {
 
-  constructor(private ownerService: OwnerServiceClient) { }
+  constructor(private ownerService: OwnerServiceClient, private userService: UserServiceClient) { }
 
-  owners = []
+  restaurantName;
+  restaurantLocation;
+  username;
+  password;
+  restaurantId;
+  firstName;
+  originalPassword;
+  isEdit;
+
+  owners = [];
+  owner: Owner;
+  user: User;
   ngOnInit() {
     this.findAllOwners();
   }
@@ -30,9 +46,77 @@ export class AdminOwnerRestaurantsComponent implements OnInit {
         .then((response) => {
           console.log('delete user:', response);
           alert('Owner deleted successfully!');
+          this.findAllOwners();
         });
         // .then(() => this.findAllOwners());
     }
+  }
+
+  updateUser(user) {
+    this.user.password = this.password;
+    this.user.username = this.username;
+    this.user.firstName = this.firstName;
+    this.user.userType = 1;
+    this.userService
+      .updateUser(this.user)
+      .then((response) => {
+        if (this.originalPassword !== this.password) {
+          this.userService.updatePassword(this.user)
+            .then(() => {
+              alert('User Updated');
+              this.username = '';
+              this.password = '';
+              this.firstName = '';
+              this.restaurantName = '';
+              this.restaurantLocation = '';
+              this.restaurantId = '';
+              this.findAllOwners();
+            });
+        } else {
+          alert('User Updated');
+          this.username = '';
+          this.password = '';
+          this.firstName = '';
+          this.restaurantName = '';
+          this.restaurantLocation = '';
+          this.restaurantId = '';
+          this.findAllOwners();
+        }
+      });
+  }
+
+  createUser() {
+    this.owner = new Owner();
+    this.owner.firstName = this.firstName;
+    this.owner.username = this.username;
+    this.owner.password = this.password;
+    this.owner.userType = 1;
+    this.owner.restaurant = new Restaurant();
+    this.owner.restaurant.name = this.restaurantName;
+    this.owner.restaurant.locationArea = this.restaurantLocation;
+    this.owner.restaurant.restaurantId = this.restaurantId;
+
+    console.log(this.owner);
+
+    this.ownerService.createOwner(this.owner)
+      .then(() => {
+        alert('Owner created successfully');
+        this.findAllOwners();
+      });
+
+  }
+
+  renderUser(user) {
+    this.isEdit = true;
+    this.username = user.username;
+    this.firstName = user.firstName;
+    this.originalPassword = user.password;
+    this.password = user.password;
+    this.restaurantId = user.restaurant.restaurantId;
+    this.restaurantName = user.restaurant.name;
+    this.restaurantLocation = user.restaurant.locationArea;
+    this.user = user;
+
   }
 
 }
