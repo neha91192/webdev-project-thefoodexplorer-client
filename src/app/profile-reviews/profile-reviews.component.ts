@@ -42,6 +42,7 @@ export class ProfileReviewsComponent implements OnInit, OnChanges  {
     // if (this.user.reviews === null) {
     //   this.reviewsExist = false;
     // }
+
     this.findReviews();
   }
 
