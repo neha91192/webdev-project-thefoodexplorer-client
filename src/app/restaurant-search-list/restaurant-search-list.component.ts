@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
-import { ViewChild } from '@angular/core';
+
 
 @Component({
   selector: 'app-restaurant-search-list',
