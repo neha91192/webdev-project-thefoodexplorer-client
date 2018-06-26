@@ -36,5 +36,11 @@ export class MediaServiceClient {
     });
   }
 
+  deleteMedia(mediaId) {
+    return fetch( this.MEDIA_ONLY_URL + '/' + mediaId, {
+      method: 'delete'
+    });
+  }
+
 
 }
