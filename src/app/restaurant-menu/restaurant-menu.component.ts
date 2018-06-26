@@ -3,6 +3,8 @@ import {UploadService} from '../api-services/upload-s3-service';
 import {Media} from '../models/media.model.client';
 import {Restaurant} from '../models/restaurant.model.client';
 import {MediaServiceClient} from '../services/media-service.client';
+import {OwnerServiceClient} from '../services/owner-service-client';
+import {User} from '../models/user.model.client';
 
 @Component({
   selector: 'app-restaurant-menu',
@@ -12,6 +14,7 @@ import {MediaServiceClient} from '../services/media-service.client';
 export class RestaurantMenuComponent implements OnInit, OnChanges {
   @Input() restaurant: Restaurant;
   @Input() isOwner: boolean;
+  @Input() user: User;
   fileToUpload: File = null;
   data;
   uploadedImage;
@@ -20,11 +23,13 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
   mediaList: Media[] = [];
   showUpload;
 
-  constructor(private uploadService: UploadService, private mediaService: MediaServiceClient) {
+  constructor(private uploadService: UploadService, private mediaService: MediaServiceClient,
+              private ownerService: OwnerServiceClient) {
     if (this.restaurant !== undefined) {
       this.restaurantId = this.restaurant.id;
       this.fetchMediaForRestaurant(this.restaurantId);
     }
+    this.showUpload = false;
   }
 
   ngOnInit() {
@@ -67,21 +72,30 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
     });
   }
 
+
+
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['restaurant'] !== 'undefined') {
       this.restaurantId = this.restaurant.id;
-      console.log(this.restaurantId);
       this.fetchMediaForRestaurant(this.restaurantId);
-      if (this.isOwner === true) {
-        this.showUpload = this.isOwner;
+
+
+      if (typeof changes['user'] !== 'undefined') {
+        this.ownerService.findOwner(this.user.userId)
+          .then((user) => {
+            if (this.isOwner === true) {
+              if (user.restaurant.restaurantId === +this.restaurantId) {
+                this.showUpload = true;
+                console.log(this.showUpload);
+              }
+            }});
       }
     }
 
   }
 
   deleteMedia(mediaId) {
-    this.mediaService.deleteMedia(mediaId).then(() =>
-    {
+    this.mediaService.deleteMedia(mediaId).then(() => {
       alert('Deleted successfully');
       this.fetchMediaForRestaurant(this.restaurantId);
     });

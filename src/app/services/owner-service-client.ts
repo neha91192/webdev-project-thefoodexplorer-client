@@ -72,7 +72,12 @@ export class OwnerServiceClient {
     });
   }
 
-
+  findOwner(ownerId) {
+    return fetch(this.All_OWNERS_URL + '/' + ownerId)
+      .then(function (response) {
+        return response.json();
+      });
+  }
 
 
 

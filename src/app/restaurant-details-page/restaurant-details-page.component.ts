@@ -22,6 +22,7 @@ export class RestaurantDetailsPageComponent implements OnInit {
   review: Review;
   reviewList = [];
   isOwner;
+  user: User;
 
   // Tab selection variables
   isInfoTabClicked;
@@ -133,6 +134,7 @@ export class RestaurantDetailsPageComponent implements OnInit {
         if (user.userType === 'Owner') {
           this.isOwner = true;
         }
+        this.user = user;
       }
       });
   }
