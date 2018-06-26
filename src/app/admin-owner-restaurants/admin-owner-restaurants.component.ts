@@ -52,7 +52,7 @@ export class AdminOwnerRestaurantsComponent implements OnInit {
     }
   }
 
-  updateUser(user) {
+  updateUser() {
     this.user.password = this.password;
     this.user.username = this.username;
     this.user.firstName = this.firstName;
