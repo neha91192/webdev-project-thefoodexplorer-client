@@ -15,22 +15,14 @@
       <th scope="col">Restaurant name</th>
       <th scope="col">Restaurant location Area</th>
       <th></th>
-      <th></th>
-    </tr>
-    <tr>
-      <th></th>
-      <th></th>
-      <th><input [(ngModel)]="firstName" class="form-control" placeholder="FirstName"/></th>
-      <th><input [(ngModel)]="lastName" class="form-control" placeholder="LastName"/></th>
-      <th></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let owner of owners" class="template">
-      <td class="username">{{owner.username}}</td>
-      <td class="password">{{owner.firstName}} {{owner.lastName}}</td>
-      <td class="lastName">{{owner.restaurant.name}}</td>
-      <td class="userType">{{owner.restaurant.locationArea}}</td>
+      <td>{{owner.username}}</td>
+      <td>{{owner.firstName}} {{owner.lastName}}</td>
+      <td>{{owner.restaurant.name}}</td>
+      <td>{{owner.restaurant.locationArea}}</td>
       <td class="wbdv-actions">
         <div class="float-right">
           <button (click)="deleteOwner(owner.userId)" class="btn"><i id="wbdv-remove" class="fa-x fa fa-times wbdv-remove"></i></button>

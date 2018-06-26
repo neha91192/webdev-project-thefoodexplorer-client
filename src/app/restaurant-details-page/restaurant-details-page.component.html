@@ -79,7 +79,6 @@
 
             </div>
             <div class="row padding">
-
                   <textarea name="formname" [(ngModel)] = "reviewContent" class="form-control" rows="2" placeholder="Add your experience of visiting this Restaurant">
               </textarea>
 
@@ -108,29 +107,28 @@
             <div class="row padding">
               <h5 class="padding">See all reviews of this Restaurant</h5>
             </div>
-            <div class="container">
+            <div class="container minWidth">
               <ul *ngFor="let review of reviewList" class="list-group">
                 <li class="list-group-item">
                   <div>
                     <div class="row">
-                      <div class="col-sm-2 col-lg-2 col-md-2">
-                        <img src="https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png" height="70px" width="70px"/>
-                        <p class="low-padding">{{review.age}}</p>
+                      <div class="col-sm-3 col-lg-3 col-md-4">
+                        <img src="https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png" height="90px" width="90px"/>
+                        <p class="low-padding-date">{{review.age}}</p>
                       </div>
-                      <div class="col-sm-9 col-lg-9 col-md-9">
-                        <h5><a routerLink="/user/{{review.customer.userId}}"> {{review.customer.firstName}} {{review.customer.lastName}}</a></h5>
+                      <div class="col-sm-12 col-lg-8 col-md-8">
+                        <h5 class="name2"><a routerLink="/user/{{review.customer.userId}}"> {{review.customer.firstName}} {{review.customer.lastName}}</a></h5>
                         <!--<p>Reviews, Followers</p>-->
                         <!--<a href="#">Follow</a>-->
                         <div class="row">
-                          <div class="col-sm-11 col-lg-11 col-md-11">
-                            Name
+                          <div class="col-sm-12 col-lg-11 col-md-11">
                           </div>
                           <div class="col-sm-1 col-md-1 col-lg-1 float-right">
                             <p *ngIf="review.rating >  3 || review.rating ===  3 " class="text-success">{{review.rating}}/5</p>
                             <p *ngIf="review.rating < 3" class="text-danger">{{review.rating}}/5</p>
                           </div>
                         </div>
-                        <div class="row low-padding">
+                        <div class="row low-padding contentPadding">
                           <p class="text-secondary">{{review.content}}</p>
                         </div>
                       </div>

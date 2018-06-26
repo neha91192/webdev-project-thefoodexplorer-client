@@ -54,3 +54,19 @@ width: 100%;
 a.wbdv {
   color: #007bff;
 }
+
+.name{
+  padding-top: 10px;
+}
+
+.name2{
+  padding-top: 23px;
+}
+
+.low-padding-date{
+  font-size: 15px;
+}
+
+.contentPadding {
+  padding-left: 3px;
+}
