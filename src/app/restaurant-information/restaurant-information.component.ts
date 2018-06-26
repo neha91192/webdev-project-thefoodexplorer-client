@@ -34,17 +34,17 @@ export class RestaurantInformationComponent implements OnInit, OnChanges {
       map: this.map,
       title: this.information.name
     });
-    this.addMarker(marker, this.information.name, this.information.location.address);
+    // this.addMarker(marker, this.information.name, this.information.location.address);
 
   }
 
-  addMarker(marker, name, address) {
-    google.maps.event.addListener(marker, 'click', function (e) {
-      this.infoDiag = new google.maps.InfoWindow();
-      this.infoDiag.setContent('<div style = "width:200px;min-height:40px">' + '<h5>' + name + '</h5>' + address + '</div>');
-      this.infoDiag.open(this.map, marker);
-    });
-  }
+  // addMarker(marker, name, address) {
+  //   google.maps.event.addListener(marker, 'click', function (e) {
+  //     this.infoDiag = new google.maps.InfoWindow();
+  //     this.infoDiag.setContent('<div style = "width:200px;min-height:40px">' + '<h5>' + name + '</h5>' + address + '</div>');
+  //     this.infoDiag.open(this.map, marker);
+  //   });
+  // }
 
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['restaurant'] !== 'undefined') {
