@@ -44,7 +44,8 @@ export class ProfileDiscoverPeopleComponent implements OnInit, OnChanges {
     // console.log('inside follow');
     this.customerService
       .followUsers(userId)
-      .then(() => alert('User followed successfully!'));
+      .then(() => alert('User followed successfully!'))
+      .then(() => this.searchUsers());
   }
   findFollowing() {
     this.customerService

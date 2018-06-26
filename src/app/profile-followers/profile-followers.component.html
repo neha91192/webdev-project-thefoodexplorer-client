@@ -5,11 +5,11 @@
     <ul *ngFor="let user of followers" class="list-group">
       <li class="list-group-item text-danger">
         <div class="row">
-          <div class="col-sm-2 col-lg-2 col-md-2">
+          <div class="col-sm-4 col-lg-2 col-md-2">
             <img routerLink="/user/{{user.userId}}" src="https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png"
                  height="70px" width="70px"/>
           </div>
-          <div class="col-sm-10 col-lg-10 col-md-10 name">
+          <div class="col-sm-12 col-lg-10 col-md-10 name">
             <a class="name text-danger" routerLink="/user/{{user.userId}}"> {{user.firstName}} {{user.lastName}} </a>
           </div>
         </div>
