@@ -9,8 +9,6 @@ import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client'
 })
 export class RestaurantSearchFiltersComponent implements OnInit {
 
-  locations = [{id: '289', name: 'Boston'}, {id: '', name: 'Chicago'},
-    {id: '', name: 'Denver'}, {id: '', name: 'New York City'}];
   categories = [];
   cost = false;
   searchValue;
@@ -32,7 +30,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
 
   searchCategoryDineIn() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
-    queryParams['category'] = 3;
+    queryParams['categoryId'] = 3;
 
     this.router.navigate(['/search'], {relativeTo: this.activatedRoute,
       queryParams: queryParams});
@@ -41,7 +39,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
 
   searchCategoryDelivery() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
-    queryParams['category'] = 1;
+    queryParams['categoryId'] = 1;
 
     this.router.navigate(['/search'], {relativeTo: this.activatedRoute,
       queryParams: queryParams});
@@ -49,7 +47,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
   }
   searchCategoryTakeout() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
-    queryParams['category'] = 5;
+    queryParams['categoryId'] = 5;
 
     this.router.navigate(['/search'], {relativeTo: this.activatedRoute,
       queryParams: queryParams});
@@ -57,7 +55,7 @@ export class RestaurantSearchFiltersComponent implements OnInit {
   }
   searchCategoryDrinks() {
     const queryParams = Object.assign({}, this.activatedRoute.snapshot.queryParams);
-    queryParams['category'] = 11;
+    queryParams['categoryId'] = 11;
 
     this.router.navigate(['/search'], {relativeTo: this.activatedRoute,
       queryParams: queryParams});
