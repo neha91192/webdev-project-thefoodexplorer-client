@@ -56,6 +56,7 @@ import {UserServiceClient} from './services/user-service-client';
 import {ReviewServiceClient} from './services/review-service-client';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { OwnerProfileComponent } from './owner-profile/owner-profile.component';
+import { AdminOwnerRestaurantsComponent } from './admin-owner-restaurants/admin-owner-restaurants.component';
 
 
 // export function getAuthServiceConfigs() {
@@ -115,7 +116,8 @@ import { OwnerProfileComponent } from './owner-profile/owner-profile.component';
     ProfileDiscoverPeopleComponent,
     AdminComponent,
     UserProfileComponent,
-    OwnerProfileComponent
+    OwnerProfileComponent,
+    AdminOwnerRestaurantsComponent
   ],
   imports: [
     BrowserModule,

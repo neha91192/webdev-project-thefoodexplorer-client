@@ -5,6 +5,9 @@ export class OwnerServiceClient {
   REMOTE_SERVER = 'https://thefoodexplorer-server.herokuapp.com';
   OWNER_URL = this.REMOTE_SERVER + '/api/owner/RESTID';
   UPDATE_OWNER_URL = this.REMOTE_SERVER + '/api/owner';
+  All_OWNERS_URL = this.REMOTE_SERVER + '/api/owner';
+  USER_URL = this.REMOTE_SERVER + '/api/user/OWNERID';
+  DELETE_OWNER_URL = this.REMOTE_SERVER + '/api/owner/OWNERID';
 
 
   register(owner) {
@@ -36,6 +39,17 @@ export class OwnerServiceClient {
       .then(function (response) {
         return response.json();
       });
+  }
+
+  findAllOwners() {
+    return fetch(this.All_OWNERS_URL, {
+    }).then(response => response.json());
+  }
+
+  deleteOwner(ownerId) {
+    return fetch( this.USER_URL.replace('OWNERID', ownerId), {
+      method: 'delete'
+    });
   }
 
 

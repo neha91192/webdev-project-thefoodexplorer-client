@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <a routerLink="/admin" class="text-secondary padding"><i class="fas fa-chevron-left"></i>    Back</a>
+  </div>
+  <div class="row heading">
+    <h2 class="heading text-danger">Claimed restaurants</h2>
+  </div>
+  <table class="table table-striped table-responsive-lg">
+    <thead>
+    <tr>
+      <th scope="col">Owner username</th>
+      <th scope="col">Owner name</th>
+      <!--<th scope="col">Owner last name</th>-->
+      <th scope="col">Restaurant name</th>
+      <th scope="col">Restaurant location Area</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th><input [(ngModel)]="firstName" class="form-control" placeholder="FirstName"/></th>
+      <th><input [(ngModel)]="lastName" class="form-control" placeholder="LastName"/></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let owner of owners" class="template">
+      <td class="username">{{owner.username}}</td>
+      <td class="password">{{owner.firstName}} {{owner.lastName}}</td>
+      <td class="lastName">{{owner.restaurant.name}}</td>
+      <td class="userType">{{owner.restaurant.locationArea}}</td>
+      <td class="wbdv-actions">
+        <div class="float-right">
+          <button (click)="deleteOwner(owner.userId)" class="btn"><i id="wbdv-remove" class="fa-x fa fa-times wbdv-remove"></i></button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

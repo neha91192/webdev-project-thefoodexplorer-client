@@ -10,6 +10,7 @@ import {AdminComponent} from './admin/admin.component';
 import {UserProfile} from 'aws-sdk/clients/opsworks';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {OwnerProfileComponent} from './owner-profile/owner-profile.component';
+import {AdminOwnerRestaurantsComponent} from './admin-owner-restaurants/admin-owner-restaurants.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
   { path: 'admin', component: AdminComponent},
   { path: 'user/:userId', component: UserProfileComponent},
   { path: 'profile/owner', component: OwnerProfileComponent},
+  { path: 'admin/owner', component: AdminOwnerRestaurantsComponent}
 
 ];
 //
