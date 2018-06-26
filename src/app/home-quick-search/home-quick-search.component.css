@@ -11,3 +11,10 @@
 .card-content:hover {
   background-color: #d6d8db;
 }
+
+.padding {
+  padding-bottom: 10px;
+}
+.padding-around {
+  padding: 7px;
+}

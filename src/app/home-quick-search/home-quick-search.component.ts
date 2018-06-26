@@ -14,10 +14,20 @@ export class HomeQuickSearchComponent implements OnInit {
   cuisineData = [];
   cuisines = [];
 
+  imageMap = [];
+
 
   constructor(private service: ZomatoApiServiceClient, private router: Router) {
     this.locationId = 289;
+
+      this.imageMap = [
+        'https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        'https://images.pexels.com/photos/460599/pexels-photo-460599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        'https://images.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        'https://images.pexels.com/photos/5506/bread-food-salad-sandwich.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        'https://images.pexels.com/photos/262959/pexels-photo-262959.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350'];
       this.fetchPopularCuisinesForCity();
+
 
   }
 
