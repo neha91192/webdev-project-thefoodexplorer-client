@@ -61,7 +61,10 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
   }
 
   saveMedia(media) {
-    this.mediaService.saveMedia(media).then(() => alert('image added successfully'));
+    this.mediaService.saveMedia(media).then(() => {
+      alert('image added successfully');
+      this.fetchMediaForRestaurant(this.restaurantId);
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -73,6 +76,15 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
         this.showUpload = this.isOwner;
       }
     }
+
+  }
+
+  deleteMedia(mediaId) {
+    this.mediaService.deleteMedia(mediaId).then(() =>
+    {
+      alert('Deleted successfully');
+      this.fetchMediaForRestaurant(this.restaurantId);
+    });
 
   }
 }
