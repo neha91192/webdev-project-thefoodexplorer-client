@@ -60,7 +60,7 @@
         <input id="restaurantName" [(ngModel)]="searchValue" placeholder="Enter Restaurant name" class="form-control"/>
       </div>
       <div class="col-sm-12 col-md-2 col-lg-2">
-        <button (click)="findRestaurants(1)" class="btn btn-outline-danger">Look up</button>
+        <button (click)="findRestaurants()" class="btn btn-outline-danger">Look up</button>
       </div>
 
     </div>
@@ -70,12 +70,12 @@
         <div class="col-sm-12 col-md-4 col-lg-4">
           <span class="text-danger padding-around"><h5>Search Results</h5></span>
         </div>
-        <div class="col-sm-12 col-md-5 col-lg-5 padding">
+        <!--<div class="col-sm-12 col-md-5 col-lg-5 padding">-->
 
-          <ngb-pagination [collectionSize]="resultSize" [(page)]="currentPage" aria-label="Default pagination"
-                          (pageChange)="findRestaurants($event,page)"></ngb-pagination>
+          <!--<ngb-pagination [collectionSize]="resultSize" [(page)]="currentPage" aria-label="Default pagination"-->
+                          <!--(pageChange)="findRestaurants($event,page)"></ngb-pagination>-->
 
-        </div>
+        <!--</div>-->
       </div>
       <ul *ngFor="let restaurant of restaurantList" class="list-group">
         <div class="row">

@@ -18,7 +18,7 @@ export class OwnerSignupComponent implements OnInit {
   locationValue = '';
   locationId = 289;
   searchValue = '';
-  resultSize;
+  // resultSize;
   noOfPages;
   pagesList;
   currentPage;
@@ -31,40 +31,40 @@ export class OwnerSignupComponent implements OnInit {
               private router: Router) {
     this.locationId = 289;
     this.isActive = false;
-    this.noOfPages = 8;
-    this.resultSize = 80;
-    this.currentPage = 1;
+   // this.noOfPages = 8;
+    // this.resultSize = 80;
+   // this.currentPage = 1;
     this.selectedRestaurant = new Restaurant();
     // this.restaurantId = 16774318;
   }
 
   ngOnInit() {
     this.locationId = 289;
-    this.noOfPages = 8;
-    this.resultSize = 80;
-    this.currentPage = 1;
+   // this.noOfPages = 8;
+    // this.resultSize = 80;
+    // this.currentPage = 1;
     this.selectedRestaurant = new Restaurant();
   }
 
-  findRestaurants(page) {
-    const count = 10;
-    if (this.currentPage !== undefined) {
-      this.currentPage = page;
-    }
-    let start = 1;
-    if (this.currentPage !== 1) {
-      start =  (this.currentPage * 10) + 1;
-    }
+  findRestaurants() {
+    // const count = 10;
+    // if (this.currentPage !== undefined) {
+    //   this.currentPage = page;
+    // }
+    // let start = 1;
+    // if (this.currentPage !== 1) {
+    //   start =  (this.currentPage * 10) + 1;
+    // }
     this.service.findRestaurants(this.entity_type, this.locationId,
-      this.searchValue, '', '', '', '', start , count  )
+      this.searchValue, '', '', '', '', 1 , 20  )
       .then(response => {
-        if (response.results_found < 100) {
-          this.resultSize = response.results_found;
-          this.noOfPages = Math.ceil(this.resultSize / 10);
-        } else {
-          this.resultSize = 80;
-          this.noOfPages = 8;
-        }
+        // if (response.results_found < 100) {
+        //   this.resultSize = response.results_found;
+        //   this.noOfPages = Math.ceil(this.resultSize / 10);
+        // } else {
+        //   this.resultSize = 80;
+        //   this.noOfPages = 8;
+        // }
         this.restaurantList = response.restaurants;
       });
   }
@@ -105,9 +105,9 @@ export class OwnerSignupComponent implements OnInit {
     }
   }
 
-  getPageData($event) {
-    console.log('Page data');
-  }
+  // getPageData($event) {
+  //   console.log('Page data');
+  // }
 
 
 }

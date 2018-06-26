@@ -46,7 +46,7 @@ import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.compo
 import { OwnerSignupComponent } from './owner-signup/owner-signup.component';
 import {UploadService} from './api-services/upload-s3-service';
 import {MediaServiceClient} from './services/media-service.client';
-import {PaginationModule} from 'ngx-pagination-bootstrap';
+// import {PaginationModule} from 'ngx-pagination-bootstrap';
 import {OwnerServiceClient} from './services/owner-service-client';
 
 import {SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider} from 'angular5-social-login';
@@ -124,7 +124,7 @@ import { AdminOwnerRestaurantsComponent } from './admin-owner-restaurants/admin-
     FormsModule,
     NgbModule.forRoot(),
     routing,
-    PaginationModule,
+    // PaginationModule,
     // SocialLoginModule
   ],
   providers: [
