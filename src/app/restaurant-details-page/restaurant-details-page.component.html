@@ -20,11 +20,16 @@
       <div class="details-section">
         <h3 class="padding">{{restaurant.name}}</h3>
         <div class="row">
-          <div class="col-sm-9 col-md-10 col-lg-10">
+          <div class="col-sm-9 col-md-9 col-lg-9">
             <h6 *ngIf="restaurant.location !== undefined" class="text-secondary text-padding">{{restaurant.location.locality_verbose}}</h6>
           </div>
           <div class="col-sm-3 col-md-2 col-lg-2 float-right">
-            <h5 class="text-padding">{{restaurant.user_rating.aggregate_rating}}/5</h5>
+            <!--<h5 class="text-padding">{{restaurant.user_rating.aggregate_rating}}/5</h5>-->
+            <p *ngIf="restaurant.user_rating.aggregate_rating >  3 || restaurant.user_rating.aggregate_rating ===  3 "
+               class="restaurant-list-details-rating-row1 rounded float-right ">
+              {{restaurant.user_rating.aggregate_rating}}</p>
+            <p *ngIf="restaurant.user_rating.aggregate_rating < 3" class=" restaurant-list-details-rating-row2
+                            rounded float-right">{{restaurant.user_rating.aggregate_rating}}</p>
           </div>
         </div>
 
@@ -64,8 +69,8 @@
       </div>
 
       <div *ngIf="isReviewTabClicked" class="details-section padding">
-        <div class=" nav-item nav-link text-padding info-tab-layout">
-          <div *ngIf="isOwner !== true" class="padding">
+        <div class=" nav-item nav-link text-padding info-tab-layout new-padding">
+          <div *ngIf="isOwner !== true" class="padding create-review">
             <div class="row padding">
                 <h5>Write a review</h5>
             </div>
@@ -84,9 +89,11 @@
 
 
             </div>
-            <div class="row padding">
-
-                <button (click)="submitReview()" class="btn btn-outline-success">Submit</button>
+            <div class="padding">
+                <div class="row float-right">
+                  <button (click)="submitReview()" class="btn btn-outline-success low-padding-date">Submit</button>
+                </div>
+              <div class="padding"></div>
 
 
             </div>
@@ -103,37 +110,48 @@
             </h5>
           </div>
 
-          <div *ngIf="reviewList.length > 0" class="details-section padding">
+          <div *ngIf="reviewList.length > 0" class="padding">
             <div class="row padding">
               <h5 class="padding">See all reviews of this Restaurant</h5>
             </div>
             <div class="container minWidth">
               <ul *ngFor="let review of reviewList" class="list-group">
-                <li class="list-group-item">
+                <li class="list-group-item create-review">
                   <div>
                     <div class="row">
                       <div class="col-sm-3 col-lg-3 col-md-4">
                         <img src="https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png" height="90px" width="90px"/>
-                        <p class="low-padding-date">{{review.age}}</p>
+                        <!--<p class="low-padding-date text-secondary ">Posted on:</p>-->
+                        <!--<p class="low-padding-date text-secondary ">{{review.age}}</p>-->
                       </div>
                       <div class="col-sm-12 col-lg-8 col-md-8">
-                        <h5 class="name2"><a routerLink="/user/{{review.customer.userId}}"> {{review.customer.firstName}} {{review.customer.lastName}}</a></h5>
-                        <!--<p>Reviews, Followers</p>-->
-                        <!--<a href="#">Follow</a>-->
                         <div class="row">
-                          <div class="col-sm-12 col-lg-11 col-md-11">
+
+                          <div class="col-sm-12 col-lg-11 col-md-10">
+                            <h5 class="name2"><a routerLink="/user/{{review.customer.userId}}">
+                              {{review.customer.firstName}} {{review.customer.lastName}}</a></h5>
                           </div>
-                          <div class="col-sm-1 col-md-1 col-lg-1 float-right">
-                            <p *ngIf="review.rating >  3 || review.rating ===  3 " class="text-success">{{review.rating}}/5</p>
-                            <p *ngIf="review.rating < 3" class="text-danger">{{review.rating}}/5</p>
+                          <div class="col-sm-12 col-md-2 col-lg-1 name2">
+                            <p *ngIf="review.rating >  3 || review.rating ===  3 "
+                               class="restaurant-list-details-rating-row1 rounded float-right ">{{review.rating}}</p>
+                            <p *ngIf="review.rating < 3" class=" restaurant-list-details-rating-row2
+                            rounded float-right">{{review.rating}}</p>
                           </div>
                         </div>
-                        <div class="row low-padding contentPadding">
-                          <p class="text-secondary">{{review.content}}</p>
+                        <div class="row low-padding name2">
+                          <p class="text-secondary low-padding">{{review.content}}</p>
                         </div>
                       </div>
-
                     </div>
+                      <div class="row low-padding name2 float-left">
+                        <div class="col-sm-12 col-lg-12 col-md-12">
+                          <p class="low-padding-date text-secondary ">Posted on: {{review.age}}</p>
+                          <!--<p class="low-padding-date text-secondary float-right"></p>-->
+                        </div>
+
+                      </div>
+
+
                   </div>
                 </li>
               </ul>

@@ -9,7 +9,7 @@
         <input id="typeahead-format" type="text" [(ngModel)]="locationValue"
                (input)="fetchLocationsFromAPI($event.target.value)"
                              [ngbTypeahead]="fetchLocations" [resultFormatter]="formatter"
-               placeholder="Enter location" class="form-control"/>
+               placeholder="City Name" class="form-control"/>
       </div>
       </div>
       <div class="padding">

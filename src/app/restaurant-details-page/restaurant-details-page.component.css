@@ -60,13 +60,35 @@ a.wbdv {
 }
 
 .name2{
-  padding-top: 23px;
+  padding-top: 10px;
 }
 
 .low-padding-date{
   font-size: 15px;
+  padding-right: 5px;
 }
 
 .contentPadding {
   padding-left: 3px;
+}
+.create-review {
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.new-padding {
+  padding: 25px;
+}
+
+.restaurant-list-details-rating-row1{
+  background: #28a745;
+  width: 40px;
+  color: floralwhite;
+  text-align: center;
+}
+.restaurant-list-details-rating-row2 {
+  background: #dc3545;
+  width: 40px;
+  color: floralwhite;
+  text-align: center;
 }
