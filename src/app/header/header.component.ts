@@ -50,9 +50,12 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.loginService
       .logout()
-      .then( () =>
-        this.router.navigate(['/home'])
-      );
+      .then( () => {
+          alert('You have been logged out successfully!');
+          location.reload();
+          this.router.navigate(['/home']);
+
+      });
   }
 
 }

@@ -77,7 +77,7 @@ export class OwnerSignupComponent implements OnInit {
       ))
 
   fetchLocationsFromAPI(value: string) {
-    this.service.fetchLocation(value).then((response) => {
+    this.service.fetchLocation('', value).then((response) => {
       if (response !== null) {
         this.locations = [];
         response.location_suggestions.map(location => {

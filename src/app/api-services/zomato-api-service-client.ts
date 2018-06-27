@@ -1,8 +1,8 @@
 export class ZomatoApiServiceClient {
 
   API_KEY3 = '8cde1fa8bdef3553e358b75b2144cda0';
-  API_KEY2 = '4f0d82b6ca90f4d6783df0f123088f88';
-  API_KEY = 'eafbc8c63c2978776ed8e183e7ea8659';
+  API_KEY = '4f0d82b6ca90f4d6783df0f123088f88';
+  API_KEY2 = 'eafbc8c63c2978776ed8e183e7ea8659';
   API_URL =
     'https://developers.zomato.com/api/v2.1/search?entity_type=ENTITY_TYPE&entity_id=ENTITY_VALUE&q=SEARCH_KEYWORD' +
     '&category=CATEGORY&cuisines=CUISINE&sort=SORT&order=ORDER&start=START&count=COUNT';
@@ -39,8 +39,8 @@ export class ZomatoApiServiceClient {
       .then(response => response.json());
   }
 
-  fetchLocation(keyword) {
-    return fetch(this.LOCATION_API + '?q=' + keyword, {
+  fetchLocation(id, keyword) {
+    return fetch(this.LOCATION_API + '?q=' + keyword + '&city_ids=' + id, {
       headers: {
         'user-key': this.API_KEY
       }

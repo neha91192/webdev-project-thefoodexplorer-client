@@ -18,6 +18,8 @@ export class RestaurantSearchListComponent implements OnInit {
   entity_type;
   sort;
   order;
+  cityName;
+  countryFlag;
 
   restaurants = [];
   // @ViewChild('gmap') gmapElement: any;
@@ -71,6 +73,7 @@ export class RestaurantSearchListComponent implements OnInit {
     } else {
       this.order = '';
     }
+    this.fetchLocationIdFromAPI(this.location);
     this.loadRestaurants(this.location, this.searchKeyword, this.category, this.cuisine, this.sort, this.order);
   }
 
@@ -92,8 +95,12 @@ export class RestaurantSearchListComponent implements OnInit {
   }
 
   fetchLocationIdFromAPI(location) {
-     this.zomatoService.fetchLocation(location)
-      .then(locationDetails => this.locationId = locationDetails.id);
+     this.zomatoService.fetchLocation(location, '')
+      .then(locationDetails => {
+        console.log(locationDetails);
+        this.cityName = locationDetails.location_suggestions[0].name;
+        this.countryFlag = locationDetails.location_suggestions[0].country_flag_url;
+      });
   }
   ngOnInit() {
 

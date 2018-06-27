@@ -11,11 +11,12 @@ import {UserProfile} from 'aws-sdk/clients/opsworks';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {OwnerProfileComponent} from './owner-profile/owner-profile.component';
 import {AdminOwnerRestaurantsComponent} from './admin-owner-restaurants/admin-owner-restaurants.component';
+import {RestaurantSearchListComponent} from './restaurant-search-list/restaurant-search-list.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
-  { path: 'search', component: RestaurantSearchComponent},
+  { path: 'search', component: RestaurantSearchListComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'profile/update', component: UpdateProfileComponent},
   { path: 'restaurant/:restaurantId', component: RestaurantDetailsPageComponent},

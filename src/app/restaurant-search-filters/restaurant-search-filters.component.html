@@ -2,42 +2,79 @@
   <h5 class="heading padding">Filters</h5>
   <div class="filter">
     <div class="padding">
-      <h6 class="heading text-danger">Sort by</h6>
-      <a class="heading text-secondary" (click)="sortByCostAsc()">Cost</a>
-      <!--<br/><a style="font-size: 15px" (click)="sortByCost()">Cost</a>-->
-      <br/><a class="text-secondary" (click)="sortByCostAsc()">Ascending</a>
-      <br/><a class="text-secondary" (click)="sortByCostDesc()">Descending</a>
-      <br/><a class="heading text-secondary" (click)="sortByRating()">Rating</a>
+      <div class="row">
+        <div class="padding-checkbox">
+          <input type="checkbox" (click)="removeCostFilter()" [checked]="isAllSort" class="switch" id="switch-id1">
+          <label for="switch-id1"></label>
+        </div>
+        <h6 class="heading text-danger padding-top">Sort by</h6>
+      </div>
+      <span class="heading text-danger padding-checkbox1">Cost</span>
+      <br/><a class="heading text-secondary padding-checkbox1"
+              (click)="sortByCostAsc()" [ngClass]="{'text-success' : costAsc === true}">Ascending</a>
+      <br/><a class="heading text-secondary padding-checkbox1"
+              (click)="sortByCostDesc()" [ngClass]="{'text-success' : costDes === true}">Descending</a>
+      <br/><a class="heading text-secondary padding-checkbox1"
+              (click)="sortByRating()" [ngClass]="{'text-success' : ratingActive === true}">Rating</a>
     </div>
 
 
-  <div class="padding">
-    <h6 class="heading text-danger">Category</h6>
-    <div>
-      <a class="text-secondary" (click)="searchCategoryDineIn()">Dine-In</a>
-      <br/><a class="text-secondary" (click)="searchCategoryDelivery()">Delivery</a>
-      <br/><a class="text-secondary" (click)="searchCategoryDrinks()">Drinks & Nightlife</a>
-      <br/><a class="text-secondary" (click)="searchCategoryTakeout()">Take Out</a>
+    <div class="padding">
+      <div class="row">
+      <div class="padding-checkbox">
+        <input type="checkbox" (click)="removeCategoryFilter()" [checked]="isAllCategory" class="switch " id="switch-id2">
+        <label for="switch-id2"></label>
+      </div>
+      <h6 class="heading text-danger padding-top">Category</h6>
+      </div>
+      <div>
+        <a class="heading text-secondary padding-checkbox1"
+           (click)="searchCategoryDineIn()" [ngClass]="{'text-success' : dineIn === true}">Dine-In</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="searchCategoryDelivery()" [ngClass]="{'text-success' : delivery === true}">Delivery</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="searchCategoryDrinks()" [ngClass]="{'text-success' : drinks === true}">Drinks & Nightlife</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="searchCategoryTakeout()" [ngClass]="{'text-success' : takeout === true}">Take Out</a>
+      </div>
     </div>
-  </div>
 
-  <div class="padding">
-    <h6 class="heading text-danger">Cuisine</h6>
-    <div>
-      <a class="text-secondary" (click)="cuisineAmerican()">American</a>
-      <br/><a class="text-secondary" (click)="cuisineAsian()">Asian</a>
-      <br/><a class="text-secondary" (click)="cuisineBakery()">Bakery</a>
-      <br/><a class="text-secondary" (click)="cuisineBreakfast()">Breakfast</a>
-      <br/><a class="text-secondary" (click)="cuisineCafe()">Cafe</a>
-      <br/><a class="text-secondary" (click)="cuisineChinese()">Chinese</a>
-      <br/><a class="text-secondary" (click)="cuisineDeserts()">Deserts</a>
-      <br/><a class="text-secondary" (click)="cuisinefastFood()">Fast food</a>
-      <br/><a class="text-secondary" (click)="cuisineFrench()">French</a>
-      <br/><a class="text-secondary" (click)="cuisineFusion()">Fusion</a>
-      <br/><a class="text-secondary" (click)="cuisineIndian()">Indian</a>
-      <br/><a class="text-secondary" (click)="cuisineItalian()">Italian</a>
-      <br/><a class="text-secondary" (click)="cuisineMexican()">Mexican</a>
+    <div class="padding">
+      <div class="row">
+      <div class="padding-checkbox">
+        <input type="checkbox" (click)="removeCuisineFilter()" [checked]="isAllCuisine" class="switch" id="switch-id3">
+        <label for="switch-id3"></label>
+      </div>
+      <h6 class="heading text-danger padding-top">Cuisine</h6>
+      </div>
+      <div>
+        <a class="heading text-secondary padding-checkbox1"
+           (click)="cuisineAmerican()" [ngClass]="{'text-success' : american === true}">American</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="cuisineAsian()" [ngClass]="{'text-success' : asian === true}">Asian</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="cuisineBakery()" [ngClass]="{'text-success' :  bakery === true}">Bakery</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="cuisineBreakfast()" [ngClass]="{'text-success' : breakfast === true}">Breakfast</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="cuisineCafe()" [ngClass]="{'text-success' : cafe === true}">Cafe</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="cuisineChinese()" [ngClass]="{'text-success' : chinese === true}">Chinese</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="cuisineDeserts()" [ngClass]="{'text-success' : deserts === true}">Deserts</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="cuisinefastFood()" [ngClass]="{'text-success' : fastfood === true}">Fast food</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="cuisineFrench()" [ngClass]="{'text-success' : french === true}">French</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="cuisineFusion()" [ngClass]="{'text-success' : fusion === true}">Fusion</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="cuisineIndian()" [ngClass]="{'text-success' : indian === true}">Indian</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="cuisineItalian()" [ngClass]="{'text-success' : italian === true}">Italian</a>
+        <br/><a class="heading text-secondary padding-checkbox1"
+                (click)="cuisineMexican()" [ngClass]="{'text-success' : mexican === true}">Mexican</a>
+      </div>
     </div>
-  </div>
   </div>
 </div>
