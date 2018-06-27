@@ -33,7 +33,7 @@ export class ReviewServiceClient {
   }
 
   deleteReview(review) {
-    return fetch(this.REVIEW_ONLY_URL + review.reviewId, {
+    return fetch(this.REVIEW_ONLY_URL + '/' + review.reviewId, {
       method: 'delete',
       credentials: 'include'
     });
@@ -42,6 +42,10 @@ export class ReviewServiceClient {
   findAllReviewsForUser(userId) {
     return fetch(this.FIND_REVIEWS_FOR_CUSTOMER
       .replace('customerId', userId))
+      .then(response => response.json());
+  }
+  findAllReviews() {
+    return fetch(this.REVIEW_ONLY_URL)
       .then(response => response.json());
   }
 }

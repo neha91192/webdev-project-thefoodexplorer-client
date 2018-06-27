@@ -8,15 +8,23 @@ import {ReviewServiceClient} from '../services/review-service-client';
 })
 export class AdminReviewComponent implements OnInit {
 
+  reviews = [];
   constructor(private reviewService: ReviewServiceClient) { }
 
   ngOnInit() {
+    this.allReviews();
+  }
+  allReviews() {
+    this.reviewService.findAllReviews()
+      .then( (response) =>
+        this.reviews = response);
   }
 
   deleteReview(review) {
     if (confirm('Are you sure you want to delete this Review?')) {
       this.reviewService
-        .deleteReview(review);
+        .deleteReview(review)
+        .then( () => this.allReviews());
     }
   }
 }

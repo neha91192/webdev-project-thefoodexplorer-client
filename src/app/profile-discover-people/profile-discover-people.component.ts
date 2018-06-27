@@ -25,6 +25,7 @@ export class ProfileDiscoverPeopleComponent implements OnInit, OnChanges {
     this.findFollowing();
   }
   searchUsers() {
+    console.log('find all users');
     this.customerService.searchUsers(this.firstName, this.lastName)
       .then(response => {
         // console.log('customer:', response);
@@ -45,7 +46,10 @@ export class ProfileDiscoverPeopleComponent implements OnInit, OnChanges {
     this.customerService
       .followUsers(userId)
       .then(() => alert('User followed successfully!'))
-      .then(() => this.searchUsers());
+      .then(() => {
+        this.searchUsers();
+        this.findFollowing();
+      });
   }
   findFollowing() {
     this.customerService
