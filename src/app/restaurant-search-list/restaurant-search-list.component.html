@@ -1,6 +1,6 @@
 <div ng-view>
   <app-header></app-header>
-  <div class="container">
+  <div class="container contentPadding">
     <div class="row">
       <h2 *ngIf="cityName !== undefined" class="container header">
         Restaurants in <span class="font-new text-danger">{{this.cityName}}</span>
@@ -12,14 +12,22 @@
       <div id="filters-font-size" class="col-sm-3 filters">
         <app-restaurant-search-filters></app-restaurant-search-filters>
       </div>
+
       <div class="col-sm-9">
         <ul class="list-group">
-          <li class="list-group-item" *ngIf="restaurants.length === 0">
+          <div *ngIf="!isLoaded" class="app-loading">
+            <div class="logo"></div>
+            <svg class="spinner" viewBox="25 25 50 50">
+              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+          </div>
+          <div class="list-group-item" *ngIf="isLoaded === true && restaurants !== undefined && restaurants.length === 0">
             <p class="text-secondary">Sorry, we couldn't find any Restaurants matching your criteria!
               <i class="fa fa-meh-o"></i></p>
-            <p class="text-secondary">We suggest you to try applying different search filters</p>
+            <p class="text-secondary">We suggest you to try applying different search filters or start a
+              new search.</p>
             <p class="text-secondary">Have a happy meal!</p>
-          </li>
+          </div>
           <li *ngFor="let restaurant of restaurants" class="list-group-item">
             <div class="row row-heading">
               <div class="col-sm-12 col-md-5 col-lg-3 low-padding">
@@ -65,5 +73,6 @@
       </div>
     </div>
   </div>
+  <app-footer></app-footer>
 </div>
 

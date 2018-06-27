@@ -10,6 +10,12 @@
 
 
 <div class="row">
+  <div *ngIf="!isLoaded" class="row app-loading justify-content-center">
+    <div class="logo"></div>
+    <svg class="spinner" viewBox="25 25 50 50">
+      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+    </svg>
+  </div>
   <div *ngFor="let cuisine of cuisineData; let i = index" [attr.data-index]="i"
        class="col-sm-12 col-md-6 col-lg-4 quick-search-category padding-around">
     <div (click)="search(cuisine.id)"  class="card text-center bg-dark text-white">

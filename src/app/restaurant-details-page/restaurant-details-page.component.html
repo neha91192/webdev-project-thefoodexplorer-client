@@ -2,7 +2,7 @@
 <div class="row padding container-header">
 
 </div>
-<div class="padding inner-container">
+<div class="padding inner-container contentPadding">
 <nav aria-label="breadcrumb padding">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
@@ -11,6 +11,12 @@
   </ol>
 </nav>
   <div class="container">
+    <div *ngIf="!isLoaded" class="row app-loading">
+      <div class="logo"></div>
+      <svg class="spinner" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+      </svg>
+    </div>
     <div *ngIf="restaurant !== undefined" class="row">
       <img class="img-fluid img-thumbnail" src="{{restaurant.featured_image}}"
            onerror="if (this.src != 'error.jpg')
@@ -176,4 +182,6 @@
     </div>
   </div>
 </div>
+
+<app-footer></app-footer>
 

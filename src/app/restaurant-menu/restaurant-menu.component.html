@@ -1,14 +1,15 @@
 
 <div class="container">
-  <div  *ngIf="showUpload === true" class="row padding">
-    <span class="text-dark padding"><h5>Please add image file of Menu</h5></span>
-  </div>
+
 
   <div  *ngIf="showUpload === true" class="padding border-settings">
     <!--<div class="row padding">-->
     <!--<span *ngIf="showUpload === true" class="text-dark padding">-->
     <!--Please upload image of Menu</span>-->
     <!--</div>-->
+    <div  *ngIf="showUpload === true" class="row padding">
+      <span class="text-dark padding"><h5>Please add image file of Menu</h5></span>
+    </div>
     <div class="row padding">
       <div class="padding" *ngIf="showUpload === true">
 
@@ -35,7 +36,7 @@
         <img src="{{media.src}}" class="img-fluid img-thumbnail padding">
       </div>
       <button *ngIf="showUpload === true" (click)="deleteMedia(media.mediaId)"
-              class="btn btn-outline-success padding">Delete</button>
+              class="btn btn-outline-danger padding">Delete</button>
     </div>
   </div>
   <div class="row padding">

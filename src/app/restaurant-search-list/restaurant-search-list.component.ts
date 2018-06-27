@@ -20,6 +20,7 @@ export class RestaurantSearchListComponent implements OnInit {
   order;
   cityName;
   countryFlag;
+  isLoaded;
 
   restaurants = [];
   // @ViewChild('gmap') gmapElement: any;
@@ -90,6 +91,7 @@ export class RestaurantSearchListComponent implements OnInit {
     this.zomatoService.findRestaurants(this.entity_type, location, searchKeyword, category, cuisine, sort, order, '', '')
       .then(response => {
         this.restaurants = response.restaurants;
+        this.isLoaded = true;
       });
 
   }

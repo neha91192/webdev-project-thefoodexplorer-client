@@ -23,6 +23,7 @@ export class RestaurantDetailsPageComponent implements OnInit {
   reviewList = [];
   isOwner;
   user: User;
+  isLoaded;
 
   // Tab selection variables
   isInfoTabClicked;
@@ -51,8 +52,12 @@ export class RestaurantDetailsPageComponent implements OnInit {
   fetchRestaurant(restaurantId) {
     this.restaurantId = restaurantId;
     this.zomatoService.fetchRestaurant(restaurantId)
-      .then(restaurant => this.restaurant = restaurant);
+      .then(restaurant => {
+        this.isLoaded = true;
+        this.restaurant = restaurant;
+      });
   }
+
   ngOnInit() {
     this.isInfoTabClicked = true;
     this.isOwner = false;

@@ -13,7 +13,7 @@ export class HomeQuickSearchComponent implements OnInit {
   popularCuisines = [];
   cuisineData = [];
   cuisines = [];
-
+  isLoaded;
   imageMap = [];
 
 
@@ -52,6 +52,7 @@ export class HomeQuickSearchComponent implements OnInit {
           }
         }
         this.cuisineData.push({id: 30, name: 'Cafe'});
+        this.isLoaded = true;
       });
 
   }
