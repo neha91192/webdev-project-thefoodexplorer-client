@@ -47,15 +47,15 @@
       <!--<h5>OR</h5>-->
     </div>
   </div>
-  <div class="row">
-    <div class="col-3"></div>
-        <div class=" col-9 form-padding">
-       <app-social-login></app-social-login>
-        </div>
+  <div class="row form-padding">
+            <div class="col-sm-12 col-md-3 col-lg-3"></div>
+            <div class="col-sm-4 col-md-4 col-lg-4 padding">
+              <button class="btn btn-block btn-danger" (click)="socialSignIn('google')">
+                <i class="fas fa-google"></i> Sign in with Google
+              </button>
+            </div>
+
   </div>
-  <!--<div class="row form-padding">-->
-    <!--<button class="btn btn-outline-secondary" (click)="goToAdmin(c)">admin</button>-->
-  <!--</div>-->
   </div>
 
 

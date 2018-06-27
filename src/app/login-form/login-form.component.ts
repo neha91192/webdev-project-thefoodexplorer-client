@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, Injectable} from '@angular/core';
 import {LoginServiceClient} from '../services/login-service-client';
 import {Router} from '@angular/router';
-import {SharedService} from '../services/shared-service-client';
+import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angular5-social-login';
 
 @Component({
   selector: 'app-login-form',
@@ -14,7 +14,8 @@ export class LoginFormComponent implements OnInit {
   username;
   password;
   loginFailureMessage;
-  constructor(private service: LoginServiceClient, private router: Router, private sharedService: SharedService) { }
+  constructor(private service: LoginServiceClient, private router: Router,
+              private socialAuthService: AuthService) { }
 
   ngOnInit() {
   }
@@ -50,6 +51,22 @@ export class LoginFormComponent implements OnInit {
   goToAdmin(c) {
     c('Cross click');
     this.router.navigate(['admin']);
+  }
+
+  public socialSignIn(socialPlatform: string) {
+    let socialPlatformProvider;
+    if (socialPlatform === 'facebook') {
+      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+    } else if (socialPlatform === 'google') {
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    }
+
+    this.socialAuthService.signIn(socialPlatformProvider).then(
+      (userData) => {
+        console.log(socialPlatform + 'sign in data:' , userData);
+
+      }
+    );
   }
 
 
