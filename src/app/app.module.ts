@@ -60,21 +60,21 @@ import { AdminOwnerRestaurantsComponent } from './admin-owner-restaurants/admin-
 import { AdminReviewComponent } from './admin-review/admin-review.component';
 
 
-// export function getAuthServiceConfigs() {
-//   const config = new AuthServiceConfig(
-//     [
-//       {
-//         id: FacebookLoginProvider.PROVIDER_ID,
-//         provider: new FacebookLoginProvider('2013205002267162')
-//       },
-//       {
-//         id: GoogleLoginProvider.PROVIDER_ID,
-//         provider: new GoogleLoginProvider('1054791685814-o4dtghh2uq8dspupulebnula3kgtvg5o.apps.googleusercontent.com')
-//       },
-//     ]
-//   );
-//   return config;
-// }
+export function getAuthServiceConfigs() {
+  const config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider('2013205002267162')
+      },
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider('1054791685814-o4dtghh2uq8dspupulebnula3kgtvg5o.apps.googleusercontent.com')
+      },
+    ]
+  );
+  return config;
+}
 
 
 @NgModule({
@@ -127,7 +127,7 @@ import { AdminReviewComponent } from './admin-review/admin-review.component';
     NgbModule.forRoot(),
     routing,
     // PaginationModule,
-    // SocialLoginModule
+    SocialLoginModule
   ],
   providers: [
     ZomatoApiServiceClient,
@@ -141,10 +141,10 @@ import { AdminReviewComponent } from './admin-review/admin-review.component';
     OwnerServiceClient,
     UserServiceClient,
     ReviewServiceClient,
-    // {
-    //   provide: AuthServiceConfig,
-    //   useFactory: getAuthServiceConfigs
-    // }
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
   ],
   bootstrap: [AppComponent]
 })
