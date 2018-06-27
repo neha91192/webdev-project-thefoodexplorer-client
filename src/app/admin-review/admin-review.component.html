@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div class="container-fluid padding-around">
+  <div class="row">
+    <a routerLink="/admin" class="text-secondary padding"><i class="fas fa-chevron-left"></i>    Back</a>
+  </div>
+  <div class="row heading">
+    <h2 class="heading text-danger">Reviews for restaurants</h2>
+  </div>
+  <table class="table table-striped table-responsive-lg">
+    <thead>
+    <tr>
+      <th scope="col">Customer Username</th>
+      <th scope="col">Restaurant name</th>
+      <th scope="col">Content</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Posted date</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let review of reviews" class="template">
+      <td>{{review.customer.username}}</td>
+      <td>{{review.name}}</td>
+      <td>{{review.content}}</td>
+      <td>{{review.rating}}</td>
+      <td>{{review.age}}</td>
+      <td class="wbdv-actions">
+        <div class="float-right">
+          <button (click)="deleteReview(review)" class="btn"><i id="wbdv-remove" class="fa-x fa fa-times wbdv-remove"></i></button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

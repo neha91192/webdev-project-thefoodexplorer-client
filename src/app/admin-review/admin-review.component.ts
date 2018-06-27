@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ReviewServiceClient} from '../services/review-service-client';
 
 @Component({
   selector: 'app-admin-review',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminReviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private reviewService: ReviewServiceClient) { }
 
   ngOnInit() {
   }
 
+  deleteReview(review) {
+    if (confirm('Are you sure you want to delete this Review?')) {
+      this.reviewService
+        .deleteReview(review);
+    }
+  }
 }
