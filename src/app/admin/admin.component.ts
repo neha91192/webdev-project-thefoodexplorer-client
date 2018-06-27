@@ -26,6 +26,8 @@ export class AdminComponent implements OnInit {
   lastName;
   userType;
   user: User;
+  isEdit;
+  emailId;
 
   ngOnInit() {
     this.fetchProfile();
@@ -67,8 +69,6 @@ export class AdminComponent implements OnInit {
   }
 
   updateUser() {
-    console.log(this.password);
-    console.log(this.originalPassword);
     this.user.password = this.password;
     this.user.username = this.username;
     this.user.firstName = this.firstName;
@@ -99,9 +99,11 @@ export class AdminComponent implements OnInit {
   }
 
   renderUser(user) {
+    this.isEdit = true;
     this.username = user.username;
     this.firstName = user.firstName;
     this.lastName = user.lastName;
+    this.emailId = user.emailId;
     // this.userType = user.userType;
     this.originalPassword = user.password;
     this.password = user.password;

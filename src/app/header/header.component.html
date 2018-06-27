@@ -34,8 +34,11 @@
             </span></a>
           <a *ngIf="!isAdmin && !isOwner" class="btn btn-outline-light" routerLink="/profile">
             <i class="fa fa-user"></i>
-            <span class="text-padding">
+            <span *ngIf="user.username !== undefined" class="text-padding">
          {{user.username}}
+        </span>
+            <span *ngIf="user.username === undefined || user.username === null" class="text-padding">
+         {{user.firstName}}
         </span>
           </a>
         </li>

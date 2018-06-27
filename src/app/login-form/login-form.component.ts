@@ -2,6 +2,7 @@ import {Component, Input, OnInit, Injectable} from '@angular/core';
 import {LoginServiceClient} from '../services/login-service-client';
 import {Router} from '@angular/router';
 import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angular5-social-login';
+import {User} from '../models/user.model.client';
 
 @Component({
   selector: 'app-login-form',
@@ -14,6 +15,7 @@ export class LoginFormComponent implements OnInit {
   username;
   password;
   loginFailureMessage;
+  user: User;
   constructor(private service: LoginServiceClient, private router: Router,
               private socialAuthService: AuthService) { }
 
@@ -53,7 +55,7 @@ export class LoginFormComponent implements OnInit {
     this.router.navigate(['admin']);
   }
 
-  public socialSignIn(socialPlatform: string) {
+   socialSignIn(socialPlatform: string, c) {
     let socialPlatformProvider;
     if (socialPlatform === 'facebook') {
       socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
@@ -64,11 +66,22 @@ export class LoginFormComponent implements OnInit {
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
         console.log(socialPlatform + 'sign in data:' , userData);
+        this.user = new User();
+        // this.user.userId = +userData.id;
+        const fullName = userData.name.split(' ');
+        this.user.firstName = fullName[0];
+        this.user.lastName = fullName[1];
+        this.user.emailId = userData.email;
+        this.user.userType = 0;
+        this.service.socialLogin(this.user)
+          .then((response) => {
+            if (response !== null) {
+              c('Cross click');
+              this.router.navigate(['profile']);
+            }
+          });
 
       }
     );
   }
-
-
-
 }

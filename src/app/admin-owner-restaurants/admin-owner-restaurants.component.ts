@@ -5,6 +5,8 @@ import {UserServiceClient} from '../services/user-service-client';
 import {Owner} from '../models/owner.model.client';
 
 import {Restaurant} from '../models/restaurant.model.client';
+import {ProfileServiceClient} from '../services/profile-service-client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-owner-restaurants',
@@ -13,7 +15,9 @@ import {Restaurant} from '../models/restaurant.model.client';
 })
 export class AdminOwnerRestaurantsComponent implements OnInit {
 
-  constructor(private ownerService: OwnerServiceClient, private userService: UserServiceClient) { }
+  constructor(private ownerService: OwnerServiceClient, private userService: UserServiceClient,
+              private profile: ProfileServiceClient,
+              private router: Router) { }
 
   restaurantName;
   restaurantLocation;
@@ -28,7 +32,7 @@ export class AdminOwnerRestaurantsComponent implements OnInit {
   owner: Owner;
   user: User;
   ngOnInit() {
-    this.findAllOwners();
+    this.fetchProfile();
   }
 
   findAllOwners() {
@@ -118,5 +122,15 @@ export class AdminOwnerRestaurantsComponent implements OnInit {
     this.user = user;
 
   }
+
+  fetchProfile() {
+    this.profile.fetchProfile().then(user => {
+      if (user === null || (user !== null && user.userType !== 'Admin')) {
+        alert('You are not authorized to see this page');
+        this.router.navigate(['home']);
+      }
+    }).then(() => this.findAllOwners());
+  }
+
 
 }

@@ -19,6 +19,7 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
   data;
   uploadedImage;
   restaurantId;
+  restaurantData;
   media: Media;
   mediaList: Media[] = [];
   showUpload;
@@ -52,6 +53,8 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
       this.media.restaurant = new Restaurant();
       console.log(this.restaurantId);
       this.media.restaurant.id = this.restaurantId;
+      this.media.restaurant.name = this.restaurantData.name;
+      this.media.restaurant.locationArea = this.restaurantData.locationArea;
       this.saveMedia(this.media);
 
     }).catch(err => console.log(err));
@@ -77,6 +80,7 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (typeof changes['restaurant'] !== 'undefined') {
       this.restaurantId = this.restaurant.id;
+      this.restaurantData = this.restaurant;
       this.fetchMediaForRestaurant(this.restaurantId);
 
 

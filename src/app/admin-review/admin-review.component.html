@@ -9,7 +9,7 @@
   <table class="table table-striped table-responsive-lg">
     <thead>
     <tr>
-      <th scope="col">Customer Username</th>
+      <th scope="col">Customer</th>
       <th scope="col">Restaurant name</th>
       <th scope="col">Content</th>
       <th scope="col">Rating</th>
@@ -20,8 +20,11 @@
     </thead>
     <tbody>
     <tr *ngFor="let review of reviews" class="template">
-      <td>{{review.customer.username}}</td>
-      <td>{{review.restaurant.name}}</td>
+      <!--<td *ngIf="review.customer.username === null">{{review.customer.emailId}}</td>-->
+      <td><a routerLink="/user/{{review.customer.userId}}">
+        <span *ngIf="review.customer.username !== null">{{review.customer.username}}</span>
+        <span *ngIf="review.customer.username === null">{{review.customer.emailId}}</span></a></td>
+      <td><a routerLink="/restaurant/{{review.restaurant.restaurantId}}">{{review.restaurant.name}}</a></td>
       <td>{{review.content}}</td>
       <td>{{review.rating}}</td>
       <td>{{review.age}}</td>

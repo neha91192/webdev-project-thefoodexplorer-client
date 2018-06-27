@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="container">
+<div class="container-fluid padding-around">
   <div class="row">
     <div class="col-10">
       <h2 class="heading text-danger">Customer Information (Registered Users)</h2>
@@ -28,7 +28,7 @@
       <th scope="col">Password</th>
       <th scope="col">Firstname</th>
       <th scope="col">Lastname</th>
-      <th scope="col">Role</th>
+      <th scope="col">Email</th>
       <th scope="col">Action</th>
       <th></th>
     </tr>
@@ -37,9 +37,9 @@
       <th><input [(ngModel)]="password" class="form-control" type=password placeholder="Password"/></th>
       <th><input [(ngModel)]="firstName" class="form-control" placeholder="FirstName"/></th>
       <th><input [(ngModel)]="lastName" class="form-control" placeholder="LastName"/></th>
-      <th>
-        Customer
-      </th>
+      <th><input [(ngModel)]="emailId" class="form-control" [ngClass]="{'form-control': !isEdit,
+                        'form-control-plaintext': isEdit}"
+                 [attr.readonly]=" isEdit ? '' : null" placeholder="Email"/></th>
       <th>
         <span id="spanBtn" class="float-right">
 					<button (click)="createUser()" class="btn"><i class="fa-1x fa fa-plus wbdv-create"></i></button>
@@ -51,10 +51,11 @@
     <tbody>
     <tr *ngFor="let user of users" class="template">
       <td class="username">{{user.username}}</td>
-      <td class="password">*********</td>
+      <td *ngIf="user.password === null" class="password"></td>
+      <td *ngIf="user.password !== null" class="password">*********</td>
       <td class="firstName">{{user.firstName}}</td>
       <td class="lastName">{{user.lastName}}</td>
-      <td class="userType">{{user.userType}}</td>
+      <td class="userType">{{user.emailId}}</td>
       <td class="wbdv-actions">
         <div class="float-right">
 						<button (click)="deleteUser(user.userId)" class="btn"><i id="wbdv-remove" class="fa-x fa fa-times wbdv-remove"></i></button>

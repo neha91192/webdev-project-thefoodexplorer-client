@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ReviewServiceClient} from '../services/review-service-client';
+import {ProfileServiceClient} from '../services/profile-service-client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-review',
@@ -9,10 +11,11 @@ import {ReviewServiceClient} from '../services/review-service-client';
 export class AdminReviewComponent implements OnInit {
 
   reviews = [];
-  constructor(private reviewService: ReviewServiceClient) { }
+  constructor(private reviewService: ReviewServiceClient, private profile: ProfileServiceClient,
+              private router: Router) { }
 
   ngOnInit() {
-    this.allReviews();
+    this.fetchProfile();
   }
   allReviews() {
     this.reviewService.findAllReviews()
@@ -27,4 +30,14 @@ export class AdminReviewComponent implements OnInit {
         .then( () => this.allReviews());
     }
   }
+
+  fetchProfile() {
+    this.profile.fetchProfile().then(user => {
+      if (user === null || (user !== null && user.userType !== 'Admin')) {
+        alert('You are not authorized to see this page');
+        this.router.navigate(['home']);
+      }
+    }).then(() =>  this.allReviews());
+  }
+
 }
