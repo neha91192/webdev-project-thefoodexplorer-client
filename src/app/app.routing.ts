@@ -12,6 +12,7 @@ import {UserProfileComponent} from './user-profile/user-profile.component';
 import {OwnerProfileComponent} from './owner-profile/owner-profile.component';
 import {AdminOwnerRestaurantsComponent} from './admin-owner-restaurants/admin-owner-restaurants.component';
 import {RestaurantSearchListComponent} from './restaurant-search-list/restaurant-search-list.component';
+import {AdminReviewComponent} from './admin-review/admin-review.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
   { path: 'admin', component: AdminComponent},
   { path: 'user/:userId', component: UserProfileComponent},
   { path: 'profile/owner', component: OwnerProfileComponent},
-  { path: 'admin/owner', component: AdminOwnerRestaurantsComponent}
+  { path: 'admin/owner', component: AdminOwnerRestaurantsComponent},
+  { path: 'admin/review', component: AdminReviewComponent}
 
 ];
 //

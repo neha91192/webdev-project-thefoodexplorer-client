@@ -57,6 +57,7 @@ import {ReviewServiceClient} from './services/review-service-client';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { OwnerProfileComponent } from './owner-profile/owner-profile.component';
 import { AdminOwnerRestaurantsComponent } from './admin-owner-restaurants/admin-owner-restaurants.component';
+import { AdminReviewComponent } from './admin-review/admin-review.component';
 
 
 // export function getAuthServiceConfigs() {
@@ -117,7 +118,8 @@ import { AdminOwnerRestaurantsComponent } from './admin-owner-restaurants/admin-
     AdminComponent,
     UserProfileComponent,
     OwnerProfileComponent,
-    AdminOwnerRestaurantsComponent
+    AdminOwnerRestaurantsComponent,
+    AdminReviewComponent
   ],
   imports: [
     BrowserModule,

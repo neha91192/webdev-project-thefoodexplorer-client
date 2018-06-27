@@ -118,4 +118,12 @@ export class AdminComponent implements OnInit {
     }).then(() => this.findAllUsers());
   }
 
+  ownerPage() {
+    this.router.navigate(['admin/owner']);
+  }
+
+  reviewPage() {
+    this.router.navigate(['admin/review']);
+  }
+
 }

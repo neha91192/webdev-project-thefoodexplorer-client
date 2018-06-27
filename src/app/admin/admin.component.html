@@ -1,13 +1,21 @@
 <app-header></app-header>
 <div class="container">
   <div class="row">
-    <div class="col-8">
+    <div class="col-10">
       <h2 class="heading text-danger">Customer Information (Registered Users)</h2>
     </div>
-    <div class="col-4 heading">
-      <a class="text-secondary float-right padding-top" routerLink="/admin/owner">
-        <h5>Owners and Restaurants admin   <i class="fas fa-chevron-right"></i></h5>
-      </a>
+    <div class="col-2 heading">
+      <div class="padding-top">
+        <button (click)="ownerPage()" class="btn btn-outline-danger  padding-top">Owner Information</button>
+      </div>
+      <div class="padding-top">
+      <button (click)="reviewPage()" class="btn btn-outline-danger padding-top">Review Information</button>
+      </div>
+        <!--<h5>Owners and Restaurants admin   <i class="fas fa-chevron-right"></i></h5>-->
+      <!--</button>-->
+      <!--<a class="text-secondary float-right padding-top" routerLink="/admin/reviews">-->
+        <!--<h5>Owners and Restaurants admin   <i class="fas fa-chevron-right"></i></h5>-->
+      <!--</a>-->
       <!--<button class="btn btn-outline-danger float-right" routerLink="/admin/owner">-->
         <!--Restaurants and Owners page-->
       <!--</button>-->

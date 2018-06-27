@@ -2,7 +2,7 @@
   max-height: 180px;
 }
 .padding {
-  padding: 3px;
+  padding: 6px;
 }
 .main-row {
   padding-left: 10px;
@@ -18,5 +18,12 @@
 #typeahead-format .active > a,
 #typeahead-format .active > a:hover {
   color: #dc3545;
+}
+
+
+button.dropdown-item.active, .dropdown-item:active {
+  color: #dc3545;
+  text-decoration: none;
+  background-color: #f8f9fa;
 }
 
