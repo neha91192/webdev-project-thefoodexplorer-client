@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container containerPadding">
 
 
   <div  *ngIf="showUpload === true" class="padding border-settings">
@@ -7,20 +7,27 @@
     <!--<span *ngIf="showUpload === true" class="text-dark padding">-->
     <!--Please upload image of Menu</span>-->
     <!--</div>-->
-    <div  *ngIf="showUpload === true" class="row padding">
-      <span class="text-dark padding"><h5>Upload Image</h5></span>
+    <div  *ngIf="showUpload === true" class="row padding-left">
+      <span class="text-danger padding"><h5>Upload Image of Menu</h5></span>
     </div>
-    <div class="row padding">
-      <div class="padding" *ngIf="showUpload === true">
+    <div *ngIf="showUpload === true" class="row padding-left" >
 
-        <label for="file" class="btn btn-secondary">Select Image</label>
+        <span class="padding-left"> <label for="file" class="btn btn-secondary">Select Image</label></span>
 
-        <span *ngIf="fileToUpload !== null" class="padding">{{fileToUpload.name}}</span>
+
+
+
+      <span *ngIf="fileToUpload !== null" class="padding">{{fileToUpload.name}}</span>
         <input class="form-control" style="visibility:hidden;" id="file" type="file"
                (change)="handleFileInput($event.target.files)">
+      <div *ngIf="!isLoaded" class="row app-loading">
+        <div class="logo"></div>
+        <svg class="spinner" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
       </div>
     </div>
-    <div class="row padding">
+    <div class="row padding-left">
       <div  *ngIf="showUpload === true"class="col-2 padding">
         <button class="btn btn-outline-success" (click)="uploadFile()">Save Menu</button>
       </div>
@@ -33,12 +40,18 @@
     <span class="text-danger padding"><h5>Menu details</h5></span>
     <div *ngFor="let media of mediaList">
       <div class="row padding">
-        <img src="{{media.src}}" class="img-fluid img-thumbnail padding">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <img src="{{media.src}}" class="img-fluid img-thumbnail padding">
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+        <button *ngIf="showUpload === true" (click)="deleteMedia(media.mediaId)"
+                class="btn btn-outline-danger"><i class="fa fa-times"></i> </button>
+        </div>
       </div>
-      <button *ngIf="showUpload === true" (click)="deleteMedia(media.mediaId)"
-              class="btn btn-outline-danger padding">Delete</button>
+
+      </div>
+
     </div>
-  </div>
   <div class="row padding">
     <span *ngIf=" mediaList.length ===0" class="text-secondary">No Menu Available</span>
   </div>

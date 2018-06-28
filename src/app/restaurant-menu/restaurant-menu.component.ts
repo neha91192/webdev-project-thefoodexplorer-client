@@ -23,6 +23,7 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
   media: Media;
   mediaList: Media[] = [];
   showUpload;
+  isLoaded;
 
   constructor(private uploadService: UploadService, private mediaService: MediaServiceClient,
               private ownerService: OwnerServiceClient) {
@@ -31,9 +32,11 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
       this.fetchMediaForRestaurant(this.restaurantId);
     }
     this.showUpload = false;
+    this.isLoaded = true;
   }
 
   ngOnInit() {
+    this.isLoaded = true;
   }
 
   handleFileInput(files: FileList) {
@@ -43,6 +46,7 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
   }
 
   uploadFile() {
+    this.isLoaded = false;
     this.uploadService.uploadFile(this.fileToUpload).then(data => {
       this.data = data;
       this.uploadedImage = this.data.Location;
@@ -70,8 +74,10 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
 
   saveMedia(media) {
     this.mediaService.saveMedia(media).then(() => {
+      this.isLoaded = true;
       alert('image added successfully');
       this.fetchMediaForRestaurant(this.restaurantId);
+      this.fileToUpload = null;
     });
   }
 
@@ -99,10 +105,11 @@ export class RestaurantMenuComponent implements OnInit, OnChanges {
   }
 
   deleteMedia(mediaId) {
+    if (confirm('Are you sure you want to delete this menu item?')) {
     this.mediaService.deleteMedia(mediaId).then(() => {
       alert('Deleted successfully');
       this.fetchMediaForRestaurant(this.restaurantId);
-    });
+    });}
 
   }
 }

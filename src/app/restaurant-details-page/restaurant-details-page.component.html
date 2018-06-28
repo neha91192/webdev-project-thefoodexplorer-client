@@ -48,14 +48,14 @@
         <ul class="nav nav-pills nav-justified">
           <li (click)="selectTab('info')" class="nav-item nav-link text-padding info-tab-layout wbdv"
               [ngClass]="{'active': isInfoTabClicked == true}">
-            Information</li>
+            <i class="far fa-file-alt"></i><span class="icon-padding">Information</span></li>
           <li (click)="selectTab('menu')" class="nav-item nav-link text-padding info-tab-layout wbdv"
               [ngClass]="{'active': isMenuTabClicked == true}">
             <!--<i class="material-icons">local_dining</i>-->
-          Menu</li>
+            <i class="fas fa-utensils"></i> <span class="icon-padding">Menu</span> </li>
           <li (click)="selectTab('review')" class="nav-item nav-link text-padding info-tab-layout wbdv"
               [ngClass]="{'active': isReviewTabClicked == true}">
-            Reviews</li>
+            <i class="far fa-star"></i><span class="icon-padding">Reviews</span></li>
           <!--<li  (click)="selectTab('reservation')" class="nav-item nav-link text-padding info-tab-layout wbdv"-->
                <!--[ngClass]="{'active': isReservationTabClicked == true}">-->
             <!--Reservation</li>-->
