@@ -33,7 +33,7 @@
               <div class="col-sm-12 col-md-5 col-lg-3 low-padding">
                 <img src={{restaurant.restaurant.thumb}}
                      onerror="if (this.src != 'error.jpg')
-             this.src = 'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'"
+             this.src = 'https://images.pexels.com/photos/842545/pexels-photo-842545.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350'"
                      class="rounded float-left"
                      height="120" width="145" />
               </div>
@@ -72,6 +72,23 @@
         </ul>
       </div>
     </div>
+    <div class="padding float-right">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-danger" (click)="fetchPrevious()"
+                [attr.disabled]=" disablePrevious ? '' : null">Previous</button>
+        <button type="button" class="btn btn-outline-danger" (click)="fetchNext()"
+                [attr.disabled]=" disableNext ? '' : null">Next</button>
+      </div>
+      <!--<div class="btn-group btn-group-toggle" data-toggle="buttons">-->
+        <!--<label class="btn btn-outline-danger" disabled>-->
+          <!--<input type="radio" name="options" id="option1" autocomplete="off" (click)="fetchPrevious()"> Previous-->
+        <!--</label>-->
+        <!--<label class="btn btn-outline-danger" [attr.disable]=" disableNext ? '' : null">-->
+          <!--<input type="radio" name="options" id="option2" autocomplete="off" (click)="fetchNext()"> Next-->
+        <!--</label>-->
+      <!--</div>-->
+    </div>
+
   </div>
   <app-footer></app-footer>
 </div>

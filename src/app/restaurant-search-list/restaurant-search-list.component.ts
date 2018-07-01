@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
 
 
@@ -21,17 +21,25 @@ export class RestaurantSearchListComponent implements OnInit {
   cityName;
   countryFlag;
   isLoaded;
+  start: number;
+  isNext;
+  isPrevious;
+  count;
+  disableNext;
+  disablePrevious;
 
   restaurants = [];
-  // @ViewChild('gmap') gmapElement: any;
-  // map: google.maps.Map;
 
-  constructor(private zomatoService: ZomatoApiServiceClient, private route: ActivatedRoute) {
+  constructor(private zomatoService: ZomatoApiServiceClient, private route: ActivatedRoute,
+              private router: Router) {
     // this.route.params.subscribe(params => this.setParams(params));
     this.category = '';
     this.searchKeyword = '';
     this.location = '';
     this.entity_type = 'city';
+    this.count = 20;
+    this.disableNext = false;
+    this.disablePrevious = false;
     this.route.queryParams.subscribe(params => this.setParams(params));
   }
 
@@ -74,11 +82,21 @@ export class RestaurantSearchListComponent implements OnInit {
     } else {
       this.order = '';
     }
+
+    if (params['start'] !== undefined) {
+      this.start = params['start'];
+      if (+this.start === 0) {
+        this.disablePrevious = true;
+      }
+    } else {
+      this.start = 0;
+      this.disablePrevious = true;
+    }
     this.fetchLocationIdFromAPI(this.location);
-    this.loadRestaurants(this.location, this.searchKeyword, this.category, this.cuisine, this.sort, this.order);
+    this.loadRestaurants(this.location, this.searchKeyword, this.category, this.cuisine, this.sort, this.order, this.start);
   }
 
-  loadRestaurants(location, searchKeyword, category, cuisine, sort, order) {
+  loadRestaurants(location, searchKeyword, category, cuisine, sort, order, start) {
 
     this.location = location;
     this.searchKeyword = decodeURI(searchKeyword);
@@ -86,9 +104,10 @@ export class RestaurantSearchListComponent implements OnInit {
     this.cuisine = cuisine;
     this.sort = sort;
     this.order = order;
+    this.start = start;
 
 
-    this.zomatoService.findRestaurants(this.entity_type, location, searchKeyword, category, cuisine, sort, order, '', '')
+    this.zomatoService.findRestaurants(this.entity_type, location, searchKeyword, category, cuisine, sort, order, start, this.count)
       .then(response => {
         this.restaurants = response.restaurants;
         this.isLoaded = true;
@@ -112,6 +131,29 @@ export class RestaurantSearchListComponent implements OnInit {
     this.location = '';
     this.sort = '';
     this.order = '';
+  }
+
+  fetchPrevious() {
+    this.start = +this.start - this.count;
+    if (+this.start === 0) {
+      this.disablePrevious = true;
+      this.disableNext = false;
+    }
+    const queryParams = Object.assign({}, this.route.snapshot.queryParams);
+    queryParams['start'] = this.start;
+    this.router.navigate(['/search'], {relativeTo: this.route,
+      queryParams: queryParams});
+  }
+  fetchNext() {
+    this.start = +this.start + this.count;
+    if (+this.start === 80) {
+      this.disableNext = true;
+      this.disablePrevious = false;
+    }
+    const queryParams = Object.assign({}, this.route.snapshot.queryParams);
+    queryParams['start'] = this.start;
+    this.router.navigate(['/search'], {relativeTo: this.route,
+      queryParams: queryParams});
   }
 
 

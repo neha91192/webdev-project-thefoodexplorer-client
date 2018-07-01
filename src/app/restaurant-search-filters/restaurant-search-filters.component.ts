@@ -42,20 +42,6 @@ export class RestaurantSearchFiltersComponent implements OnInit {
 
 
   constructor(private service: ZomatoApiServiceClient, private router: Router, private activatedRoute: ActivatedRoute) {
-    // this.activatedRoute.params.subscribe(params => {
-    //   if (params['sort'] === '' && params['order'] === '') {
-    //     this.isAllSort = true;
-    //   }
-    //   if (params['sort'] === 'rating') {
-    //     this.ratingActive = true;
-    //   }
-    //   if ( params['sort'] === 'cost' && params['order'] === 'asc') {
-    //     this.costAsc = true;
-    //   }
-    //   if ( params['sort'] === 'cost' && params['order'] === 'desc') {
-    //     this.costDes = true;
-    //   }
-    // });
   }
 
   ngOnInit() {
