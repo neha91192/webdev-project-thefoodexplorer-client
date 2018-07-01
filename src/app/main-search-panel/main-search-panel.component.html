@@ -1,17 +1,14 @@
 
 
  <div class="form-inline main-row">
-    <div class="form-group">
-      <div class="input-group padding">
-
-
+      <div class="padding">
+        
         <input id="typeahead-format" type="text" [(ngModel)]="locationValue"
                (input)="fetchLocationsFromAPI($event.target.value)"
                              [ngbTypeahead]="fetchLocations" [resultFormatter]="formatter"
                placeholder="City Name" class="form-control"/>
       </div>
-      </div>
-      <div class="padding">
+      <div class=" padding">
       <div ngbDropdown class="d-inline-block">
         <button class="btn btn-light" id="dropdownBasic1"
                 ngbDropdownToggle>{{selectedCategory}}
@@ -25,10 +22,10 @@
       </div>
       </div>
 
-      <div class="padding">
+      <div class=" padding">
       <input [(ngModel)]="searchValue" placeholder="Restaurant Name" class="form-control"/>
       </div>
-      <div class="padding">
+      <div class=" padding">
       <button (click)="search()"
               class="btn btn-danger">Search</button>
       </div>
