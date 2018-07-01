@@ -18,7 +18,7 @@
   </div>
   <div *ngFor="let cuisine of cuisineData; let i = index" [attr.data-index]="i"
        class="col-sm-12 col-md-6 col-lg-4 quick-search-category padding-around">
-    <div (click)="search(cuisine.id)"  class="card text-center bg-dark text-white">
+    <div (click)="search(cuisine.id)"  class="card text-center text-white info">
       <img class="card-img"
            src= "{{imageMap[i]}}"
            alt="Card image">

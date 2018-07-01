@@ -2,7 +2,7 @@
 
  <div class="form-inline main-row">
       <div class="padding">
-        
+
         <input id="typeahead-format" type="text" [(ngModel)]="locationValue"
                (input)="fetchLocationsFromAPI($event.target.value)"
                              [ngbTypeahead]="fetchLocations" [resultFormatter]="formatter"
