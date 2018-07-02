@@ -1,4 +1,10 @@
-<app-header></app-header>
+<div *ngIf="locationDetails !== undefined" >
+  <app-header [locationDetails] = "locationDetails"></app-header>
+</div>
+<div *ngIf="locationDetails === undefined" >
+  <app-header></app-header>
+</div>
+
 <app-home-cover-area></app-home-cover-area>
 <div class="container">
   <div class="component-divider">
@@ -12,17 +18,44 @@
     </div>
 
   </div>
-  <div class="component-divider"></div>
-
-
   <div class="component-divider">
-    <h3 class="text-dark padding-bottom">Popular Cuisines</h3>
-    <h6 class="text-secondary padding-bottom">Search restaurants through popular cuisines</h6>
-    <app-home-quick-search></app-home-quick-search>
+
+
+  <div *ngIf="locationDetails === undefined" class="row app-loading justify-content-center">
+    <div class="logo"></div>
+    <svg class="spinner" viewBox="25 25 50 50">
+      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+    </svg>
+  </div>
+  <div *ngIf="locationDetails !== undefined" class="component-divider">
+    <h3 class="text-dark padding-bottom">Popular Cuisines in {{userCity}}</h3>
+    <h6 class="text-secondary padding-bottom">Search restaurants through popular cuisines of your area</h6>
+    <div *ngIf="locationDetails !== undefined">
+      <app-home-quick-search [locationDetails] = "locationDetails"></app-home-quick-search>
+    </div>
+
+  </div>
   </div>
 
 
-  <div class="component-divider"></div>
+
+  <div class="component-divider">
+    <div *ngIf="locationDetails === undefined" class="row app-loading justify-content-center">
+      <div class="logo"></div>
+      <svg class="spinner" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+      </svg>
+    </div>
+    <div *ngIf="locationDetails !== undefined" class="component-divider">
+      <h3 class="text-dark padding-bottom">Top Restaurants in {{userCity}}</h3>
+      <h6 class="text-secondary padding-bottom">List of some popular restaurants in your area</h6>
+      <div *ngIf="locationDetails !== undefined">
+        <app-home-popularity-index [locationDetails] = "locationDetails"></app-home-popularity-index>
+      </div>
+
+    </div>
+  </div>
+
   <div class="component-divider"></div>
 
 </div>

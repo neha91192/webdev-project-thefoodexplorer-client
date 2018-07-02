@@ -15,6 +15,7 @@ export class HomeCoverAreaComponent implements OnInit {
     // this.images.push('/assets/images/imageB.jpg');
     this.images.push('https://images.pexels.com/photos/416499/pexels-photo-416499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350');
     this.images.push('https://s3.us-east-2.amazonaws.com/thefoodexplorer/image/image6.jpg');
+    this.images.push('https://s3.us-east-2.amazonaws.com/thefoodexplorer/image/image7.jpg');
     // this.images.push('/assets/images/imageC.jpg');
   }
 

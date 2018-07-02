@@ -1,0 +1,27 @@
+<div class="row">
+  <div *ngFor="let restaurantItem of locationData.nearby_restaurants; let i = index" [attr.data-index]="i"
+       class="col-sm-12 col-md-6 col-lg-6">
+    <ul class="list-group">
+      <div class=" padding">
+        <li routerLink="/restaurant/{{restaurantItem.restaurant.id}}" class="list-group-item info">
+          <div class="row">
+            <div class="col-10"><span class="text-dark"><h5>{{restaurantItem.restaurant.name}}</h5>
+            </span></div>
+            <div class="col-2 float-right text-warning">
+              <!--<h5>{{restaurantItem.restaurant.user_rating.aggregate_rating}}<i class="far fa-star"></i>-->
+              <!--</h5>-->
+              <p class="restaurant-list-details-rating-row1 rounded float-right ">
+                {{restaurantItem.restaurant.user_rating.aggregate_rating}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-10">
+            <span class="text-secondary">{{restaurantItem.restaurant.location.locality}}</span>
+            </div>
+          </div>
+        </li>
+      </div>
+
+    </ul>
+  </div>
+</div>

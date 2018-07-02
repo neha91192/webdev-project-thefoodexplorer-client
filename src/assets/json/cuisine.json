@@ -1,0 +1,649 @@
+{
+  "cuisines": [
+    {
+      "cuisine": {
+        "cuisine_id": 6,
+        "cuisine_image": "Afghani"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 152,
+        "cuisine_image": "African"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 1,
+        "cuisine_image": "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "cuisine_name": "American"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 151,
+        "cuisine_image": "Argentine"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 175,
+        "cuisine_image": "Armenian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 3,
+        "cuisine_image": "Asian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 131,
+        "cuisine_image": "Australian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 193,
+        "cuisine_image": "BBQ"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 955,
+        "cuisine_image": "Bagels"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 5,
+        "cuisine_image": "Bakery"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 227,
+        "cuisine_image": "Bar Food"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 270,
+        "cuisine_image": "Beverages"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 159,
+        "cuisine_image": "Brazilian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 182,
+        "cuisine_image": "Breakfast"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 133,
+        "cuisine_image": "British"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 247,
+        "cuisine_image": "Bubble Tea"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 168,
+        "cuisine_image": "Burger"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 22,
+        "cuisine_image": "Burmese"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 30,
+        "cuisine_name": "Cafe",
+        "cuisine_image": "https://images.pexels.com/photos/982612/pexels-photo-982612.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 491,
+        "cuisine_image": "Cajun"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 956,
+        "cuisine_image": "California"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 111,
+        "cuisine_image": "Cambodian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 121,
+        "cuisine_image": "Cantonese"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 158,
+        "cuisine_image": "Caribbean"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 229,
+        "cuisine_image": "Chilean"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 25,
+        "cuisine_image": "Chinese"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 161,
+        "cuisine_image": "Coffee and Tea"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 287,
+        "cuisine_image": "Colombian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 928,
+        "cuisine_image": "Creole"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 881,
+        "cuisine_image": "Crepes"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 153,
+        "cuisine_image": "Cuban"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 192,
+        "cuisine_image": "Deli"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 100,
+        "cuisine_image": "Desserts"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 411,
+        "cuisine_image": "Dim Sum"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 541,
+        "cuisine_image": "Diner"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 958,
+        "cuisine_image": "Dominican"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 959,
+        "cuisine_image": "Donuts"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 268,
+        "cuisine_image": "Drinks Only"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 651,
+        "cuisine_image": "Eastern European"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 316,
+        "cuisine_image": "Ecuadorian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 149,
+        "cuisine_image": "Ethiopian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 38,
+        "cuisine_image": "European"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 40,
+        "cuisine_name": "https://images.pexels.com/photos/460599/pexels-photo-460599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "cuisine_image": ""
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 112,
+        "cuisine_image": "Filipino"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 45,
+        "cuisine_image": "French"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 501,
+        "cuisine_image": "Frozen Yogurt"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 274,
+        "cuisine_image": "Fusion"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 134,
+        "cuisine_image": "German"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 156,
+        "cuisine_image": "Greek"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 521,
+        "cuisine_image": "Hawaiian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 143,
+        "cuisine_image": "Healthy Food"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 233,
+        "cuisine_image": "Ice Cream"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 148,
+        "cuisine_image": "Indian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 114,
+        "cuisine_image": "Indonesian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 154,
+        "cuisine_image": "International"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 140,
+        "cuisine_image": "Iranian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 135,
+        "cuisine_image": "Irish"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 55,
+        "cuisine_image": "Italian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 207,
+        "cuisine_image": "Jamaican"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 60,
+        "cuisine_image": "Japanese"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 265,
+        "cuisine_image": "Jewish"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 164,
+        "cuisine_image": "Juices"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 178,
+        "cuisine_image": "Kebab"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 67,
+        "cuisine_image": "Korean"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 136,
+        "cuisine_image": "Latin American"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 66,
+        "cuisine_image": "Lebanese"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 69,
+        "cuisine_image": "Malaysian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 70,
+        "cuisine_image": "Mediterranean"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 73,
+        "cuisine_image": "Mexican"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 137,
+        "cuisine_image": "Middle Eastern"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 147,
+        "cuisine_image": "Moroccan"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 117,
+        "cuisine_image": "Nepalese"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 996,
+        "cuisine_image": "New American"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 321,
+        "cuisine_image": "Pacific"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 139,
+        "cuisine_image": "Pakistani"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 209,
+        "cuisine_image": "Pan Asian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 162,
+        "cuisine_image": "Peruvian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 82,
+        "cuisine_image": "Pizza"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 219,
+        "cuisine_image": "Polish"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 87,
+        "cuisine_image": "Portuguese"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 983,
+        "cuisine_image": "Pub Food"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 361,
+        "cuisine_image": "Puerto Rican"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 320,
+        "cuisine_image": "Ramen"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 84,
+        "cuisine_image": "Russian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 998,
+        "cuisine_image": "Salad"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 601,
+        "cuisine_image": "Salvadorean"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 304,
+        "cuisine_image": "Sandwich"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 210,
+        "cuisine_image": "Scottish"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 83,
+        "cuisine_image": "Seafood"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 128,
+        "cuisine_image": "Sichuan"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 461,
+        "cuisine_image": "Soul Food"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 972,
+        "cuisine_image": "South American"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 471,
+        "cuisine_image": "Southern"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 966,
+        "cuisine_image": "Southwestern"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 89,
+        "cuisine_image": "Spanish"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 86,
+        "cuisine_image": "Sri Lankan"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 141,
+        "cuisine_image": "Steak"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 177,
+        "cuisine_image": "Sushi"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 997,
+        "cuisine_image": "Taco"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 190,
+        "cuisine_image": "Taiwanese"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 163,
+        "cuisine_image": "Tea"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 150,
+        "cuisine_image": "Tex-Mex"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 95,
+        "cuisine_image": "Thai"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 93,
+        "cuisine_image": "Tibetan"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 142,
+        "cuisine_image": "Turkish"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 308,
+        "cuisine_image": "Vegetarian"
+      }
+    },
+    {
+      "cuisine": {
+        "cuisine_id": 641,
+        "cuisine_image": "Venezuelan"
+      }
+    }
+  ]
+}

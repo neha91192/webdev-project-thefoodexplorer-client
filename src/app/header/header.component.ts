@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Router} from '@angular/router';
 import {ProfileServiceClient} from '../services/profile-service-client';
 import {LoginServiceClient} from '../services/login-service-client';
@@ -8,12 +8,15 @@ import {LoginServiceClient} from '../services/login-service-client';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnChanges {
   navbarOpen;
   user;
   isAdmin;
   isOwner;
   isLoggedIn;
+  @Input() locationDetails: object;
+  locationData;
+
   constructor(private router: Router, private profile: ProfileServiceClient, private loginService: LoginServiceClient) {
     this.fetchProfile();
   }
@@ -56,6 +59,12 @@ export class HeaderComponent implements OnInit {
           this.router.navigate(['/home']);
 
       });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (typeof changes['locationDetails'] !== 'undefined') {
+      this.locationData = this.locationDetails;
+    }
   }
 
 }

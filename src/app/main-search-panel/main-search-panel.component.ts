@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 import {ZomatoApiServiceClient} from '../api-services/zomato-api-service-client';
@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   templateUrl: './main-search-panel.component.html',
   styleUrls: ['./main-search-panel.component.css']
 })
-export class MainSearchPanelComponent implements OnInit {
+export class MainSearchPanelComponent implements OnInit, OnChanges {
 
   locations = [];
   locationMap = [];
@@ -19,6 +19,9 @@ export class MainSearchPanelComponent implements OnInit {
   selectedCategoryId;
   locationValue;
   selectedLocationId;
+
+  @Input() locationDetails: any;
+  locationData;
   constructor(private service: ZomatoApiServiceClient, private router: Router) {
       this.fetchCategoriesFromAPI();
   }
@@ -72,7 +75,7 @@ export class MainSearchPanelComponent implements OnInit {
   }
 
   search() {
-    this.selectedLocationId = '';
+    // this.selectedLocationId = '';
     this.locationMap.map(city => {
       if (city.name === this.locationValue) {
         this.selectedLocationId = city.id;
@@ -87,10 +90,19 @@ export class MainSearchPanelComponent implements OnInit {
    * Initializes default value
    */
   ngOnInit() {
-    this.selectedCategoryId = '';
+    // this.selectedCategoryId = '';
     // this.selectedLocationId = 289;
     // this.locationValue = 'Boston';
     this.searchValue = '';
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (typeof changes['locationDetails'] !== 'undefined') {
+      this.locationData = this.locationDetails;
+        this.locationValue = this.locationDetails.location.city_name;
+        this.selectedLocationId = this.locationData.location.city_id;
+
+    }
   }
 
 }

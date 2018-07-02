@@ -58,6 +58,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { OwnerProfileComponent } from './owner-profile/owner-profile.component';
 import { AdminOwnerRestaurantsComponent } from './admin-owner-restaurants/admin-owner-restaurants.component';
 import { AdminReviewComponent } from './admin-review/admin-review.component';
+import { HomePopularityIndexComponent } from './home-popularity-index/home-popularity-index.component';
 
 
 export function getAuthServiceConfigs() {
@@ -119,7 +120,8 @@ export function getAuthServiceConfigs() {
     UserProfileComponent,
     OwnerProfileComponent,
     AdminOwnerRestaurantsComponent,
-    AdminReviewComponent
+    AdminReviewComponent,
+    HomePopularityIndexComponent
   ],
   imports: [
     BrowserModule,
